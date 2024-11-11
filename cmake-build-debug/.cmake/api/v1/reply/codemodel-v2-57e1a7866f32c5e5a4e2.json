@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "algorithm",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "longestValidSubstring::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-longestValidSubstring-Debug-44935f0c7f162767f2eb.json",
+					"name" : "longestValidSubstring",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "luogu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-luogu-Debug-eaef78538a1221b24c4a.json",
+					"name" : "luogu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "solve::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-solve-Debug-913ef6d0f53b5906951b.json",
+					"name" : "solve",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug",
+		"source" : "/Users/ustcyyw/CLionProjects/algorithm"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
