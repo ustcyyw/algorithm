@@ -1,11 +1,13 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/11-11:30 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1931F 图论 拓扑排序
  */
-
+ /*
+  * 明显的前后顺序 是否出现矛盾就是在拓扑序中是否有环
+  */
 #include<bits/stdc++.h>
 
 using namespace std;

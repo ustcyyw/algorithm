@@ -16,8 +16,7 @@
 					"targetIndexes" : 
 					[
 						0,
-						1,
-						2
+						1
 					]
 				}
 			],
@@ -33,8 +32,7 @@
 					"targetIndexes" : 
 					[
 						0,
-						1,
-						2
+						1
 					]
 				}
 			],
@@ -42,15 +40,8 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "longestValidSubstring::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-longestValidSubstring-Debug-44935f0c7f162767f2eb.json",
-					"name" : "longestValidSubstring",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
 					"id" : "luogu::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-luogu-Debug-eaef78538a1221b24c4a.json",
+					"jsonFile" : "target-luogu-Debug-a13ef8cc4849f7631bf3.json",
 					"name" : "luogu",
 					"projectIndex" : 0
 				},

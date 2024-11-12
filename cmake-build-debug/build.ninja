@@ -41,37 +41,6 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target solve
-
-
-#############################################
-# Order-only phony target for solve
-
-build cmake_object_order_depends_target_solve: phony || CMakeFiles/solve.dir
-
-build CMakeFiles/solve.dir/test/solve.cpp.o: CXX_COMPILER__solve_Debug /Users/ustcyyw/CLionProjects/algorithm/test/solve.cpp || cmake_object_order_depends_target_solve
-  DEP_FILE = CMakeFiles/solve.dir/test/solve.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++17
-  OBJECT_DIR = CMakeFiles/solve.dir
-  OBJECT_FILE_DIR = CMakeFiles/solve.dir/test
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target solve
-
-
-#############################################
-# Link the executable solve
-
-build solve: CXX_EXECUTABLE_LINKER__solve_Debug CMakeFiles/solve.dir/test/solve.cpp.o
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
-  OBJECT_DIR = CMakeFiles/solve.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = solve
-  TARGET_PDB = solve.dbg
-
-# =============================================================================
 # Object build statements for EXECUTABLE target luogu
 
 
@@ -103,35 +72,35 @@ build luogu: CXX_EXECUTABLE_LINKER__luogu_Debug CMakeFiles/luogu.dir/test/luogu.
   TARGET_PDB = luogu.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target longestValidSubstring
+# Object build statements for EXECUTABLE target solve
 
 
 #############################################
-# Order-only phony target for longestValidSubstring
+# Order-only phony target for solve
 
-build cmake_object_order_depends_target_longestValidSubstring: phony || CMakeFiles/longestValidSubstring.dir
+build cmake_object_order_depends_target_solve: phony || CMakeFiles/solve.dir
 
-build CMakeFiles/longestValidSubstring.dir/leetcode/hard/string/hash/longestValidSubstring.cpp.o: CXX_COMPILER__longestValidSubstring_Debug /Users/ustcyyw/CLionProjects/algorithm/leetcode/hard/string/hash/longestValidSubstring.cpp || cmake_object_order_depends_target_longestValidSubstring
-  DEP_FILE = CMakeFiles/longestValidSubstring.dir/leetcode/hard/string/hash/longestValidSubstring.cpp.o.d
+build CMakeFiles/solve.dir/test/solve.cpp.o: CXX_COMPILER__solve_Debug /Users/ustcyyw/CLionProjects/algorithm/test/solve.cpp || cmake_object_order_depends_target_solve
+  DEP_FILE = CMakeFiles/solve.dir/test/solve.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++17
-  OBJECT_DIR = CMakeFiles/longestValidSubstring.dir
-  OBJECT_FILE_DIR = CMakeFiles/longestValidSubstring.dir/leetcode/hard/string/hash
+  OBJECT_DIR = CMakeFiles/solve.dir
+  OBJECT_FILE_DIR = CMakeFiles/solve.dir/test
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target longestValidSubstring
+# Link build statements for EXECUTABLE target solve
 
 
 #############################################
-# Link the executable longestValidSubstring
+# Link the executable solve
 
-build longestValidSubstring: CXX_EXECUTABLE_LINKER__longestValidSubstring_Debug CMakeFiles/longestValidSubstring.dir/leetcode/hard/string/hash/longestValidSubstring.cpp.o
+build solve: CXX_EXECUTABLE_LINKER__solve_Debug CMakeFiles/solve.dir/test/solve.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
-  OBJECT_DIR = CMakeFiles/longestValidSubstring.dir
+  OBJECT_DIR = CMakeFiles/solve.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = longestValidSubstring
-  TARGET_PDB = longestValidSubstring.dbg
+  TARGET_FILE = solve
+  TARGET_PDB = solve.dbg
 
 
 #############################################
@@ -167,7 +136,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug
 
-build all: phony solve luogu longestValidSubstring
+build all: phony luogu solve
 
 # =============================================================================
 # Built-in targets
