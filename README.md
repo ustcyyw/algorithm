@@ -12,3 +12,8 @@ solve problems in leetcode, codeforce, atcoder
   * LC621 构造题 贪心 学习了答案
   * LC3352 思维：观察取值范围 数位dp
   * LC3351 hash表计数
+* 2024-11-13
+  * LC3350 双指针
+  * LC3347 线段树 枚举
+  * CF1932C 思维 正难则反 1400
+  * CF1932D 贪心 模拟 1400

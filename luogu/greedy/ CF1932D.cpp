@@ -1,11 +1,10 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/13-11:23 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1932D 贪心 模拟 1400
  */
-
 #include<bits/stdc++.h>
 
 using namespace std;
