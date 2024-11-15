@@ -17,3 +17,7 @@ solve problems in leetcode, codeforce, atcoder
   * LC3347 线段树 枚举
   * CF1932C 思维 正难则反 1400
   * CF1932D 贪心 模拟 1400
+* 2024-11-14
+  * CF1932E 数学 找规律 前缀和 1600
+  * CF1932F 动态规划 1900
+  * CF1932G 图论 dijkstra变种 贪心 数论 2300  数论解方程部分抄了别人答案

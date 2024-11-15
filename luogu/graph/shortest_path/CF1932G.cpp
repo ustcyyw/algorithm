@@ -1,11 +1,19 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/15-8:53 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1932G 图论 dijkstra变种 贪心 数论 2300
  */
-
+ /*
+  * 求最短路径
+  * 越早到达某个点肯定越好 因为会多出一些选择
+  * 因此是找到达每个点的最短时间 和dijkstra类似
+  * 只不过这里的边长是不固定的 依赖于两个点之间何时达到相同高度
+  * 所以和dijkstra的区别只是计算边长 在计算 v -> w 的时候
+  * 余数相等的条件 l[v] + t * a[v] = l[w] + t * a[w]
+  * 要找到大于等于distTo[V]的最小t使得等式成立
+  */
 #include<bits/stdc++.h>
 
 using namespace std;
