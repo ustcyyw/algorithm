@@ -1,11 +1,27 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/16-11:52 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1933F BFS 思维 2100
  */
+ /*
+  * 在某个点(x,y)时 如果是向上移动 那么和[y, m]这些列的石头的相对位置没有任何变化
+那在y垂直移动、到后续的列[y + 1, m]再垂直移动 没有本质区别 那完全可以到达后续的列再垂直移动
+所以只有向下移动有意义 向下移动一次 与此同时[y, m]列上的石头向上移动一格 人和石头的相对位置变化2
+特殊地 在最后一列运行向上移动
+明确了移动方向 也就是除了最后一列可以向上移动 其它列只能向右、向下移动
 
+但是还要考虑石头的阻碍 假设在第time秒到达(x,y) 忽略取mod的前提下
+下一次移动如果是向下 那么(x + 1, y), (x + 2, y)处不能有石头
+下一次移动如果是向右 那么(x + 1, y + 1)处不能有石头
+因为石头动态移动 不能每次都去更新石头的位置
+但是可以倒推 如果横坐标x + 1、x + 2处有石头 那么time秒之前他们在哪
+假设石头原本在 x0位置 经time秒 其位置在x处，也就是 ((x0 - time) % n + n) % n = x
+可以解出来 x0 = ((x + time) % n + n) % n
+于是只要看相应的列 一开始第x0行是否有石头即可
+
+  */
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -16,8 +32,8 @@ int T, n, m, grid[N][N];
 vector<vector<int>> marked;
 vector<set<int>> stones;
 
-int base_pos(int y, int time) {
-    return ((y + time) % n + n) % n;
+int base_pos(int x, int time) {
+    return ((x + time) % n + n) % n;
 }
 
 void add(queue<vector<int>>& queue, int x, int y) {

@@ -21,3 +21,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF1932E 数学 找规律 前缀和 1600
   * CF1932F 动态规划 1900
   * CF1932G 图论 dijkstra变种 贪心 数论 2300  数论解方程部分抄了别人答案
+* 2024-11-15
+  * CF978G 贪心 模拟 1700
+  * CF978F 离线思想 模拟 1500
+  * CF978D 暴力枚举 模拟 1500
+  * CF978E 很简单的分类讨论 1400
+  * CF1933F BFS 思维 2100
