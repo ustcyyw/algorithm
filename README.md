@@ -27,3 +27,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF978D 暴力枚举 模拟 1500
   * CF978E 很简单的分类讨论 1400
   * CF1933F BFS 思维 2100
+* 2024-11-17
+  * CF1933D 构造 1200
