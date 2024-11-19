@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/18-11:09 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1141G 贪心 构造 1900
  */
 /*
  * 当k=0时 就是不允许有坏城市 那么边最多的城市 每条边都得不同颜色

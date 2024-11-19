@@ -29,3 +29,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1933F BFS 思维 2100
 * 2024-11-17
   * CF1933D 构造 1200
+* 2024-11-18
+  * CF977D 构造 数学 1400 
+  * CF977E 并查集 图论 1500
+  * CF1141G 贪心 构造 1900 参考了答案思考
