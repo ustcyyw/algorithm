@@ -33,3 +33,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF977D 构造 数学 1400 
   * CF977E 并查集 图论 1500
   * CF1141G 贪心 构造 1900 参考了答案思考
+* 2024-11-19
+  * CF988C 模拟 hash表简单运用 1400
+  * CF2037F 二分 离散化 差分 2100
+  * CF1005D 动态规划 前缀和 1500
+  * CF2037D 贪心 优先队列 1300

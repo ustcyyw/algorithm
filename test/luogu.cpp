@@ -5,70 +5,85 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
-/*
- * 当k=0时 就是不允许有坏城市 那么边最多的城市 每条边都得不同颜色
- * 其余城市边更少 用这么多颜色能保证不成为坏城市
- * 另外 结合直觉度数越高的城市 将其设置为坏城市更能节约颜色
- *
- * 下面来证明这个结论
- * 一般地 假设k个坏城市的度数分别为 d[i1],d[i2],...d[ik]
- * 其它城市里，城市j度数最大为d[j] > d[i1]（或者其它，比如d[i2]）
- * 那么需要使用的颜色为d[j]种来保证该城市不坏 其余城市因为度数更小 一定能用最多d[j]颜色保证不坏
- * 但是将j城市设置为坏城市，而将i1城市设置为好城市，那么最多还是d[j]种颜色能满足要求
- * 如果交换后，好城市种度数最大的 < d[j]， 那么用少于d[j]种颜色就能满足
- * 因此这样交换至少不坏， 可能更好。于是得出结论 应该将度数最大的k个城市设置为坏城市
- * 剩下的城市中，度数最大的那个就确定了需要使用的颜色
- *
- * 涂色方案：随便某个城市作为起点 初始颜色为1
- * 如果某个城市是坏城市 就将颜色全部设置为1，跳过与父亲节点那条边即可
- * 否则 从颜色1开始依次为每条边涂色 遇到和父亲节点的边不涂色 、
- * 并且要跳过与父亲节点那条边相同的颜色color
- */
+ /*
+  * 按题目要求 城市之间的可达性是有方向的
+  * 只有 j < i 且gcd(a[i], a[j]) > 1 的城市可以到达a[j]
+  * 令 f[i]到达地i个城市的方法
+  * f[1] = 1 表示从第一个城市出发 仅有一种方法
+  * f[i] = sum{f[j], for j < i && gcd(a[i], a[j]) > 1}
+  *
+  * gcd(a[i], a[j]) > 1 这个条件 只需要关注两个数是否有公共质因子即可
+  * 也就是说 只需要找到某个数有哪些质因子 而不必关注某一个质因子出现了几次
+  * 比如8，本质上只能由拥有2这个质因子的城市走过来
+  * 因而第一步 可以先将每个城市化简 将其表示为质因子集合
+  *
+  * 假如有一个数a[i]的因子构成是2*3*5
+  * 那么前置位置 拥有质因子的2、3、5的城市都能转移过来
+  * 用c[num]表示前置位置含有因子组合为num的城市的总方法数
+  * 会首先想到 f[i] = c[2] + c[3] + c[5]
+  * 但是这明显会有重复 比如前面有过一个城市拥有质因子2*3或者2*5或者2*3*5，就被重复计算了
+  * f[i]是质因子2、3、5的城市的并集 由并集的内方法数求和得到 想到容斥定律
+  *
+  * 容斥原理，求n个集合的并集有多少个元素
+  * 枚举集合数量从1到n
+  * 奇加偶减：集合数量为奇数个时，加上其交集的个数；集合数量为偶数时，减去其交集的个数
+  * 且固定数量的集合要枚举出所有组合
+  * 例如有n=3时，abc，集合数量为2时，共有3个组合ab,ac,bc
+  * 例如求|A并B并C| = |A| + |B| + |C| - |A交B| - |A交C| - |B交C| + |A交B交C|
+  *
+  * 借助容斥原理 计算f[i]时 先求a[i]的质因子集合（最多有8个 取最小的8个质数相乘就会超过1e6）
+  * 然后枚举质数的子集 代入公式
+  * 算出f[i]后 再更新c
+  */
 #include<bits/stdc++.h>
 
 using namespace std;
 typedef unsigned long long ull;
 typedef long long ll;
-const int N = 2e5 + 5;
-int T, n, k, ans[N], degree[N], max_c;
-vector<vector<vector<int>>> graph;
+const int N = 2e5 + 5, M = 1000000, mod = 998244353;
+int T, n, nums[N];
+ll f[N], c[M];
 
-void dfs(int v, int f, int fc) {
-    int cc = 0;
-    for(auto& edge : graph[v]) {
-        int w = edge[0], idx = edge[1];
-        if(w == f) continue;
-        if(degree[v] <= max_c) { // 对于好城市 每条边的颜色要不一致
-            cc++;
-            if(cc == fc) cc++; // 跳过与父亲节点那条边相同的颜色
-        } else cc = 1; // 坏城市 颜色固定为1
-        ans[idx] = cc, dfs(w, v, cc);
+vector<int> prime, isPrime;
+int init = []() {
+    isPrime = vector(M + 1, 1);
+    for (int i = 2; i <= M; ++i) {
+        if (isPrime[i] == 1) prime.push_back(i);
+        for (int j = 0; j < prime.size() && i * prime[j] <= M; ++j) {
+            isPrime[i * prime[j]] = 0;
+            if (i % prime[j] == 0)
+                break;
+        }
     }
+    return 0;
+}();
+
+vector<int> cal(int num) {
+    vector<int> ans;
+    for(int i = 0; i < prime.size() && num > 1; i++) {
+        if(isPrime[num]) {
+            ans.push_back(num);
+            break;
+        }
+        if(num % prime[i] == 0) ans.push_back(prime[i]);
+        while(num % prime[i] == 0)
+            num /= prime[i];
+    }
+    return ans;
 }
 
-void solve() {
-    vector<int> arr;
-    for(int i = 1; i <= n; i++)
-        arr.push_back(degree[i]);
-    sort(arr.begin(), arr.end());
-    max_c = arr[n - k - 1];
-    cout << max_c << "\n";
-    dfs(1, -1, -1);
-    for(int i = 1; i < n; i++)
-        cout << ans[i] << " ";
+int solve() {
+
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0), cout.tie(0); // 加速cin, cout
+//    cin >> T;
     T = 1;
     while(T--) {
-        cin >> n >> k;
-        graph.assign(n + 1, {});
-        for(int i = 1, v, w; i < n; i++) {
-            cin >> v >> w;
-            graph[v].push_back({w, i}), graph[w].push_back({v, i});
-            degree[v]++, degree[w]++;
-        }
-        solve();
+        cin >> n;
+        for(int i = 1; i <= n; i++)
+            cin >> nums[i];
+        cout << solve() << "\n";
     }
 };
