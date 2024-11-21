@@ -38,3 +38,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2037F 二分 离散化 差分 2100
   * CF1005D 动态规划 前缀和 1500
   * CF2037D 贪心 优先队列 1300
+* 2024-11-20
+  * CF2037G 动态规划 数学 数论 容斥原理 2000 学习答案
