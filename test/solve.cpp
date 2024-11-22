@@ -3,20 +3,13 @@
 using namespace std;
 const int N = 1e5 + 5;
 
-const int n = 1000000;
-vector<int> prime;
-int init = []() {
-    vector<int> isPrime(n + 1, 1);
-    for (int i = 2; i <= n; ++i) {
-        if (isPrime[i] == 1) prime.push_back(i);
-        for (int j = 0; j < prime.size() && i * prime[j] <= n; ++j) {
-            isPrime[i * prime[j]] = 0;
-            if (i % prime[j] == 0)
-                break;
-        }
-    }
-    return 0;
-}();
+map<int, int> mp;
+
+int pre_num(int num) {
+    auto it = mp.lower_bound(num);
+    it--;
+    return it->first;
+}
 
 class Solution {
 public:
@@ -32,5 +25,6 @@ int main() {
     vector<vector<int>> arr4 = {{-2,3},{2,3},{2,1}};
     vector<vector<int>> arr6 = {{0,0}};
     Solution s;
-    cout << prime.size();
+    mp[1] = 10, mp[5] = 12, mp[2] = 3;
+    cout << pre_num(10);
 }
