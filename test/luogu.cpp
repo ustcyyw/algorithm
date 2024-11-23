@@ -5,14 +5,18 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
-
 #include<bits/stdc++.h>
 
 using namespace std;
 typedef unsigned long long ull;
 typedef long long ll;
-const int N = 4e6, MAX_VAL = 2e9;
-int T, n, q, nums[(int)2e5 + 5] = {0};
+const int N = 2e5 + 5;
+ll T, n, sum[N];
+string s1, s2;
+
+void solve() {
+
+}
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0), cout.tie(0); // 加速cin, cout
@@ -20,6 +24,8 @@ int main() {
 //    T = 1;
     while(T--) {
         cin >> n;
-
+        cin >> s1 >> s2;
+        s1 = '.' + s1, s2 = '.' + s2;
+        solve();
     }
 };

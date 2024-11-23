@@ -45,3 +45,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF2036E 二分 1600
   * CF2036D 模拟 1300
   * CF2000H 数据结构 模拟 2200
+* 2024-11-22
+  * CF1196C 正难则反 1500
+  * CF2000G 图论 贪心 dijkstra 2100
+  * CF2000F 动态规划 背包 1900
+  * CF2000E 贪心 1400
+  * CF2000D 贪心 前缀和 双指针 1200
