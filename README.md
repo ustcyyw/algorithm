@@ -51,3 +51,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2000F 动态规划 背包 1900
   * CF2000E 贪心 1400
   * CF2000D 贪心 前缀和 双指针 1200
+* 2024-11-23
+  * CF1256B 贪心 模拟 1400
+  * CF1256F 思维 构造 2000
