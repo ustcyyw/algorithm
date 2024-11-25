@@ -1,8 +1,12 @@
+/**
+ * @Time : 2024/11/24-10:58 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3366 线性dp
+ */
 #include<bits/stdc++.h>
-
 using namespace std;
-const int N = 1e5 + 5;
-typedef long long ll;
 
 class Solution {
 public:
@@ -35,15 +39,8 @@ public:
     }
 };
 
-int main() {
-    vector<int> arr1 = {1,2,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{-2,3},{2,3},{2,1}};
-    vector<vector<int>> arr6 = {{0,0}};
+int main(){
     Solution s;
-    cout << (arr1 == arr3);
-    cout << (arr1 == arr2);
+    
+    cout << 0 << endl;
 }

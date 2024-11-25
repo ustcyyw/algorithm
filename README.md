@@ -54,3 +54,9 @@ solve problems in leetcode, codeforce, atcoder
 * 2024-11-23
   * CF1256B 贪心 模拟 1400
   * CF1256F 思维 构造 2000
+* 2024-11-24
+  * CF1374E1 贪心 1600
+  * CF1374D 数学 
+  * LC3367 动态规划 树型dp
+  * LC3366 动态规划 线性dp
+  * LC3365 模拟
