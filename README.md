@@ -60,3 +60,10 @@ solve problems in leetcode, codeforce, atcoder
   * LC3367 动态规划 树型dp
   * LC3366 动态规划 线性dp
   * LC3365 模拟
+* 2024-11-25
+  * LC3362 贪心 参考了答案
+  * LC3361 前缀和
+  * LC3363 动态规划 思维
+  * CF1490E 二分答案 1400
+  * CF1506E 构造 贪心 1500
+  * CF1506D 贪心 结论 1400

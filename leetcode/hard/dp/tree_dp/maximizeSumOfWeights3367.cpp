@@ -3,7 +3,7 @@
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc : 
+ * @desc : LC3367 动态规划 树型dp
  */
 #include<bits/stdc++.h>
 using namespace std;
