@@ -67,3 +67,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF1490E 二分答案 1400
   * CF1506E 构造 贪心 1500
   * CF1506D 贪心 结论 1400
+* 2024-11-26
+  * CF1607H 贪心 排序 双指针 2200
+  * CF1933E 二分查找 数学 1500
+  * LC3193 动态规划
+  * LC3192 LC3191 模拟
