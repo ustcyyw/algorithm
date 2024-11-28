@@ -72,3 +72,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1933E 二分查找 数学 1500
   * LC3193 动态规划
   * LC3192 LC3191 模拟
+* 2024-11-27
+  * LC3130 动态规划 参考灵神视频题解
+  * LC3128 暴力枚举
