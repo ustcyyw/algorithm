@@ -1,10 +1,17 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/11/28-10:32 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2033E 1400 贪心 模拟
  */
+ /*
+  * p[p[i]] = i这个条件 举几个例子发现 就是两个数相互占了对方的位置
+  * 遍历的过程中发现i位置的数不满足条件 要让他满足条件有2个办法
+  * 1.将其挪动到其该在的位置p[i] 但是这样只会让一个数满足条件
+  * 2.将和其搭配的数i放在他该放的位置p[i]，这样可以让两个数满足条件
+  * 因此要让操作尽可能少 应该选择第二个解决办法
+  */
 #include<bits/stdc++.h>
 
 using namespace std;
