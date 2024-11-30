@@ -81,3 +81,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2033G 2200 树的直径 lca  别人提示树的直径
   * CF2033F 1800 数论 找规律
   * CF2033E 1400 贪心 模拟
+* 2024-11-29
+  * CF2033D 1300 动态规划 前缀和 hash表
+  * CF1935D 1800 正难则反 数学 容斥定律
