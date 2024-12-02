@@ -88,4 +88,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF1981C 1800 构造 位运算 自己想了绝大部分找不到bug 参考答案的写法
   * CF1996F 1900 二分 + 贪心
 * 2024-12-01
-  * 
+  * CF1996C 1200 前缀和
+  * LC3373 图论 二分图
