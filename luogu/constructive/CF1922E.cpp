@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/2-8:57 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1922E 1800 构造 位运算
  */
- /*
+/*
   * 总的上升子序列数量和 x = sum { 以数字nums[i]结尾的上升子序列数量 }
   * 相当于用有限的数凑出一个固定数 联想到lca到做法 用二进制来凑出确定的距离
   * 这题是否可以通过二进制的方式凑出x
