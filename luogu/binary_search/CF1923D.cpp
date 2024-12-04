@@ -1,10 +1,16 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/4-10:21 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1923D 1800 二分答案 前缀和
  */
+ /*
+  * 假设i被吃的时间是t，那么一定是左边[i-t,i-1]或者[i+1,i+t]上的某一个将i吃的
+  * 具有单调性 时间t内可以吃了i，那么时间t+1内一定可以吃了i，t-1内则不一定 因此可以二分答案
+  * 要能吃掉nums[i], 首先要保证区间和 > nums[i]
+  * 并且用于吃掉nums[i]的区间内所有的smile能合并，能合并的条件是区间存在不相同的值
+  */
 #include<bits/stdc++.h>
 
 using namespace std;

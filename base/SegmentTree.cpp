@@ -15,7 +15,7 @@ const int MIN_VAL = -2e9, MAX_VAL = 2e9;
 class SegmentTree {
 private:
     int n;
-    vector<int> val, tag;
+    vector<int> val, tag, cnt;
     // 单点修改
     void add(int x, int l, int r, int pos, int v) {
         if(l == r) {
@@ -38,12 +38,21 @@ private:
     }
 
     // 区间修改操作中的下传函数
+    // 如果要多维护最小值/最大值个数操作的时候 也用这个函数即可 因为修改区间值 不影响最值的个数
     void down(int x) {
         if(tag[x] == 0) return;
         val[ls] += tag[x], val[rs] += tag[x];
         tag[ls] += tag[x], tag[rs] += tag[x];
         tag[x] = 0;
     }
+    // 维护区间最小值及最小值出现次数的update函数
+//    void update(int x) {
+//        val[x] = min(val[ls], val[rs]);
+//        cnt[x] = 0;
+//        if(val[x] == val[ls]) cnt[x] += cnt[ls];
+//        if(val[x] == val[rs]) cnt[x] += cnt[rs];
+//    }
+
     // 区间修改
     void add(int x, int l, int r, int a, int b, int v) {
         if(a <= l && r <= b) {
@@ -62,6 +71,7 @@ public:
         this-> n = n;
         val = vector(4 * (n + 1), MIN_VAL);
         tag = vector(4 * (n + 1), 0);
+//        cnt = vector(4 * (n + 1), 0);
     }
 
     void add(int pos, int v) {
