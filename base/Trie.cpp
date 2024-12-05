@@ -12,7 +12,7 @@ const int R = 26;
 
 struct Node {
     int cnt;
-    Node *next[26];
+    Node *next[R];
     Node() {
         memset(next, NULL, sizeof(next));
         cnt = 0;
@@ -46,8 +46,3 @@ public:
         root = remove(root, s, 0);
     }
 };
-
-int main(){
-
-    cout << 0 << endl;
-}

@@ -104,3 +104,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF1980E 1600 模拟 构造
   * CF1980F1 1900 数据结构 贪心
   * CF1923D 1800 二分答案 前缀和
+* 2024-12-04
+  * CF1980G 2300 位运算 01trie树
+  * CF1360D 1300 贪心 数学 数论
+  * CF1360E 1300 搜索 dfs
+  * LC3343 记忆化搜索 参考灵神题解
+  * LC3342 贪心 优先队列
