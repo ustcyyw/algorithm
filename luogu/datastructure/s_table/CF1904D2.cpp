@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/5-10:21 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1904D1 CF1904D2 1600 1800 构造 数据结构 st表
  */
- /*
+/*
   * 关键1：操作只会使元素增大 因此每次操作 尽量范围小 这样为其它元素留有变化的余量
   * 关键2：应该从b中小的元素开始考虑改变a，这样从小的开始改变 不会影响a中其它位置的大小
   */

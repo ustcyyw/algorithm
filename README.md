@@ -110,3 +110,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF1360E 1300 搜索 dfs
   * LC3343 记忆化搜索 参考灵神题解
   * LC3342 贪心 优先队列
+* 2024-12-05
+  * LC3337 矩阵快速幂
+  * LC3336 动态规划 状态数量实际不多用map刷表
+  * CF1904D1 CF1904D2 1600 1800 构造 数据结构 st表
+  * LC3334 前后缀分解
