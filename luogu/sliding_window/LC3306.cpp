@@ -1,9 +1,25 @@
+/**
+ * @Time : 2024/12/6-5:33 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : 
+ */
+ /*
+  * 左端点lo 刚好有k和刚好有k+1个辅音字母对应的右端点hi1, hi2
+1.如果lo是元音，无论lo+1是什么 辅音字母都没变化 那么hi1, hi2依旧可用
+2.如果lo是辅音，无论lo+1是什么 那么辅音字母少了1个
+前一个位置的hi2变为当前位置hi1，然后从这个位置开始找hi2
+
+右端点hi3使得对元音字母的条件满足
+hi3 <= hi1, 那么右端点[hi1, hi2-1]都是满足条件的
+hi3 < hi2, 那么右端点[hi3, hi2-1]是满足条件的
+否则hi3 >= hi2, 要满足元音的要求 辅音字母就超过k个了
+  */
 #include<bits/stdc++.h>
 
 using namespace std;
-const int N = 1e5 + 5, mod = 1e9 + 7;
 typedef long long ll;
-
 class Solution {
 public:
     int n;
@@ -23,7 +39,6 @@ public:
                 map[word[lo]]--;
                 if(map[word[lo]] == 0) map.erase(word[lo]);
             }
-            lo++;
         }
         ll ans = 0;
         for(int i = 0; i < n && hi1[i] != n && hi3[i] != n; i++) {
@@ -46,15 +61,3 @@ public:
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {1,2,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
-    vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
-    Solution s;
-    s.countOfSubstrings("ieaouqqieaouqq", 1);
-}

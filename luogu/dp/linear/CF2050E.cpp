@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/6-11:22 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2050E 1537 动态规划 线性dp
  */
 /*
  * dp[i][j]: 截止i位置匹配a到j位置的最小修改次数 j <= i
