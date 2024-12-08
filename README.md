@@ -124,3 +124,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2050D 1351 排序 贪心
   * CF2050F 1713 数学 数论 数据结构 st表
   * CF2050E 1537 动态规划 线性dp
+* 2024-12-07
+  * CF1352F 1500 构造 模拟
