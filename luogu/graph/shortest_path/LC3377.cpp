@@ -1,5 +1,11 @@
+/**
+ * @Time : 2024/12/9-11:33 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3377 图论 dijkstra
+ */
 #include<bits/stdc++.h>
-
 using namespace std;
 const int N = 1e4, mod = 1e9 + 7;
 vector<int> prime, isPrime(N + 1, 1);
@@ -24,7 +30,7 @@ int init = []() {
     }
     graph.assign(N, {});
     for(int i = 1; i < N; i++) {
-        if(!isPrime[i]) add(i);
+        if(!isPrime[i] || i == 1) add(i);
     }
     return 0;
 }();
@@ -64,21 +70,9 @@ void dijkstra(int s) {
 class Solution {
 public:
     int minOperations(int n, int m) {
-        if(isPrime[n] || isPrime[m]) return -1;
+        if(n != 1 && (isPrime[n] || isPrime[m])) return -1;
         dijkstra(n);
         if(distTo[m] == INT_MAX) return -1;
         return n + distTo[m];
     }
 };
-
-int main() {
-    vector<int> arr1 = {1,2,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
-    vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
-    Solution s;
-    s.minOperations(10, 12);
-}
