@@ -134,3 +134,10 @@ solve problems in leetcode, codeforce, atcoder
   * CF1968E 1600 构造 猜结论
   * LC3378 数学 数论 调和级数 并查集
   * LC3377 图论 dijkstra
+* 2024-12-10
+  * LC3376 记忆化搜索
+  * CF1809D 1800 暴力枚举 贪心
+  * CF1841C 1800 暴力枚举 前后缀分解
+  * CF1915G 1800 图论 分层图 dijkstra
+  * CF1915F 1500 数据结构 线段树
+  * CF1915E 1300 前缀和
