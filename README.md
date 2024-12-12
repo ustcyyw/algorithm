@@ -141,3 +141,10 @@ solve problems in leetcode, codeforce, atcoder
   * CF1915G 1800 图论 分层图 dijkstra
   * CF1915F 1500 数据结构 线段树
   * CF1915E 1300 前缀和
+* 2024-12-11
+  * CF1926F 2200 思维 dfs 回溯 参考了答案 自己实现
+  * CF1926G 1900 动态规划 树型dp
+  * CF1926E 1500 数学 数论
+  * CF1926D 1300 位运算
+  * LC3382 线段树 排序 思维
+  * LC3381 前缀和 同余

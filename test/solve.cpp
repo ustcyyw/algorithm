@@ -2,16 +2,11 @@
 
 using namespace std;
 const int N = 1e4, mod = 1e9 + 7;
+typedef long long ll;
 
 class Solution {
 public:
-    int minOperations(vector<int>& nums, int k) {
-        set<int> st;
-        for(int num : nums)
-            st.insert(num);
-        if(*st.begin() < k) return -1;
-        return st.size() - st.count(k);
-    }
+
 };
 
 int main() {
