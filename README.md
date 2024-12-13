@@ -148,3 +148,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF1926D 1300 位运算
   * LC3382 线段树 排序 思维
   * LC3381 前缀和 同余
+* 2024-12-12
+  * CF1758D 1800 构造 数学
+  * LC3327 dfs序 字符串hash
+  * LC3325 滑动窗口
+  * LC3326 数学 思维
+  * CF1728D 1800 博弈论 记忆化搜索

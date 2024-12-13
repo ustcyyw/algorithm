@@ -1,11 +1,10 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/12-4:35 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1728D 1800 博弈论 记忆化搜索
  */
-
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
