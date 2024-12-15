@@ -162,3 +162,5 @@ solve problems in leetcode, codeforce, atcoder
   * LC3296 二分答案
   * LC3317 数学 排列组合 第二类斯特林数
   * CF1725H 1800 数学 数论 构造算法
+* 2024-12-14
+  * CF1722F 1700 模拟 dfs

@@ -1,56 +1,92 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
-const int N1 = 1e3 + 5, M1 = 1e3 + 5, mod = 1e9 + 7;
-ll X[N1], invF[N1], S[N1][M1];
-
-ll qPow(ll x, ll y) {
-    ll ans = 1;
-    while (y) {
-        if (y & 1) ans = ans * x % mod;
-        y >>= 1;
-        x = x * x % mod;
-    }
-    return ans;
-}
-// 组合数 C(n,a) n个元素取a个
-long long C(int n, int a) {
-    return X[n] * invF[n - a] % mod * invF[a] % mod;
-}
-
-ll dfs(int n, int m) {
-    if(S[n][m] != -1) return S[n][m];
-    if((n == 0 && m == 0) || n == m) return S[n][m] = 1;
-    if(m == 0 || m > n) return S[n][m] = 0;
-    return S[n][m] = (dfs(n - 1, m) * m % mod + dfs(n - 1, m - 1)) % mod;
-}
-
-int init1 = []() -> int{
-    memset(S, -1, sizeof(S));
-    for(int i = 0; i < N1; i++) {
-        for(int j = 0; j < M1; j++)
-            dfs(i, j);
-    }
-    X[0] = 1;
-    invF[0] = qPow(1, mod - 2);
-    for (int i = 1; i < N1; i++) {
-        X[i] = X[i - 1] * i % mod;
-        invF[i] = qPow(X[i], mod - 2);
-    }
-    return 0;
-}();
+typedef unsigned long long ull;
+const int P = 13331;
 
 class Solution {
 public:
-    // n个表演者 x个节目
-    int numberOfWays(int n, int x, int y) {
-        ll ans = 0;
-        for(int cnt = max(0, x - n); cnt < x; cnt++) {
-            // 每个非空集合的得分都可能是[1,y]中的任意一个分数 因此会有qPow(y, x - cnt)因子
-            ll c1 = qPow(y, x - cnt), c2 = C(x, cnt), c3 = S[n][x - cnt], c4 = X[x - cnt];
-            ll temp = c1 * c2 % mod * c3 % mod * c4 % mod;
-            ans = (ans + temp) % mod;
+    vector<ull> h, x;
+    void str_hash(vector<int>& s) {
+        int n = s.size();
+        h = vector(n + 1, 0ull), x = vector(n + 1, 0ull);
+        h[0] = 0, x[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            h[i] = h[i - 1] * P + s[i - 1];
+            x[i] = x[i - 1] * P;
+        }
+    }
+
+    ull get_hash(int l, int r) {
+        return h[r + 1] - h[l] * x[r - l + 1];
+    }
+
+    int beautifulSplits(vector<int>& nums) {
+        int cnt = 0, n = nums.size();
+        str_hash(nums);
+        for(int i = 0; i < n - 1; i++) {
+            for(int j = 0; j < i; j++) {
+                // [0,j],[j+1,i],[i+1,n-1]
+                if(check(0, j, i) || check(j + 1, i, n - 1))
+                    cnt++;
+            }
+        }
+        return cnt;
+    }
+
+    bool check(int lo, int mid, int hi) {
+        int len = mid - lo + 1;
+        if(len > hi - mid) return false;
+        return get_hash(lo, mid) == get_hash(mid + 1, len + mid);
+    }
+
+
+    int makeStringGood(string s) {
+        int maxC = 0;
+        vector<int> cnt(26, 0);
+        for(char c : s) {
+            cnt[c - 'a']++;
+            maxC = max(maxC, cnt[c - 'a']);
+        }
+        vector<vector<int>> infos;
+        for(int i = 0; i < 26; i++) {
+            if(cnt[i] > 0)
+                infos.push_back({cnt[i], i});
+        }
+        int ans = s.size(), lc = infos.size();
+        sort(infos.begin(), infos.end());
+        for(int c = 1; c <= maxC; c++) {
+            for(int left = 1; left <= lc; left++)
+                ans = min(cal(infos, cnt, c, left), ans);
+        }
+        return ans;
+    }
+
+    int cal(vector<vector<int>>& infos, vector<int> arr, int cnt, int left) {
+        int ans = 0;
+        for(int m = infos.size(), i = 0; i < m - left; i++) {
+            ans += arr[infos[i][1]];
+            arr[infos[i][1]] = 0;
+        }
+        return ans + cal(arr, cnt);
+    }
+
+    int cal(vector<int>& arr, int cnt) {
+        int ans = 0;
+        for(int i = 0; i < 26; i++) {
+            if(arr[i] == 0) continue;
+            if(arr[i] <= cnt) {
+                ans += cnt - arr[i];
+                continue;
+            }
+            // 原本的字符多 可以考虑删除 或者考虑转移给下一个字符
+            int t1 = arr[i] - cnt;
+            if(i + 1 < 26 && arr[i + 1] > 0 && arr[i + 1] < cnt) {
+                int need = cnt - arr[i + 1];
+                if(t1 > need) arr[i + 1] = cnt, t1 -= need;
+                else arr[i + 1] += t1, t1 = 0;
+            }
+            ans += t1;
         }
         return ans;
     }
@@ -65,5 +101,5 @@ int main() {
     vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
     vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
     Solution s;
-    cout << s.numberOfWays(3, 3, 4);
+    cout << s.makeStringGood("ruuu");
 }
