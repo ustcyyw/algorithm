@@ -164,3 +164,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1725H 1800 数学 数论 构造算法
 * 2024-12-14
   * CF1722F 1700 模拟 dfs
+* 2024-12-15
+  * CF1722G 1500 构造 位运算
+* 2024-12-16
