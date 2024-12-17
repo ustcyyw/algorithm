@@ -70,31 +70,57 @@ vector<int> multiPreSum2(vector<int> f, int n) {
     return dp;
 }
 
+/*
+ * 由二维数组得到二维前缀和
+ * 有时候要注意数据范围，前缀和可能需要使用long long
+ */
+// ********** 适用于下标从0开始的情况 ****************
+//vector<vector<ll>> getPreSum(vector<vector<int>>& nums){
+//    int n = nums.size(), m = nums[0].size();
+//    vector<vector<ll>> preSum(n + 1, vector(m + 1, 0ll));
+//    for(int i = 1; i <= n; i++){
+//        ll lineSum = 0;
+//        for(int j = 1; j <= m; j++){
+//            lineSum += nums[i - 1][j - 1];
+//            preSum[i][j] = preSum[i - 1][j] + lineSum;
+//        }
+//    }
+//    return preSum;
+//}
 
-/**
-     * 由二维数组得到二维前缀和
-     * 有时候要注意数据范围，前缀和可能需要使用long
-     */
+/*
+ * 根据二维前缀和求原矩形区域上的和
+ * 左上角坐标 x1,y1; 右下角坐标 x2,y2
+ */
+//ll sumOf(vector<vector<ll>>& preSum, int x1, int y1, int x2, int y2){
+//    return preSum[x2 + 1][y2 + 1] - preSum[x1][y2 + 1] - preSum[x2 + 1][y1] + preSum[x1][y1];
+//}
+// ********** 适用于下标从0开始的情况 ****************
+
+// ********** 适用于下标从1开始的情况 ****************
 vector<vector<ll>> getPreSum(vector<vector<int>>& nums){
     int n = nums.size(), m = nums[0].size();
     vector<vector<ll>> preSum(n + 1, vector(m + 1, 0ll));
     for(int i = 1; i <= n; i++){
         ll lineSum = 0;
         for(int j = 1; j <= m; j++){
-            lineSum += nums[i - 1][j - 1];
+            lineSum += nums[i][j];
             preSum[i][j] = preSum[i - 1][j] + lineSum;
         }
     }
     return preSum;
 }
 
-/**
+/*
  * 根据二维前缀和求原矩形区域上的和
  * 左上角坐标 x1,y1; 右下角坐标 x2,y2
  */
 ll sumOf(vector<vector<ll>>& preSum, int x1, int y1, int x2, int y2){
-    return preSum[x2 + 1][y2 + 1] - preSum[x1][y2 + 1] - preSum[x2 + 1][y1] + preSum[x1][y1];
+    return preSum[x2][y2] - preSum[x1 - 1][y2] - preSum[x2][y1 - 1] + preSum[x1 - 1][y1 - 1];
 }
+/*
+ * 二维前缀和 end
+ */
 
 /*
  * 模意义下的前缀和 类比字符串hash

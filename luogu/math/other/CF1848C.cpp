@@ -1,10 +1,22 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/16-10:23 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1848C 1800 数学 找规律 数论
  */
+ /*
+  * 首先按照题目定义的操作 观察几组 a[i],b[i]
+  * 发现第一次a[i]为0后，a[i]以周期为3出现0。记a[i]通过ci次操作第一次变为0
+  * 因此要让a全部为0需要满足
+  * ci + 3 * mi = cj + 3 * mj， 对于所有的i,j成立
+  * 整理为 ci - cj = 3 * (mj - mi) 也就是说ci - cj是3的倍数
+  * ci % 3 == cj % 3
+  * 后续重点就是求ci 通过打表一些数据来找规律快速计算（找规律的过程 恶心）
+  *
+  * 还要注意特别地：如果a[i] = b[i] = 0那么无论操作多少次都保持a[i] = 0
+  * 这一组数就不用参与讨论了
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

@@ -167,3 +167,9 @@ solve problems in leetcode, codeforce, atcoder
 * 2024-12-15
   * CF1722G 1500 构造 位运算
 * 2024-12-16
+  * CF2044E 数学 暴力枚举
+  * CF2044F 数学 暴力枚举
+  * CF2044G1 图论 基环树 拓扑排序
+  * CF2044G2 图论 基环树 拓扑排序
+  * CF2044H 前缀和 思维
+  * CF1848C 1800 数学 找规律 数论
