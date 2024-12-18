@@ -173,3 +173,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF2044G2 图论 基环树 拓扑排序
   * CF2044H 前缀和 思维
   * CF1848C 1800 数学 找规律 数论
+* 2024-12-17 
+  * CF1709C 1800 构造 贪心 思维 学习别人的思路
+  * CF1705D 1800 贪心 思维
+  * CF1805D 1800 图论 树的直径 lca 离线思路
