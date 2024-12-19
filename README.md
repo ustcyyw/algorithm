@@ -177,3 +177,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1709C 1800 构造 贪心 思维 学习别人的思路
   * CF1705D 1800 贪心 思维
   * CF1805D 1800 图论 树的直径 lca 离线思路
+* 2024-12-18 
+  * CF1691D 1800 贡献法 st表 单调栈
+  * CF1352E 1500 前缀和 暴力枚举
