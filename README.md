@@ -180,3 +180,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2024-12-18 
   * CF1691D 1800 贡献法 st表 单调栈
   * CF1352E 1500 前缀和 暴力枚举
+* 2024-12-19
+  * CF1775D 1800 bfs 数学

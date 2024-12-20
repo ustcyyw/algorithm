@@ -1,10 +1,14 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/19-11:25 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : 
  */
+ /*
+  * 注意数据范围 3e5以内的数 因子数量并不多
+  * 可以将数与他们的因子建图
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
