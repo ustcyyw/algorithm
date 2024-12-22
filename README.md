@@ -182,3 +182,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1352E 1500 前缀和 暴力枚举
 * 2024-12-19
   * CF1775D 1800 bfs 数学
+* 2024-12-21
+  * CF1692H 1700 贪心 hashmap
+  * CF1692G 1400 滑动窗口

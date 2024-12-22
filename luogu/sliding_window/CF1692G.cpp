@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/21-5:22 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1692G 1400 滑动窗口
  */
 #include<bits/stdc++.h>
 using namespace std;
