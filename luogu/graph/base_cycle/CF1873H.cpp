@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/22-11:55 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1873H 1700 基环树 拓扑排序 bfs
  */
 #include<bits/stdc++.h>
 using namespace std;

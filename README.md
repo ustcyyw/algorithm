@@ -185,3 +185,7 @@ solve problems in leetcode, codeforce, atcoder
 * 2024-12-21
   * CF1692H 1700 贪心 hashmap
   * CF1692G 1400 滑动窗口
+* 2024-12-22
+  * LC3399 二分答案 双指针 贪心
+  * LC3397 贪心 思维
+  * CF1873H 1700 基环树 拓扑排序 bfs

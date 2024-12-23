@@ -4,21 +4,19 @@ typedef long long ll;
 typedef unsigned long long ull;
 const int P = 13331;
 
-void solve(int num) {
-    map<int, vector<int>> mp;
-    for(int i = 1; i <= num; i++) {
-        mp[num / i].push_back(i);
-    }
-    cout << mp.size() << "\n";
-    for(auto& [val, arr] : mp) {
-        sort(arr.begin(), arr.end());
-        cout << val << ": " << arr[0] << "," << arr.back() << "\n";
-    }
-}
-
 class Solution {
 public:
-
+    int minimumOperations(vector<int>& nums) {
+        vector<int> cnt(101, 0);
+        int n = nums.size();
+        for(int i = n - 1; i >= 0; i--) {
+            if(++cnt[nums[i]] == 2) {
+                int m = i + 1;
+                return m % 3 == 0 ? m / 3 : m / 3 + 1;
+            }
+        }
+        return 0;
+    }
 };
 
 int main() {
@@ -30,5 +28,5 @@ int main() {
     vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
     vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
     Solution s;
-    solve(9999);
+    s.minLength("0101", 0);
 }
