@@ -21,8 +21,8 @@ typedef long long ll;
  * 求mod意义下的逆元
  */
 // qPow(total, mod - 2, mod);
-long long qPow(long long x, long long y) {
-    long long ans = 1;
+ll qPow(ll x, ll y) {
+    ll ans = 1;
     while (y) {
         if (y & 1) ans = ans * x % mod;
         y >>= 1;
@@ -32,7 +32,7 @@ long long qPow(long long x, long long y) {
 }
 
 // 预处理阶乘 和 阶乘的逆元
-long long x[N], invF[N];
+ll x[N], invF[N];
 int init = []() -> int {
     x[0] = 1;
     invF[0] = qPow(1, mod - 2);
@@ -44,12 +44,12 @@ int init = []() -> int {
 }();
 
 // 组合数 C(n,a) n个元素取a个
-long long C(int n, int a) {
+ll C(int n, int a) {
     return x[n] * invF[n - a] % mod * invF[a] % mod;
 }
 
 // A(n,a) n个元素取a个并且全排列
-long long A(int n, int a) {
+ll A(int n, int a) {
     return x[n] * invF[n - a] % mod;
 }
 

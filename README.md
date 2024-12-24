@@ -189,3 +189,9 @@ solve problems in leetcode, codeforce, atcoder
   * LC3399 二分答案 双指针 贪心
   * LC3397 贪心 思维
   * CF1873H 1700 基环树 拓扑排序 bfs
+* 2024-12-23
+  * LC3395 数学 排列组合 枚举
+  * LC3394 模拟
+  * LC3393 动态规划
+  * CF1873G 1500 贪心
+  * CF1873F 1300 双指针
