@@ -195,3 +195,8 @@ solve problems in leetcode, codeforce, atcoder
   * LC3393 动态规划
   * CF1873G 1500 贪心
   * CF1873F 1300 双指针
+* 2024-12-23
+  * CF2051E 1613 排序 暴力枚举 双指针
+  * CF2051F 2052 思维
+  * CF2051G 2231 动态规划 状态压缩dp 旅行商问题
+  * CF1630B 1800 贪心 双指针 构造

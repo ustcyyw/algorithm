@@ -1,10 +1,20 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/25-12:56 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1630B 1800 贪心 双指针 构造
  */
+ /*
+  * k段 每段范围内的数要绝对多
+  * 范围内的数为cnt,那么范围外的数最多为cnt-k个
+  * 满足要求的情况下 让范围内的数尽可能地少，这样y-x会尽可能地小
+  * cnt + cnt - k = n, cnt = (n + k) / 2
+  * 举一些例子发现cnt是向上取整
+  * 于是将原数组进行排序 枚举相邻的cnt个数在范围内 就能定出x和y
+  * 然后根据x和y划分数组 每当数组中范围内的数多1个 就分出一个数组
+  * 按照xy的求法 这样是一定能分够k组的
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
