@@ -1,10 +1,20 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/27-12:45 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : 
  */
+ /*
+  * 暴力枚举mex的值 val
+  * 小于val的元素都要存在，把这些数包括进去的最小范围记为[l,r]
+  * 并且不能包括val，val的下标为i，i如果在[l,r] 就产生了矛盾 这种情况选不出任何一个子数组
+  * 因此在i < l或者i > r的情况下讨论，不包含val且包含所有小于val的元素的最大区间为[lo,hi]
+  * 显然[l,r]是[lo,hi]的一个子集合
+  * 两个数组都得满足上述前提 将两个数组两组区间画出来考虑选取的子数组的左端点、右端点范围
+  *
+  * 特殊的 mex = 1 时单独计算
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
