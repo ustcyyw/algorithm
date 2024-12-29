@@ -1,10 +1,13 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/29-3:34 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2040C 1600 构造 贪心
  */
+ /*
+  * 所有子数组最小值之和最小 那么当前可用的最小值 一定是放在边缘两个位置之一
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
