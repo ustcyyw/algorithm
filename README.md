@@ -211,3 +211,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF2045I 2100 数据结构 线段树 区间上不同元素的个数
   * CF2042C 1800 贪心 前缀和
   * CF2040C 1600 构造 贪心
+* 2024-12-29
+  * CF2020C 位运算 逐位考虑
+  * LC3405 数学 组合数学
+  * LC3403 贪心
+  * LC3404 数学 数论 前缀和

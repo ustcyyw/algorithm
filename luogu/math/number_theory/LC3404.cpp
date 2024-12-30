@@ -1,3 +1,16 @@
+/**
+ * @Time : 2024/12/29-5:39 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3404 数学 数论 前缀和
+ */
+ /*
+  * 观察数的值域 两个数之积最多为1e6
+  * 如果枚举p和r可以确定乘积 nums[q], nums[s]是这个数的因子 并且小于1000
+  * 1e6以内的数 最多有32个小于1000的因子
+  * 因此可以暴力枚举小于1000的因子
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -32,21 +45,10 @@ public:
                 int num = nums[p - 1] * nums[r - 1];
                 for(int f : divisors[num]) {
                     if(f > maxV || num / f > maxV) continue;
-                    ans += (sum[r - 2][f] - sum[p + 2][f]) * (sum[n][num / f] - sum[r + 2][num / f]);
+                    ans += (sum[r - 2][f] - sum[p + 1][f]) * (sum[n][num / f] - sum[r + 1][num / f]);
                 }
             }
         }
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {2,2,3,3,4,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
-    vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
-    Solution s;
-}
