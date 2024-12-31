@@ -216,3 +216,8 @@ solve problems in leetcode, codeforce, atcoder
   * LC3405 数学 组合数学
   * LC3403 贪心
   * LC3404 数学 数论 前缀和
+* 2024-12-30
+  * CF2045H 2200 动态规划 lcp 参考了答案
+  * CF2042D 1900 离线思路 数据结构 线段树 二分查找
+  * CF1842C 1500 动态规划
+  * CF1906H 2200 组合数学 动态规划

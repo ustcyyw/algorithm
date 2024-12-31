@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2024/12/30-10:19 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1906H 2200 组合数学 动态规划
  */
- /*
+/*
   * 首先s是可以任意排列的 先做一次全排列
   * 然后才关注如何从t中选字母
   *
