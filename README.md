@@ -221,3 +221,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2042D 1900 离线思路 数据结构 线段树 二分查找
   * CF1842C 1500 动态规划
   * CF1906H 2200 组合数学 动态规划
+* 2024-12-31
+  * CF276C 1500 差分 贪心
+  * CF2028C 1600 双指针 前后缀分解 前缀和
