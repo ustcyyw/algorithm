@@ -1,10 +1,21 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/1-10:59 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1571D 1800 暴力枚举 容斥定律
  */
+ /*
+  * 只有1000个运动员 因此暴力枚举第一名和第二名是可以的
+  *
+  * 容斥定律
+  * 猜中1 + 猜中2 - 都中 = 两个都猜中的 + 只猜中1 + 只猜中2
+  *
+  * c2:两个都猜中的
+  * 只猜中其中1个 = 猜中1 + 猜中2 - 2 * c2
+  *
+  * 预先处理猜中1的 猜中2的 都猜中的人数
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

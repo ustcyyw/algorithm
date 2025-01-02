@@ -49,4 +49,14 @@ int main() {
     vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
     vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
     Solution s;
+    bitset<64> b1(864691128455135232), b2(864691128455135231), b3(576460752303423487);
+    for(int i = 63; i >= 0; i--)
+        cout << b1[i];
+    cout << "\n";
+    for(int i = 63; i >= 0; i--)
+        cout << b2[i];
+    cout << "\n";
+    for(int i = 63; i >= 0; i--)
+        cout << b3[i];
+    cout << (864691128455135232 ^ 864691128455135231) << "\n";
 }

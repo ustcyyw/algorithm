@@ -224,3 +224,8 @@ solve problems in leetcode, codeforce, atcoder
 * 2024-12-31
   * CF276C 1500 差分 贪心
   * CF2028C 1600 双指针 前后缀分解 前缀和
+* 2025-01-01
+  * CF276E 2100 dfs序 线段树
+  * CF276D 1700 位运算 贪心
+  * CF276B 1300 思维题
+  * CF1571D 1800 暴力枚举 容斥定律
