@@ -229,3 +229,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF276D 1700 位运算 贪心
   * CF276B 1300 思维题
   * CF1571D 1800 暴力枚举 容斥定律
+* 2025-01-02
+  * CF954I 2200 状态压缩 暴力枚举 kmp
+  * CF2026B 1300 暴力枚举 前后缀分解
+  * CF2027C 1500 dfs
