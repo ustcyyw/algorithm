@@ -233,3 +233,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF954I 2200 状态压缩 暴力枚举 kmp
   * CF2026B 1300 暴力枚举 前后缀分解
   * CF2027C 1500 dfs
+* 2025-01-03
+  * CF1906F 2100 离线思维 线段树 维护区间上非空子数组最大和
+  * CF2009G1 1900 滑动窗口 数据结构 思维
+  * CF2009G2 2200 数学 线段树 单调栈

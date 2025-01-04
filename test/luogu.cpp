@@ -5,93 +5,132 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
+ /* 先按g1的思路求出a数组
+  * j = l + k - 1
+  * a[j], min(a[j], a[j+1]), min(a[j],a[j+1],a[j+2])
+  * 求和 这个过程中加的数越来越小
+  *
+  * 假设值的变幻位于 j1, j2, j3, 但是 r < j3
+  * sum = a[j0] * (j1-j0) + a[j1] * (j2-j1) + a[j2] * (r-j2)
+  * 得到一个类似于后缀和的东西 可以用单调栈预处理
+  * 然后对于每个查询 只要找到实际求和区间[lo = l + k - 1, r]上的最小值的下标idx
+  * 在这个下标的右边直接用这个最小值计算贡献 a[idx] * (r - lo + 1)
+  * 左边的部分通过后缀和 sum[lo] - sum[idx]得到
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int N = 1e5 + 5, mod = 998244353;
-ll T, n, m, q, ans[N];
-vector<vector<int>> opeL, opeR, query;
+const int N = 2e5 + 5, mod = 998244353;
+int T, n, k, q, nums[N], a[N], nxt[N];
+ll sum[N];
 
-ll sum[4 * N], sumL[4 * N], sumR[4 * N], ms[4 * N];
+
 #define ls x << 1
 #define rs (x << 1) | 1
 const int MIN_VAL = -2e9, MAX_VAL = 2e9;
-void update(int x) {
-    sum[x] = sum[ls] + sum[rs];
-    // 如果最大子数组和没有跨mid max(ms[ls], ms[rs]); 最大子数组和跨越了mid sumL[rs] + sumR[ls]
-    ms[x] = max({ms[ls], ms[rs], max(sumL[rs], 0ll) + sumR[ls], sumL[rs] + max(0ll, sumR[ls])});
-    sumR[x] = max(sumR[rs], sum[rs] + max(0ll, sumR[ls]));
-    sumL[x] = max(sumL[ls], sum[ls] + max(0ll, sumL[rs]));
-}
 
-void add(int x, int l, int r, int pos, int v) {
-    if(l == r) { // 单点修改 不是单点加减
-        sum[x] = sumL[x] = sumR[x] = v, ms[x] = v;
-        return ;
-    }
-    int mid = (l + r) >> 1;
-    if(pos <= mid) add(ls, l, mid, pos, v);
-    else add(rs, mid + 1, r, pos, v);
-    update(x);
-}
-
-vector<ll> search(int x, int l, int r, int a, int b) {
-    if(a <= l && r <= b) return {sum[x], sumL[x], sumR[x], ms[x]};
-    int mid = (l + r) >> 1;
-    vector<ll> res(4, MIN_VAL);
-    if(a <= mid) res = search(ls, l, mid, a, b);
-    if(b > mid) {
-        if(res[0] != MIN_VAL) {
-            vector<ll> aux(4, 0), rt = search(rs, mid + 1, r, a, b);
-            aux[0] = res[0] + rt[0];
-            // sumL[x] = max(sumL[ls], sum[ls] + max(0, sumL[rs]));
-            aux[1] = max(res[1], res[0] + max(0ll, rt[1]));
-            // sumR[x] = max(sumR[rs], sum[rs] + max(0, sumR[ls]));
-            aux[2] = max(rt[2], rt[0] + max(0ll, res[2]));
-            aux[3] = max({res[3], rt[3],
-                          max(rt[1], 0ll) + res[2], rt[1] + max(0ll, res[2])});
-            swap(res, aux);
-        } else res = search(rs, mid + 1, r, a, b);
-    }
-    return res;
-}
-
-void solve() {
-    int j1 = 0, j2 = 0;
-    for(auto& t : query) {
-        int k = t[0], lo = t[1], hi = t[2];
-        while(j1 < m && opeL[j1][0] <= k) {
-            add(1, 0, m, opeL[j1][1], opeL[j1][2]);
-            j1++;
+class SegmentTree {
+private:
+    int n;
+    vector<int> val, idx;
+    // 单点修改
+    void add(int x, int l, int r, int pos, int v) {
+        if(l == r) {
+            val[x] = v, idx[x] = pos;
+            return ;
         }
-        while(j2 < m && opeR[j2][0] < k) {
-            add(1, 0, m, opeL[j2][1], 0);
-            j2++;
-        }
-        ans[t[3]] = search(1, 1, m, lo, hi)[3];
+        int mid = (l + r) >> 1;
+        if(pos <= mid) add(ls, l, mid, pos, v);
+        else add(rs, mid + 1, r, pos, v);
+        val[x] = min(val[ls], val[rs]);
+        if(val[x] == val[ls]) idx[x] = idx[ls];
+        else idx[x] = idx[rs];
     }
-    for(int i = 1; i <= q; i++)
-        cout << ans[i] << "\n";
+
+    vector<int> search(int x, int l, int r, int a, int b) {
+        if(a <= l && r <= b) return {val[x], idx[x]};
+        int mid = (l + r) >> 1;
+        vector<int> res(2, MAX_VAL);
+        if(a <= mid) res = search(ls, l, mid, a, b);
+        if(b > mid) {
+            vector<int> temp = search(rs, mid + 1, r, a, b);
+            if(temp[0] < res[0]) res = temp;
+        }
+        return res;
+    }
+
+public:
+    SegmentTree(int n) {
+        this-> n = n;
+        val = vector(4 * (n + 1), MAX_VAL);
+        idx = vector(4 * (n + 1), 0);
+    }
+
+    void add(int pos, int v) {
+        add(1, 0, n, pos, v);
+    }
+    // 返回最小值所在的索引
+    int search(int a, int b) {
+        return search(1, 0, n, a, b)[1];
+    }
+};
+
+void initA() {
+    map<int, int> cnt;
+    multiset<int> st;
+    function<void(int)> add = [&](int num) -> void {
+        int cc = ++cnt[num];
+        st.insert(cc);
+        if(cc > 1) st.erase(st.find(cc - 1));
+    };
+    function<void(int)> remove = [&](int num) -> void {
+        int cc = --cnt[num];
+        if(cc > 0) st.insert(cc);
+        st.erase(st.find(cc + 1));
+    };
+    for(int lo = 1, hi = 1; hi <= n; hi++) {
+        add(nums[hi]);
+        if(hi - lo + 1 > k) remove(nums[lo++]);
+        a[hi] = k - *st.rbegin();
+    }
+}
+
+void initSum() {
+    stack<int> st;
+    sum[n + 1] = 0;
+    for(int i = n; i >= 1; i--) {
+        int num = a[i];
+        while(!st.empty() && num <= a[st.top()])
+            st.pop();
+        nxt[i] = st.empty() ? n + 1 : st.top();
+        st.push(i);
+        sum[i] = sum[nxt[i]] + (ll)(nxt[i] - i) * a[i];
+    }
+}
+
+ll cal(SegmentTree& tree, int l, int r) {
+    int lo = l + k - 1, idx = tree.search(lo, r);
+//    if(idx == lo) return (ll)a[lo] * (r - lo + 1);
+    return sum[lo] - sum[idx] + (ll)(r - idx + 1) * a[idx];
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0), cout.tie(0); // 加速cin, cout
-//    cin >> T;
-    T = 1;
+    cin >> T;
+//    T = 1;
     while(T-- > 0) {
-        cin >> n >> m;
-        for(int i = 1, l, r, x; i <= m; i++) {
-            cin >> l >> r >> x;
-            opeL.push_back({l, i, x}), opeR.push_back({r, i, x});
+        cin >> n >> k >> q;
+        for(int i = 1; i <= n; i++) {
+            cin >> nums[i];
+            nums[i] -= i;
         }
-        sort(opeL.begin(), opeL.end());
-        sort(opeR.begin(), opeR.end());
-        cin >> q;
-        for(int i = 1, k, s, t; i <= q; i++) {
-            cin >> k >> s >> t;
-            query.push_back({k, s, t, i});
+        initA(); initSum();
+        SegmentTree tree(n + 1);
+        for(int i = 1; i <= n; i++)
+            tree.add(i, a[i]);
+        for(int i = 1, l, r; i <= q; i++) {
+            cin >> l >> r;
+            cout << cal(tree, l, r) << "\n";
         }
-        sort(query.begin(), query.end());
-        solve();
     }
 };

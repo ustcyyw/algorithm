@@ -14,6 +14,7 @@
  * 类似题目
  * https://leetcode.cn/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/
  * https://www.luogu.com.cn/problem/P3097
+ * https://codeforces.com/problemset/problem/1906/F
  */
 #include<bits/stdc++.h>
 using namespace std;
@@ -32,7 +33,7 @@ void update(int x) {
 }
 
 void add(int x, int l, int r, int pos, int v) {
-    if(l == r) {
+    if(l == r) { // 这里是单点修改 不是单点加减
         sum[x] = sumL[x] = sumR[x] = v, ms[x] = v;
         return ;
     }
