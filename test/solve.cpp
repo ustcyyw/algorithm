@@ -3,40 +3,55 @@ using namespace std;
 typedef long long ll;
 const int mod = 1e9 + 7, N = 1e6 + 5;
 
-// 预处理 [1-N]范围内所有数的小于<=1000的因子
-// 预处理每个数的所有因子，时间复杂度 O(MlogM)，M=1e5
-// 外循环先枚举因子，内循环j代表包含该因子的数，显然是成倍增加的 j += i
-vector<int> divisors[N];
-int init = []() {
-    for (int i = 1; i <= 1000; ++i)
-        for (int j = i; j < N; j += i)
-            divisors[j].push_back(i);
-    return 0;
-}();
-
 class Solution {
 public:
-    long long numberOfSubsequences(vector<int>& nums) {
-        int n = nums.size(), maxV = 0;
-        for(int num : nums)
-            maxV = max(num, maxV);
-        vector<vector<int>> sum(n + 1, vector(maxV + 1, 0));
-        for(int i = 1; i <= n; i++) {
-            for(int j = 0; j <= maxV; j++)
-                sum[i][j] = sum[i - 1][j];
-            sum[i][nums[i - 1]]++;
+    vector<int> maximumWeight(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        vector<vector<int>> arr;
+        arr.push_back({0, 0, 0, -1});
+        for(int i = 0; i < n; i++) {
+            vector<int> temp = intervals[i];
+            temp.push_back(i);
+            arr.push_back(temp);
         }
-        ll ans = 0;
-        for(int p = 1; p <= n; p++) {
-            for(int r = p + 4; r + 2 <= n; r++) {
-                int num = nums[p - 1] * nums[r - 1];
-                for(int f : divisors[num]) {
-                    if(f > maxV || num / f > maxV) continue;
-                    ans += (sum[r - 2][f] - sum[p + 2][f]) * (sum[n][num / f] - sum[r + 2][num / f]);
-                }
+        sort(arr.begin(), arr.end(), [](auto& a, auto& b) -> bool {
+           return a[1] < b[1];
+        });
+        vector<vector<ll>> dp(n + 1, vector(5, 0ll));
+        vector<vector<vector<int>>> infos(n + 1, vector(5, vector(0, 0)));
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= 4; j++) {
+                int pre = find(arr, i);
+                ll pick = dp[pre][j - 1] + arr[i][2];
+                vector<int> temp = infos[pre][j - 1];
+                temp.push_back(arr[i][3]);
+                sort(temp.begin(), temp.end());
+                infos[i][j] = temp, dp[i][j] = pick;
+                change(dp, infos, i, j, i - 1, j);
+                change(dp, infos, i, j, i, j - 1);
             }
         }
-        return ans;
+        return infos[n][4];
+    }
+
+    void change(vector<vector<ll>>& dp, vector<vector<vector<int>>>& infos,
+                int i1, int j1, int i2, int j2) {
+        if(dp[i2][j2] > dp[i1][j1] ||
+            (dp[i2][j2] == dp[i1][j1] && infos[i2][j2] < infos[i1][j1])) {
+            dp[i1][j1] = dp[i2][j2];
+            infos[i1][j1] = infos[i2][j2];
+        }
+    }
+
+    // 找到idx左边的第一个右边界小于idx的区间
+    int find(vector<vector<int>>& arr, int idx) {
+        int lo = 0, hi = idx - 1, l = arr[idx][0];
+        while(lo < hi) {
+            int mid = (lo + hi + 1) >> 1, right = arr[mid][1];
+            if(right < l) lo = mid;
+            else hi = mid - 1;
+        }
+        return lo;
     }
 };
 
@@ -46,17 +61,10 @@ int main() {
     vector<int> arr3 = {1,2,3};
     vector<int> w = {6, 6, 3, 9, 3, 5, 1};
     vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,2},{0,3},{0,4}};
-    vector<vector<int>> arr6 = {{0,1},{1,2},{1,3}};
+    vector<vector<int>> arr4 = {{5,8,1},{6,7,7},{4,7,3},{9,10,6},{7,8,2},
+                                {11,14,3},{3,5,5}};
+    vector<vector<int>> arr6 = {{1,3,2},{4,5,2},{1,5,5},{6,9,3},{6,7,1},{8,9,1}};
+    vector<vector<int>> arr7 = {{14,15,16}, {21,21,24},{6,12,18},{20,25,46},{15,20,38}};
     Solution s;
-    bitset<64> b1(864691128455135232), b2(864691128455135231), b3(576460752303423487);
-    for(int i = 63; i >= 0; i--)
-        cout << b1[i];
-    cout << "\n";
-    for(int i = 63; i >= 0; i--)
-        cout << b2[i];
-    cout << "\n";
-    for(int i = 63; i >= 0; i--)
-        cout << b3[i];
-    cout << (864691128455135232 ^ 864691128455135231) << "\n";
+    s.maximumWeight(arr6);
 }
