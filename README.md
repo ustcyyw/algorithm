@@ -242,3 +242,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF2009D 1400 数学 几何 模拟
   * CF2009E 1400 二分答案 数学
   * CF2045C 1400 贪心
+* 2025-01-05
+  * LC3414 动态规划 求特定方案
+  * LC3413 思维 暴力枚举 二分
+  * LC3412 模拟

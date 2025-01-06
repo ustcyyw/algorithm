@@ -1,7 +1,23 @@
+/**
+ * @Time : 2025/1/5-9:33 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3134 动态规划 求特定方案
+ */
+ /*
+  * 涉及到区间到覆盖情况 按右端点排序
+  * 那么枚举区间的时候就可以用二分直接确定有哪些区间是可以放在其前面的
+  *
+  * dp[i][j]: 截止到i元素 最多拿j个的最大值
+  * 拿i元素 dp[pre][j-1] + v[i]
+  * 不拿i元素 dp[i][j - 1], dp[i - 1][j]
+  *
+  * 注意求字典序最小的方案 就把转移过程中涉及到取的序号都放进去比较
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int mod = 1e9 + 7, N = 1e6 + 5;
 
 class Solution {
 public:
@@ -54,14 +70,3 @@ public:
         return lo;
     }
 };
-
-int main() {
-    vector<int> arr1 = {2,2,3,3,4,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{5,8,1},{6,7,7},{4,7,3},{9,10,6},{7,8,2},
-                                {11,14,3},{3,5,5}};
-
-}
