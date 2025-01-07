@@ -15,6 +15,7 @@
  * https://leetcode.cn/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/
  * https://www.luogu.com.cn/problem/P3097
  * https://codeforces.com/problemset/problem/1906/F
+ * https://leetcode.cn/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/description/
  */
 #include<bits/stdc++.h>
 using namespace std;

@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/7-12:04 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1844C 1300 动态规划 线性动态规划
  */
- /*
+/*
   * 动态规划
   * 尝试一下移除操作 发现其实是可以任意选择偶数位置/奇数位置上的元素的
   * 找非空最大子序列和即可

@@ -65,7 +65,7 @@ int mod[2] = {int(1e9 + 9), 998244353};
 
 void str_hash2(string &s) {
     int n = s.size();
-    vector<vector<ll>> h(2, vector(n + 1, 0)), x(2, vector(n + 1, 0));
+    vector<vector<ll>> h(2, vector(n + 1, 0ll)), x(2, vector(n + 1, 0ll));
     x[0][0] = x[1][0] = 1;
     for(int k = 0; k < 2; k++) {
         for (int i = 1; i <= n; i++) {

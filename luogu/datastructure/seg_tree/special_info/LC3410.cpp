@@ -1,3 +1,13 @@
+/**
+ * @Time : 2025/1/6-12:51 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3410 数据结构 线段树 维护区间上非空子数组最大和
+ */
+ /*
+  * 注意特判都是负数的情况即可
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -70,14 +80,3 @@ public:
         return res;
     }
 };
-
-int main() {
-    vector<int> arr1 = {2,2,3,3,4,3};
-    vector<int> arr2 = {2,3,4};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{5,8,1},{6,7,7},{4,7,3},{9,10,6},{7,8,2},
-                                {11,14,3},{3,5,5}};
-
-}
