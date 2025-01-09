@@ -258,3 +258,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF2032C 1400 排序 双指针
   * CF1554D 1800 构造算法 猜结论 参考了答案做
   * LC3288 动态规划 线段树优化
+* 2025-01-08
+  * LC3287 动态规划 位运算
+  * LC3286 图论 最短路 dijkstra
+  * LC3277 动态规划 区间dp 另外这题就是CF983B
+  * LC3276 动态规划 状态压缩 刷表法
