@@ -263,3 +263,8 @@ solve problems in leetcode, codeforce, atcoder
   * LC3286 图论 最短路 dijkstra
   * LC3277 动态规划 区间dp 另外这题就是CF983B
   * LC3276 动态规划 状态压缩 刷表法
+* 2025-01-09
+  * LC3273 贪心
+  * CF1552D 1800 构造 参考了答案
+  * CF161D 1800 动态规划 树型dp
+  * CF1491D 1800 位运算

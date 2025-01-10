@@ -1,10 +1,23 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/10-12:16 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1491D 1800 位运算
  */
+ /*
+  * u -> u + v, u & v = v
+  * 小的结点 -> 编号更大的结点；增加量v必须是u的二进制子集
+  * 二进制的1只能减少 或者不变 并且只能向高位移动
+  *
+  * 因此 a -> b
+  * 需要满足 a <= b, 并且a中二进制的1 >= b中的
+  * 并且b中的二进制1 其右边得有a中的1，a有多的可以通过操作消除 但是少了不行
+  *
+  * 可以看例子
+  * 00100000001100001100
+  * 00001111000010011110
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
