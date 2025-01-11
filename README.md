@@ -268,3 +268,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1552D 1800 构造 参考了答案
   * CF161D 1800 动态规划 树型dp
   * CF1491D 1800 位运算
+* 2025-01-10
+  * ARC189 2009 单调栈 动态规划 离线思维
+  * CF2045A 1700 贪心 分类讨论
+  * CF1789C 1500 思维 正难则反 贡献法

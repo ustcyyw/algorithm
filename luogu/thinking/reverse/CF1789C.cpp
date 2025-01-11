@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/11-2:51 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1789C 1500 思维 正难则反 贡献法
  */
- /*
+/*
   * 考虑每个值贡献的次数 正难则反
   * m次修改操作 A0,A1...Am。一共有 m * (m + 1) / 2 组数组对
   * 共 total = m * (m + 1) 个数组，如果这些数组的元素都不重复 那么不重复元素的个数和为 total * n
