@@ -1,11 +1,16 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/11-3:51 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2051D 1200 排序 双指针
  */
-
+ /*
+  * b1 <= sum - x - a
+  * b2 >= sum - y - a
+  *
+  * 随着a增大 b1减小 b2也可以减小
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

@@ -272,3 +272,5 @@ solve problems in leetcode, codeforce, atcoder
   * ARC189 2009 单调栈 动态规划 离线思维
   * CF2045A 1700 贪心 分类讨论
   * CF1789C 1500 思维 正难则反 贡献法
+* 2025-01-11
+  * CF2051D 1200 排序 双指针
