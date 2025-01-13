@@ -274,3 +274,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF1789C 1500 思维 正难则反 贡献法
 * 2025-01-11
   * CF2051D 1200 排序 双指针
+* 2025-01-12
+  * LC3420 数据结构 单调栈 线段树 和CF2009G2的做法有类似 ac代码需要改java
+  * LC3419 二分答案 逆向思维 bfs
+  * LC3418 动态规划
+  * CF1508B 1800 构造 找规律
