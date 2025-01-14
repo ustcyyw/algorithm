@@ -10,6 +10,7 @@
 using namespace std;
 const int N = 1e6, mod = 1e9 + 7;
 typedef long long ll;
+typedef unsigned long long ull;
 /*
  * 一些常用的数轮结论 持续记录 持续收录
  * 1. 1e9以内的自然数 其因子个数的量级在1e2
@@ -97,16 +98,16 @@ const int N1 = 1e3 + 5, M1 = 1e3 + 5;
 ll S[N1][M1];
 
 int dfs(int n, int m) {
-    if(S[n][m] != -1) return S[n][m];
-    if((n == 0 && m == 0) || n == m) return S[n][m] = 1;
-    if(m == 0 || m > n) return S[n][m] = 0;
+    if (S[n][m] != -1) return S[n][m];
+    if ((n == 0 && m == 0) || n == m) return S[n][m] = 1;
+    if (m == 0 || m > n) return S[n][m] = 0;
     return S[n][m] = (dfs(n - 1, m) * m % mod + dfs(n - 1, m - 1)) % mod;
 }
 
-int init1 = []() -> int{
+int init1 = []() -> int {
     memset(S, -1, sizeof(S));
-    for(int i = 0; i < N1; i++) {
-        for(int j = 0; j < M1; j++)
+    for (int i = 0; i < N1; i++) {
+        for (int j = 0; j < M1; j++)
             dfs(i, j);
     }
     return 0;
@@ -118,11 +119,12 @@ int init1 = []() -> int{
  * 思路参考字符串hash的做法
  */
 int power10[N], h[N];
-void str_mod(string& s) {
+
+void str_mod(string &s) {
     // 参数s已经在前缀添加一个哨兵字符 有效下标从1开始
     int n = s.size() - 1;
     power10[0] = 1;
-    for(int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         h[i] = (h[i - 1] * 10 + s[i] - '0') % mod;
         power10[i] = power10[i - 1] * 10 % mod;
     }
@@ -130,5 +132,100 @@ void str_mod(string& s) {
 
 int get_mod(int l, int r) {
     return (((h[r] - h[l - 1] * power10[r - l + 1]) % mod) + mod) % mod;
+}
+
+/*
+ * 分解质因数 通过Pollard-Rho算法实现
+ * 下面的模版是只提取出不同的质因子
+ */
+ll bmul(ll a, ll b, ll m) {  // 快速乘
+    ull c = (ull) a * (ull) b - (ull) ((long double) a / m * b + 0.5L) * (ull) m;
+    if (c < (ull) m) return c;
+    return c + m;
+}
+
+ll qpow(ll x, ll p, ll mod) {  // 快速幂
+    ll ans = 1;
+    while (p) {
+        if (p & 1) ans = bmul(ans, x, mod);
+        x = bmul(x, x, mod);
+        p >>= 1;
+    }
+    return ans;
+}
+
+bool Miller_Rabin(ll p) {  // 判断素数
+    if (p < 2) return false;
+    if (p == 2) return true;
+    if (p == 3) return true;
+    ll d = p - 1, r = 0;
+    while (!(d & 1)) ++r, d >>= 1;  // 将d处理为奇数
+    for (ll k = 0; k < 10; ++k) {
+        ll a = rand() % (p - 2) + 2;
+        ll x = qpow(a, d, p);
+        if (x == 1 || x == p - 1) continue;
+        for (int i = 0; i < r - 1; ++i) {
+            x = bmul(x, x, p);
+            if (x == p - 1) break;
+        }
+        if (x != p - 1) return false;
+    }
+    return true;
+}
+
+ll Pollard_Rho(ll x) {
+    ll s = 0, t = 0;
+    ll c = (ll) rand() % (x - 1) + 1;
+    int step = 0, goal = 1;
+    ll val = 1;
+    for (goal = 1;; goal *= 2, s = t, val = 1) {  // 倍增优化
+        for (step = 1; step <= goal; ++step) {
+            t = (bmul(t, t, x) + c) % x;
+            val = bmul(val, abs(t - s), x);
+            if ((step % 127) == 0) {
+                ll d = gcd(val, x);
+                if (d > 1) return d;
+            }
+        }
+        ll d = gcd(val, x);
+        if (d > 1) return d;
+    }
+}
+
+void fac(set<ll>& st, vector<ll>& ans, ll x) {
+    if(x == 1) return;
+    if (Miller_Rabin(x)) {
+        if(!st.count(x))
+            ans.push_back(x), st.insert(x);
+        return;
+    }
+    ll p = x;
+    while (p >= x) p = Pollard_Rho(x);
+    while ((x % p) == 0) x /= p;
+    fac(st, ans, x), fac(st, ans, p);
+}
+
+vector<ll> get_prime_factor(ll num) {
+    srand((unsigned) time(NULL));
+    set < ll > set;
+    vector<ll> ans;
+    fac(set, ans, num);
+    return ans;
+}
+
+ll cal(vector<ll> &f, ll total) {
+    ll ans = 0;
+    int n = f.size(), u = (1 << n) - 1;
+    for (int s = 1; s <= u; s++) {
+        ll num = 1, cnt = 0;
+        for (int j = 0; j < n; j++) {
+            if ((1 << j) & s)
+                num *= f[j], cnt++;
+        }
+        ll temp = total / num;
+        if (cnt % 2 == 1) ans = (ans + temp) % mod;
+        else ans = (ans - temp + mod) % mod;
+    }
+    return ans;
 }
 

@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/13-10:37 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1442A 1800 构造算法
  */
- /*
+/*
   * nums[i] > nums[i + 1] 那么删右边子数组指望不上
   * 只能选择删左边了 至少得减少到 nums[i + 1]的值 但是不能让左边有任何数 < 0
   */
