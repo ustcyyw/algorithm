@@ -102,6 +102,37 @@ build solve: CXX_EXECUTABLE_LINKER__solve_Debug CMakeFiles/solve.dir/test/solve.
   TARGET_FILE = solve
   TARGET_PDB = solve.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target solve_cf
+
+
+#############################################
+# Order-only phony target for solve_cf
+
+build cmake_object_order_depends_target_solve_cf: phony || CMakeFiles/solve_cf.dir
+
+build CMakeFiles/solve_cf.dir/test/solve_cf.cpp.o: CXX_COMPILER__solve_cf_Debug /Users/ustcyyw/CLionProjects/algorithm/test/solve_cf.cpp || cmake_object_order_depends_target_solve_cf
+  DEP_FILE = CMakeFiles/solve_cf.dir/test/solve_cf.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk -std=gnu++17
+  OBJECT_DIR = CMakeFiles/solve_cf.dir
+  OBJECT_FILE_DIR = CMakeFiles/solve_cf.dir/test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target solve_cf
+
+
+#############################################
+# Link the executable solve_cf
+
+build solve_cf: CXX_EXECUTABLE_LINKER__solve_cf_Debug CMakeFiles/solve_cf.dir/test/solve_cf.cpp.o
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk
+  OBJECT_DIR = CMakeFiles/solve_cf.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = solve_cf
+  TARGET_PDB = solve_cf.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -136,7 +167,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug
 
-build all: phony luogu solve
+build all: phony luogu solve solve_cf
 
 # =============================================================================
 # Built-in targets

@@ -1,3 +1,18 @@
+/**
+ * @Time : 2025/1/15-9:11 AM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3312 数学 容斥原理
+ */
+ /*
+  * 数的取值范围比较小 单个数的因子个数有限（在此数据范围内最多有72个因子）
+  * 如果两个数有多个公共因子，取最大那个就是gcd
+  * 统计每个因子，有多少个数含有这个因子
+  * 找gcd，所以先从最大因子num开始思考 假设这个含有这个因子的数有c1个
+  * 那么一共有 c1 * (c1 - 1) / 2 个数对的gcd为num
+  * 但这些数对，还会有更小的公共因子divisors[num]，要将这些更小的公共因子减去num的影响
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -45,15 +60,3 @@ public:
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {4,4,2,1};
-    vector<ll> arr2 = {5,3,1,0};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{8, 7, 6},
-                                {8, 3, 2}};
-    Solution s;
-    s.gcdValues(arr1, arr2);
-}
