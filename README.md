@@ -291,3 +291,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF1985F 1500 二分答案
   * CF1985E 1200 暴力枚举 模拟
   * LC3312 数学 容斥原理
+* 2025-01-15
+  * LC3311 构造 思维 模拟
+  * CF1999F 1500 数学 排列组合
+  * CF1999E 1300 贪心 前缀和
+  * CF1509C 1800 动态规划 贪心
+* 

@@ -1,7 +1,17 @@
+/**
+ * @Time : 2025/1/15-9:45 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3311 构造 思维 模拟
+ */
+ /*
+  * 拼图游戏 先找角上的元素 然后找第一列第一行
+  * 填充完这些边界后发现 已经填了的最靠右的一列 每个元素只剩下一个相临元素了
+  * 然后又可以唯一地填出新的一列
+  */
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const int mod = 1e9 + 7, N = 5e4 + 5, MIN_VAL = -2e9;
 
 class Solution {
 public:
@@ -73,7 +83,7 @@ public:
         }
         reverse(arr.begin(), arr.end());
     }
-
+    // 题目说明了一定有解 因此可以根据结点的度数判断矩阵有几行几列
     int init() {
         vector<int> degree(5, 0);
         for(int i = 0; i < total; i++) {
@@ -95,13 +105,8 @@ public:
     }
 };
 
-int main() {
-    vector<vector<int>> arr1 = {{0,1},{0,2},{1,3},{2,3}};
-    vector<ll> arr2 = {5,3,1,0};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,3},{1,2},{1,4},{2,3},{2,5},{4,5},{4,7},{5,6},{6,7}};
+int main(){
     Solution s;
-    s.constructGridLayout(4, arr1);
+    
+    cout << 0 << endl;
 }
