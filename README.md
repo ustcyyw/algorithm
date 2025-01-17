@@ -296,4 +296,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF1999F 1500 数学 排列组合
   * CF1999E 1300 贪心 前缀和
   * CF1509C 1800 动态规划 贪心
-* 
+* 2025-01-16
+  * LC3241 动态规划 换根dp
+  * LC3240 贪心
+  * CF1802D 1800 暴力枚举 模拟
+* 2025-01-17
