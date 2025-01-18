@@ -301,3 +301,6 @@ solve problems in leetcode, codeforce, atcoder
   * LC3240 贪心
   * CF1802D 1800 暴力枚举 模拟
 * 2025-01-17
+  * CF1396B 1800 博弈  看答案学习
+  * CF1732C1/C2 2100 思维 位运算 暴力枚举
+  * CF271D 1800 数据结构 trie树

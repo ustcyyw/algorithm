@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/17-11:32 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF271D 1800 数据结构 trie树
  */
- /*
+/*
   * 这里不同子数组的定义是内容不同 而不是下标不同
   * 假设子串的左端点是i, 通过双指针找到最大的j使得 s[i,j-1]上最多有k个坏字符
   * 于是这个子串的任意一个前缀都是好子串
