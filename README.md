@@ -304,3 +304,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF1396B 1800 博弈  看答案学习
   * CF1732C1/C2 2100 思维 位运算 暴力枚举
   * CF271D 1800 数据结构 trie树
+* 2025-01-17
+  * CF1791F 1500 数据结构 线段树 数学
