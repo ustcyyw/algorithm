@@ -5,71 +5,44 @@ const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
-    int n, k;
-    long long minMaxSubarraySum(vector<int>& nums, int k) {
-        this->k = k, this->n = nums.size();
-        ll ans = cal(nums);
-        for(int i = 0; i < n; i++)
-            nums[i] = -nums[i];
-        return ans - cal(nums);
+    int ansD = 0, cnt = 1;
+    vector<int> colors, depth, dis;
+    vector<vector<vector<int>>> graph;
+    vector<int> longestSpecialPath(vector<vector<int>>& edges, vector<int>& nums) {
+        int n = nums.size();
+        this->colors = nums;
+        graph.assign(n, {});
+        for(auto& edge : edges) {
+            int a = edge[0], b = edge[1], w = edge[2];
+            graph[a].push_back({b, w}), graph[b].push_back({a, w});
+        }
+        depth.assign(5e4 + 5, 0), dis.assign(5e4 + 5, 0);
+        dfs(0, -1, 0, 0);
+        return {ansD, cnt};
     }
 
-    ll cal(vector<int>& nums) {
-        vector<int> next = get_next(nums), pre = get_pre(nums);
-        ll ans = 0;
-        for(int i = 0; i < n; i++) {
-            int lb = pre[i], rb = next[i];
-            ll left = i - lb + 1, right = rb - i + 1;
-            ll total = left * right;
-            if(rb - lb + 1 > k) {
-                ll reduce = 0;
-                int j = i - k;
-                if(j >= lb) reduce = right * (j - lb + 1);
-                int j1 = max(j + 1, lb), a1 = rb - j1 - k + 1;
-                int j2 = min(i, rb - k), am = rb - j2 - k + 1;
-                if(j2 >= j1) {
-                    ll temp = (ll)(j2 - j1 + 1) * (a1 + am) / 2;
-                    reduce += temp;
-                }
-                total -= reduce;
-            }
-            ans += total * nums[i];
+    void dfs(int v, int f, int layer, int curD) {
+        int c = colors[v];
+        int dt = curD - dis[c], ct = layer - depth[c];
+        if(dt > ansD || (dt == ansD && ct < cnt))
+            ansD = dt, cnt = ct;
+        for(auto& edge : graph[v]) {
+            int w = edge[0], curL = edge[1];
+            if(w == f) continue;
+            depth[c] = layer, dis[c] = curD + curL;
+            dfs(w, v, layer + 1, curD + curL);
         }
-        return ans;
-    }
-
-    vector<int> get_next(vector<int>& nums) {
-        stack<int> stack;
-        vector<int> arr(n);
-        for(int i = n - 1; i >= 0; i--) {
-            while(!stack.empty() && nums[stack.top()] <= nums[i])
-                stack.pop();
-            arr[i] = stack.empty() ? n - 1 : stack.top() - 1;
-            stack.push(i);
-        }
-        return arr;
-    }
-
-    vector<int> get_pre(vector<int>& nums) {
-        stack<int> stack;
-        vector<int> arr(n);
-        for(int i = 0; i < n; i++) {
-            while(!stack.empty() && nums[stack.top()] < nums[i])
-                stack.pop();
-            arr[i] = stack.empty() ? 0 : stack.top() + 1;
-            stack.push(i);
-        }
-        return arr;
     }
 };
 
 int main() {
-    vector<int> arr1 = {1,2,3};
+    vector<int> arr1 = {2,2};
     vector<ll> arr2 = {5,3,1,0};
     vector<int> arr3 = {1, 2, 3};
     vector<int> w = {6, 6, 3, 9, 3, 5, 1};
     vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{0,1},{0,3},{1,2},{1,4},{2,3},{2,5},{4,5},{4,7},{5,6},{6,7}};
+//    vector<vector<int>> arr4 = {{3,0,6},{3,1,6},{2,1,5},{2,4,5}};
+    vector<vector<int>> arr4 = {{1,0,8}};
     Solution s;
-    s.minMaxSubarraySum(arr1, 2);
+    s.longestSpecialPath(arr4, arr1);
 }
