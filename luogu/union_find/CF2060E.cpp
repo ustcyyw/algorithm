@@ -1,10 +1,18 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/21-8:51 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : 
  */
+ /*
+  * 在g中有路径的两个点 他们是同一个连通分量的
+  * 相当于要让f中的点 连通分量的情况和g中一致 需要先计算g中连通分量的情况
+  * 如果f中的边将g中不在一个分量的两点连起来了 那么这条边要删除
+  * 如果边将g中在一个分量的的两点连起来了 这条边有效 将所在分量连通
+  * 最后看f中的分量数目 如果多余g的分量数目 说明还没连接完成 需要添加边
+  * 添加一条边将f的分量减少1
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
