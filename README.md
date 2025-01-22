@@ -319,3 +319,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1329A 1800 构造 贪心
   * CF459D 1800 数据结构 线段树
   * CF2060E 1624 并查集
+* 2025-01-21
+  * CF2060F 2242 数学 组合数学
+  * CF459E 1900 排序 动态规划 刷表法
+  * CF459C 1900 构造算法 思维题

@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/21-10:45 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF459C 1900 构造算法 思维题
  */
- /*
+/*
   * 对于确定的某个人，将其d天乘车的情况当作一个序列 序列的一个元素就是当天乘的车的编号
   * 要求任意两个人d天内乘车情况至少有1天不同 也就是要求任意两个序列不相同
   * 序列长度为d，并且每个位置可以选k辆车 不同的序列一共有 k ^ d
