@@ -1,3 +1,23 @@
+/**
+ * @Time : 2025/1/22-10:46 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3333 动态规划 正难则反 前缀和优化
+ */
+ /*
+  * 连续相同的字母 至少选择1个 最多则全选
+  * 所有总的可能选择方式就是 c1 * c2 * ... cm
+  * 如果m >= k，那么所有可能的选择字符串长度都 >= k 直接返回这个结果就好
+  *
+  * 否则就计算一下字符串长度 < k一共有多少可能 用总的减去这个值即可（正难则反）
+  * dp[i][j]: 截止第i个字母 长度为k的方案数
+  * 当前字符可以选择 1～ci 个
+  * 如果当前选1个 前面就需要j-1个
+  * 如果当前选2个 前面就需要j-2个
+  * 显然需要前缀和优化 sum[i][j]: 截止第i个字母 长度<=k的方案数之和
+  * 由于 m < k 的前提下才需要计算 因此整体的时间复杂度是 k^2
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -39,15 +59,3 @@ public:
         return sum[n - 1][k - 1];
     }
 };
-
-int main() {
-    vector<int> arr1 = {2,2,2,1};
-    vector<ll> arr2 = {5,3,1,0};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"cd", "bcd", "xyz"};
-    vector<vector<int>> arr4 = {{3,0,5},{3,1,6},{2,3,5}};
-//    vector<vector<int>> arr4 = {{1,0,8}};
-    Solution s;
-    s.possibleStringCount("aabbccdd", 7);
-}

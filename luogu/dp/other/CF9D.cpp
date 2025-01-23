@@ -1,10 +1,15 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/22-9:41 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF9D 1900 动态规划
  */
+ /*
+  * dp[i][j]: 有i个结点 高度<=j的方案数
+  * 左右子结点之和为i-1
+  * dp[left][j-1] * dp[right][j-1]
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
