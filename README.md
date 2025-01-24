@@ -329,3 +329,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF9E 2300 图论 拓扑排序 贪心 dfs
   * CF9D 1900 动态规划
   * LC3333 动态规划 正难则反 前缀和优化
+* 2025-01-23
+  * LC3331 深度优先搜索 在递归中用栈的思路类似于LC3425
+  * CF12D 2400 数据结构 线段树
+  * CF12F 2100 构造算法
+  * CF14C 1700 数学 计算几何

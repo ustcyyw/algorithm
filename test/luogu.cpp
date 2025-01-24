@@ -9,23 +9,56 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-const int N = 2505, mod = 998244353;
-ll T, n, h, dp[36][36];
+const int N = 205, mod = 998244353;
+int T, n, father[N];
+set<int> graph[N];
+
+void dfs1(int v, int f) {
+    father[v] = f;
+    for(int w : graph[v]) {
+        if(w == f) continue;
+        dfs1(w, v);
+    }
+}
+
+int dfs2(int v, int f, vector<int>& diameter) {
+    int d1 = -1, d2 = -1;
+    for(int w : graph[v]) {
+        if(w == f) continue;
+        int t = dfs2(w, v, diameter);
+        diameter[v] = max(diameter[w], diameter[v]);
+        if(t > d1) d2 = d1, d1 = t;
+        else if(t > d2) d2 = t;
+    }
+    int t = d2 == -1 ? d1 + 1 : d1 + d2 + 2;
+    diameter[v] = max(t, diameter[v]);
+    return d1 + 1;
+}
+
+void solve() {
+    vector<int> diameter(n + 1);
+    dfs1(1, -1), dfs2(1, -1, diameter);
+    ll ans = 0;
+    for(int i = 2; i <= n; i++) {
+        graph[father[i]].erase(i);
+        vector<int> aux(n + 1);
+        dfs2(1, -1, aux);
+        ans = max(ans, (ll)aux[1] * diameter[i]);
+        graph[father[i]].insert(i);
+    }
+    cout << ans << "\n";
+}
 
 int main() {
     ios::sync_with_stdio(0);cin.tie(0), cout.tie(0); // 加速cin, cout
 //    cin >> T;
     T = 1;
     while (T-- > 0) {
-        cin >> n >> h;
-        for(int i = 0; i <= n; i++)
-            dp[0][i] = 1;
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= n; j++) {
-                for(int c1 = 0; c1 <= i - 1; c1++)
-                    dp[i][j] += dp[c1][j - 1] * dp[i - 1 - c1][j - 1];
-            }
+        cin >> n;
+        for(int i = 1, v, w; i < n; i++) {
+            cin >> v >> w;
+            graph[v].insert(w), graph[w].insert(v);
         }
-        cout << dp[n][n] - dp[n][h - 1];
+        solve();
     }
 };
