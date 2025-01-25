@@ -334,3 +334,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF12D 2400 数据结构 线段树
   * CF12F 2100 构造算法
   * CF14C 1700 数学 计算几何
+* 2025-01-24
+  * CF14D 1900 图论 树的直径 暴力枚举
+  * CF14E 1900 动态规划
+  * CF16C 1800 数学

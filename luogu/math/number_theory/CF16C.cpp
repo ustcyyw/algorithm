@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/24-4:32 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF16C 1800 数学
  */
- /*
+/*
   * 假设长和宽分别减去了c1,c2后 比例成为 x:y
   * (a - c1) / (b - c2) = x / y
   * ay - c1*y = bx - c2*x
