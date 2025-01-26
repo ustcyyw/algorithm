@@ -338,3 +338,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF14D 1900 图论 树的直径 暴力枚举
   * CF14E 1900 动态规划
   * CF16C 1800 数学
+* 2025-01-25
+  * CF16E 1900 动态规划 状态压缩 概率dp 刷表法
+  * CF18A 1500 暴力枚举 计算几何
