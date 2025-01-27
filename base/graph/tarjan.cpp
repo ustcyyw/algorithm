@@ -109,7 +109,7 @@ public:
      *
      * 例题
      * luogu P3387 P2341 P2812
-     * CF999E CF1213 CF1547G
+     * CF999E CF1213 CF1547G CF22E
      */
     void scc(int n, vector<vector<int>>& graph, vector<int>& weight, vector<vector<int>>& edges) {
         int dfn[N] = {0}, low[N], color[N], onSta[N] = {0}, nw[N] = {0};

@@ -1,7 +1,12 @@
+/**
+ * @Time : 2025/1/26-10:25 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3435 贪心 状态压缩 暴力枚举 拓扑排序 卡常需要翻译为java才能通过
+ */
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
@@ -77,6 +82,7 @@ public:
                     queue.push(w);
             }
         }
+        // 没有环的条件就是 拓扑排序访问过的结点数 == 只出现一次的字母数量
         return cnt == arr.size() - __builtin_popcount(s);
     }
 
@@ -99,15 +105,88 @@ public:
             mp[arr[i] - 'a'] = i;
     }
 };
-
-int main() {
-    vector<int> arr1 = {-1};
-    vector<ll> arr2 = {5,3,1,0};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa","ac"};
-    vector<vector<int>> arr4 = {{3,0,5},{3,1,6},{2,3,5}};
-//    vector<vector<int>> arr4 = {{1,0,8}};
-    Solution s;
-    s.supersequences(arr5);
-}
+//
+//class Solution {
+//    int n;
+//    List<Character> arr;
+//    int[] mp = new int[26];
+//
+//public List<List<Integer>> supersequences(String[] words) {
+//        init(words);
+//        this.n = arr.size();
+//        int full = (1 << n) - 1, cnt = Integer.MAX_VALUE;
+//        List<List<Integer>> ans = new ArrayList<>();
+//
+//        for (int s = 0; s <= full; s++) {
+//            int cc = Integer.bitCount(s);
+//            if (cc > cnt) continue;
+//            if (!check(s, words)) continue;
+//            List<Integer> temp = makeSeq(s);
+//            if (cnt > cc) {
+//                cnt = cc;
+//                ans.clear();
+//            }
+//            ans.add(temp);
+//        }
+//
+//        return ans;
+//    }
+//
+//private boolean check(int s, String[] words) {
+//        int[] degree = new int[n];
+//        List<List<Integer>> graph = new ArrayList<>(n);
+//        for (int i = 0; i < n; i++) {
+//            graph.add(new ArrayList<>());
+//        }
+//
+//        for (String word : words) {
+//            int c1 = mp[word.charAt(0) - 'a'], c2 = mp[word.charAt(1) - 'a'];
+//            int t1 = (1 << c1) & s, t2 = (1 << c2) & s;
+//            if (t1 != 0 || t2 != 0) continue;
+//            graph.get(c1).add(c2);
+//            degree[c2]++;
+//        }
+//
+//        Queue<Integer> queue = new LinkedList<>();
+//        for (char c : arr) {
+//            int j = mp[c - 'a'], t = (1 << j) & s;
+//            if (t == 0 && degree[j] == 0) queue.add(j);
+//        }
+//
+//        int cnt = 0;
+//        while (!queue.isEmpty()) {
+//            int v = queue.poll();
+//            cnt++;
+//            for (int w : graph.get(v)) {
+//                if (--degree[w] == 0) {
+//                    queue.add(w);
+//                }
+//            }
+//        }
+//
+//        return cnt == arr.size() - Integer.bitCount(s);
+//    }
+//
+//private List<Integer> makeSeq(int s) {
+//        List<Integer> cnt = new ArrayList<>(Collections.nCopies(26, 0));
+//        for (int i = 0; i < n; i++) {
+//            int idx = arr.get(i) - 'a';
+//            if (((1 << i) & s) > 0) cnt.set(idx, 2);
+//            else cnt.set(idx, 1);
+//        }
+//        return cnt;
+//    }
+//
+//private void init(String[] words) {
+//        arr = new ArrayList<>();
+//        for (String word : words) {
+//            arr.add(word.charAt(0));
+//            arr.add(word.charAt(1));
+//        }
+//        Collections.sort(arr);
+//        arr = new ArrayList<>(new HashSet<>(arr)); // Remove duplicates
+//        for (int i = 0; i < arr.size(); i++) {
+//            mp[arr.get(i) - 'a'] = i;
+//        }
+//    }
+//}
