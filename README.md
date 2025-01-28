@@ -346,3 +346,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF18E 2000 动态规划 暴力枚举
   * LC3434 暴力枚举 前后缀分解
   * LC3435 贪心 状态压缩 暴力枚举 拓扑排序
+* 2025-01-27
+  * CF22E 2300 图论 tarjan 有向图中的缩点scc
+  * CF22D 1900 贪心
+  * CF22C 1700 构造
+  * CF22B 1500 暴力枚举
+  * CF25E 2200 字符串 z函数 暴力枚举
