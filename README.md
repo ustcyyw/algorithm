@@ -352,3 +352,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF22C 1700 构造
   * CF22B 1500 暴力枚举
   * CF25E 2200 字符串 z函数 暴力枚举
+* 2025-01-28
+  * LC3303 字符串 字符串hash
+  * LC3302 字符串 前后缀分解 贪心 暴力枚举
+  * CF25D 1900 并查集
+  * CF25C 1900 图论 最短路 floyd 动态加边
+  * CF448D 1800 二分查找

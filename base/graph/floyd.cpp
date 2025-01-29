@@ -93,7 +93,7 @@ public:
             }
         }
     }
-
+    // 添加有向边
     void addEdge(vector<int> edge) {
         int v = edge[0], w = edge[1], cost = edge[2];
         if(dis[v][w] <=  cost) return;
