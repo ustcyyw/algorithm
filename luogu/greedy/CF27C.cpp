@@ -1,10 +1,18 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/29-9:29 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF27C 1900 贪心 前后缀分解
  */
+ /*
+  * 非有序序列 也就是得在递增和递减之间至少切换一次 要求最短序列
+  * 那么就没必要切换多次 切换一次即可
+  * 以递增切换递减为例 只要能找到一个非有序序列 那么其最小长度一定为3
+  * 如果长度大于3 而且是递增切换递减的序列 那么一定存在一个最大值 并且这个最大值不是第一个、最后一个元素
+  * 只要保留这个最大值 两边各取一个更小的元素即可
+  * 因此进行前后缀分解 找前缀和后缀的最小值 枚举中间值即可
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

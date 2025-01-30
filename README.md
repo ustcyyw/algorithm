@@ -358,3 +358,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF25D 1900 并查集
   * CF25C 1900 图论 最短路 floyd 动态加边
   * CF448D 1800 二分查找
+* 2025-01-29
+  * CF1290B 1800 构造 猜结论 参考了答案
+  * CF1721D 1800 位运算 贪心 试填法
+  * CF27C 1900 贪心 前后缀分解
