@@ -1,10 +1,21 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/1/30-11:26 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : 
  */
+ /*
+  * 对于某个数 num 其因子个数取决于其质因子构成
+  * 假设其有m个质因子构成 每个质因子分别出现了 c1,c2...cm次
+  * 那么其因子的个数为 (c1 + 1) * (c2 + 1) * ... * (cm + 1)
+  *
+  * 本题给出了因子个数n
+  * n = (c1 + 1) * (c2 + 1) * ... * (cm + 1)
+  * 所以将n表示为多个大于1的数相乘的形式
+  * 某一组乘法形式 就对应了一种质因子构成（质因子的种类数、每种出现了几次）
+  * 然后用贪心的思路 让小的质因子出现更多的次数
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

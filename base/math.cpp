@@ -135,8 +135,8 @@ int get_mod(int l, int r) {
 }
 
 /*
- * 分解质因数 通过Pollard-Rho算法实现
- * 下面的模版是只提取出不同的质因子
+ * Pollard-Rho算法
+ * 快速分解质因数 下面的模版是只提取出不同的质因子
  */
 ll bmul(ll a, ll b, ll m) {  // 快速乘
     ull c = (ull) a * (ull) b - (ull) ((long double) a / m * b + 0.5L) * (ull) m;
@@ -212,20 +212,26 @@ vector<ll> get_prime_factor(ll num) {
     fac(set, ans, num);
     return ans;
 }
+/*
+ * ******************** Pollard-Rho算法 end
+ */
 
-ll cal(vector<ll> &f, ll total) {
-    ll ans = 0;
-    int n = f.size(), u = (1 << n) - 1;
-    for (int s = 1; s <= u; s++) {
-        ll num = 1, cnt = 0;
-        for (int j = 0; j < n; j++) {
-            if ((1 << j) & s)
-                num *= f[j], cnt++;
-        }
-        ll temp = total / num;
-        if (cnt % 2 == 1) ans = (ans + temp) % mod;
-        else ans = (ans - temp + mod) % mod;
+/*
+ * 将一个数分解成 多个大于1的数相乘的形式 会包括其自身那个解
+ * 需要预处理数的因子 divisors[num]
+ */
+void dfs(vector<vector<int>>& fac, vector<vector<int>>& divisors, vector<int>& arr, int num) {
+    if(num == 1) {
+        vector<int> temp = arr;
+        fac.push_back(temp);
+        return;
     }
-    return ans;
+    int pre = arr.empty() ? -1 : arr.back();
+    for(int d : divisors[num]) {
+        if(d == 1 || d < pre) continue;
+        if(num / d < d && num / d != 1) continue;
+        arr.push_back(d);
+        dfs(fac, divisors, arr, num / d);
+        arr.pop_back();
+    }
 }
-

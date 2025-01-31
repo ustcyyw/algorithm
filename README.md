@@ -362,3 +362,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF1290B 1800 构造 猜结论 参考了答案
   * CF1721D 1800 位运算 贪心 试填法
   * CF27C 1900 贪心 前后缀分解
+* 2025-01-30
+  * P4782 图论 2-sat
+  * CF27D 2200 图论 2-sat
+  * CF27B 1300 图论 dfs
+  * CF27E 2000 数学 数论 暴力枚举 贪心
