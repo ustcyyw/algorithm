@@ -367,3 +367,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF27D 2200 图论 2-sat
   * CF27B 1300 图论 dfs
   * CF27E 2000 数学 数论 暴力枚举 贪心
+* 2025-01-31
+  * CF29E 2400 动态规划 bfs 参考了答案状态定义
+  * CF29D 2000 倍增 lca 模拟
+  * CF29C 模拟 dfs
+  * LC3292 字符串哈希 动态规划 二分 贪心
+  * LC3290 动态规划

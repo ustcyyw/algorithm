@@ -1,3 +1,10 @@
+/**
+ * @Time : 2025/1/31-11:24 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3290 动态规划
+ */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -18,14 +25,3 @@ public:
         return dp[n][4];
     }
 };
-
-int main() {
-    vector<int> arr1 = {-1};
-    vector<ll> arr2 = {5,3,1,0};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa","ac"};
-    vector<vector<int>> arr4 = {{3,0,5},{3,1,6},{2,3,5}};
-//    vector<vector<int>> arr4 = {{1,0,8}};
-    Solution s;
-}
