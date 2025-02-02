@@ -373,3 +373,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF29C 模拟 dfs
   * LC3292 字符串哈希 动态规划 二分 贪心
   * LC3290 动态规划
+* 2025-02-01
+  * CF31E 2400 分治 状态压缩
+  * CF31D 2000 模拟
