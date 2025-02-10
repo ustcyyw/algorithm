@@ -376,3 +376,7 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-02-01
   * CF31E 2400 分治 状态压缩
   * CF31D 2000 模拟
+* 2025-02-02
+  * LC3444 动态规划 状态压缩
+  * LC3445 暴力枚举 思维
+  * CF31C 1700 线段树
