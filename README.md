@@ -380,3 +380,8 @@ solve problems in leetcode, codeforce, atcoder
   * LC3444 动态规划 状态压缩
   * LC3445 暴力枚举 思维
   * CF31C 1700 线段树
+* 2025-02-11
+  * CF2065C2 贪心
+  * CF2065D 贪心
+  * CF2065E 构造 猜结论
+  * CF2065F 思维题
