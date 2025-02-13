@@ -385,3 +385,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2065D 贪心
   * CF2065E 构造 猜结论
   * CF2065F 思维题
+* 2025-02-12
+  * CF2065H 动态规划 数学 线段树
+  * CF2065G 数学 数论
