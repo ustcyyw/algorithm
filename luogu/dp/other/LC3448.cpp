@@ -1,3 +1,14 @@
+/**
+ * @Time : 2025/2/13-9:05 PM
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3448 动态规划 余数相关
+ */
+ /*
+  * 枚举结尾的数字x
+  * dp[i][j]：以i为末尾位置 余数为j的子串的数目
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -15,7 +26,7 @@ public:
                 int num = s[i - 1] - '0';
                 for(int j = 0; j < m; j++)
                     dp[i][(j * 10 + num) % m] += dp[i - 1][j];
-                dp[i][num % m] += 1;
+                dp[i][num % m] += 1; // 当前字符作为子串开头
                 if(num == m) ans += dp[i][0];
             }
         };
@@ -24,14 +35,3 @@ public:
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {8,10,9};
-    vector<int> arr2 = {10,6,6};
-    vector<int> arr3 = {1, 2, 3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa","ac"};
-    vector<vector<int>> arr4 = {{3,0,5},{3,1,6},{2,3,5}};
-//    vector<vector<int>> arr4 = {{1,0,8}};
-    Solution s;
-}

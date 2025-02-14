@@ -388,3 +388,9 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-02-12
   * CF2065H 动态规划 数学 线段树
   * CF2065G 数学 数论
+* 2025-02-13
+  * ABC215F 1853 二分答案 双指针
+  * LC3449 二分答案 贪心
+  * LC3448 动态规划 余数相关
+  * CF616C 1600 dfs
+  * CF616D 1600 滑动窗口
