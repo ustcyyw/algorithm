@@ -394,3 +394,7 @@ solve problems in leetcode, codeforce, atcoder
   * LC3448 动态规划 余数相关
   * CF616C 1600 dfs
   * CF616D 1600 滑动窗口
+* 2025-02-14
+  * CF616E 2200 数学 数论
+  * CF665C 1300 动态规划
+  * CF665B 1400 暴力枚举 模拟

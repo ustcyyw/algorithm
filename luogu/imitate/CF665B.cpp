@@ -1,10 +1,13 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/14-11:31 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF665B 1400 暴力枚举 模拟
  */
+ /*
+  * 数据量很小 直接暴力模拟
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
