@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/16-12:26 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : F665E 2100 位运算 trie树
  */
- /*
+/*
   * 假设k是 0010110 截止到当前位置的xor值为x 前置位置的xor值为y
   * 令v = x ^ y >= k, 那么v
   * 可能是1开头的任何一个数
@@ -62,7 +62,7 @@ int main() {
     while(T--) {
         cin >> n >> k;
         int m = 0;
-        aux[0][0] = k, aux[0][1] = -1;
+        aux[0][0] = k, aux[0][1] = -1; // 预处理所有
         for(int i = D - 1; i >= 0; i--) {
             int t = 1 << i;
             if((k & t) == 0) {

@@ -398,3 +398,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF616E 2200 数学 数论
   * CF665C 1300 动态规划
   * CF665B 1400 暴力枚举 模拟
+* 2025-02-15
+  * CF665A 1600 暴力枚举 模拟
+  * CF665D 1800 数学 数论 分类讨论
+  * CF1971E 1500 二分查找 sb卡精度题
+  * CF665E 2100 位运算 trie树
