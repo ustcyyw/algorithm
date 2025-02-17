@@ -403,3 +403,11 @@ solve problems in leetcode, codeforce, atcoder
   * CF665D 1800 数学 数论 分类讨论
   * CF1971E 1500 二分查找 sb卡精度题
   * CF665E 2100 位运算 trie树
+* 2025-02-16
+  * LC3459 动态规划 暴力枚举
+  * LC3458 动态规划
+  * LC3457 贪心
+  * LC3455 kmp 双指针 分类讨论
+  * CF678E 2200 动态规律 状态压缩 概率型dp 参考了答案
+  * CF678D 1700 数学 找规律 快速幂
+  * CF678C 1600 贪心 数学
