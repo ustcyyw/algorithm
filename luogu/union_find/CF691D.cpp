@@ -1,10 +1,14 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/17-10:50 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF691D 1700 并查集 贪心
  */
+ /*
+  * 给定的m个交换位置 就是一种等价关系 在同一个连通分量（等价关系）中 数可以任意换位置
+  * 将大的换到前面即可
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

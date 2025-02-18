@@ -19,6 +19,21 @@ public:
     }
 };
 
+/*
+ * 快读模版
+ * @return
+ */
+#define getchar()(p1==p2&&(p2=(p1=buf)+fread(buf,1,1<<21,stdin),p1==p2)?EOF:*p1++)
+char buf[1<<21],*p1=buf,*p2=buf;
+inline int read()
+{
+    char c=getchar();int x=0;bool f=0;
+    for(;!isdigit(c);c=getchar())f^=!(c^45);
+    for(;isdigit(c);c=getchar())x=(x<<1)+(x<<3)+(c^48);
+    if(f)x=-x;return x;
+}
+// n = read(), arr[i] = read()
+
 int main(){
     Solution s;
     
