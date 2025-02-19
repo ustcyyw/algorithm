@@ -416,3 +416,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF691F 2200 数学 调和级数 差分算法 （卡常！一定要用快读）
   * CF691E 1900 动态规划 数学 矩阵快速幂 看了一眼提示
   * CF691D 1700 并查集 贪心
+* 2025-02-18
+  * CF652E 2300 tarjan 边双连通分量缩点 （sb题目有重边但没说）
