@@ -418,3 +418,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF691D 1700 并查集 贪心
 * 2025-02-18
   * CF652E 2300 tarjan 边双连通分量缩点 （sb题目有重边但没说）
+* 2025-02-19
+  * CF710D 2500 数学 数论 扩展欧几里得exgcd （cpp溢出 改用python处理了）
+  * CF710E 2000 动态规划
+  * CF710B 1400 贪心 中位数贪心

@@ -54,6 +54,33 @@ ll A(int n, int a) {
     return x[n] * invF[n - a] % mod;
 }
 
+/*
+ * 数论 Diophantine 方程，利用扩展欧几里得定律
+ *
+ * 形如 A * c1 + B * c2 = a 的方程为线性 Diophantine 方程
+ * 要求解c1和c2，方程有解必须满足 a % g = 0, g = gcd(A,B)
+ * 将方程转换为 c1 * A / g + c2 * B / g = a / g
+ * 整理形式 c1 / g * A + c2 / g * B = a / g
+ *
+ * 扩展欧几里得算法求 gcd(A,B)，还可以得出一组系数x和y使得
+ * Ax + By = gcd(A,B)
+ * 于是通过扩展欧几里得算法得出一组解 x0, y0 后
+ * x0 * A + y0 * B = g
+ * x0 / g * A + y0 / g * B = 1
+ * 所以 c1 * g / a = x0, c2 * g / a = y0 就是c1和c2的一组特解
+ * c1 = a * x0 / g, c2 = a * y0 / g
+ */
+// 扩展欧几里得算法求x0和y0
+int exgcd(int a, int b, int& x, int& y) {
+    if (!b) {
+        x = 1, y = 0;
+        return a;
+    }
+    ll d = exgcd(b, a % b, y, x);
+    y -= a / b * x;
+    return d;
+}
+
 // 排列组合方法、公式
 /*
  * 隔板法
