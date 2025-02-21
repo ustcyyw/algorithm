@@ -422,3 +422,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF710D 2500 数学 数论 扩展欧几里得exgcd （cpp溢出 改用python处理了）
   * CF710E 2000 动态规划
   * CF710B 1400 贪心 中位数贪心
+* 2025-02-20
+  * CF710C 1500 构造
+  * CF1045G 2200 cdq分治 和CF762E是完全一样的题
+  * CF762C 2100 前后缀分解 双指针
+  * CF762B 1400 贪心 模拟
+  * CF762A 1400 数学 数论

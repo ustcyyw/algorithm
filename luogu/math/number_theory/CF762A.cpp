@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/20-10:38 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF762A 1400 数学 数论
  */
 #include<bits/stdc++.h>
 using namespace std;
@@ -24,7 +24,7 @@ ll solve() {
         nums.pop_back();
     }
     if(k > total) return -1;
-    if((ll)sqrt(n) * sqrt(n) == n) k--;
+    if((ll)sqrt(n) * sqrt(n) == n) k--; // 排除平方数的影响 剩下的因子都是成对出现了
     k -= nums.size();
     return n / nums[nums.size() - k];
 }
