@@ -1,16 +1,16 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/21-10:10 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF797E 2000 根号分治
  */
- /*
-  * k < 4e2
-  * p = p + a[p] + k 动态规划预处理
-  *
-  * k > 4e2 直接计算 最多跳 1e5/4e2 = 250 次
-  */
+/*
+ * k < 4e2
+ * p = p + a[p] + k 动态规划预处理
+ *
+ * k > 4e2 直接计算 最多跳 1e5/4e2 = 250 次
+ */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

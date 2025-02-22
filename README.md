@@ -428,3 +428,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF762C 2100 前后缀分解 双指针
   * CF762B 1400 贪心 模拟
   * CF762A 1400 数学 数论
+* 2025-02-21
+  * CF1316C 1800 数学 猜结论 （看答案学习）
+  * CF797D 2100 思维题 启发式合并
+  * CF797E 2000 根号分治
