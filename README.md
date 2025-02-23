@@ -432,3 +432,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1316C 1800 数学 猜结论 （看答案学习）
   * CF797D 2100 思维题 启发式合并
   * CF797E 2000 根号分治
+* 2025-02-22
+  * CF797C 1700 贪心 模拟
+  * CF797B 1400 贪心 数学
+  * CF792B 1300 模拟
