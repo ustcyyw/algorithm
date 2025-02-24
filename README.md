@@ -436,3 +436,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF797C 1700 贪心 模拟
   * CF797B 1400 贪心 数学
   * CF792B 1300 模拟
+* 2025-02-23
+  * CF792D 1900 dfs 找规律
+  * CF792C 2000 动态规划 刷表
+  * CF792E 2500 数学 数论 找规律 （参考了答案）
