@@ -1,10 +1,15 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/24-11:27 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF803E 2000 动态规划 （披着构造算法皮的dp）
  */
+ /*
+  * dp[i][j]截止i位置l, w的差值为j是否可能
+  * diff = cl - cw 最大为k，最小为-k, 统一加上k，diff的范围为2k, 0
+  * infos[i][j]记录状态转移 通过前后两个j的值就能确定当前字符是l、w、d中的哪个
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -17,6 +22,7 @@ string solve() {
     dp[0][k] = 1;
     for(int i = 1; i <= n; i++) {
         char c = s[i];
+        // 除了最后一个位置 其余位置 abs(cl - cw) < k
         int up = i == n ? 2 * k : 2 * k - 1, down = i == n ? 0 : 1;
         for(int j = down; j <= up; j++) {
             if((c == 'L' || c == '?') && j - 1 >= 0 && dp[i - 1][j - 1])

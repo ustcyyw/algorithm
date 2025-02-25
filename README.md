@@ -440,3 +440,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF792D 1900 dfs 找规律
   * CF792C 2000 动态规划 刷表
   * CF792E 2500 数学 数论 找规律 （参考了答案）
+* 2025-02-24
+  * CF803G 2300 数据结构 动态开点线段树 st表
+  * CF803E 2000 动态规划 （披着构造算法皮的dp）
