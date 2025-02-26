@@ -1,10 +1,23 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/25-10:24 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF803F 2000 数学 调和级数 组合数学
  */
+/*
+  * 令 f(x): gcd为x的倍数的子序列数目; g(x): gcd = x的子序列数目
+  * 要求的答案就是 g(1) = f(1) - g(2) - g(3) ... g(v), v是最大值
+  *
+  * g(2) = f(2) - g(4) - g(6) - ... 上边界是g(v)
+  * g(3) = f(3) - g(6) - g(9) - ... 上边界是g(v)
+  * 所以计算g(x)所需的计算次数是 v / x
+  * 计算所有g(x)所需的计算次数是 v * (1 + 1 / 2 + 1 / 3 + ... + 1 / v) = v * logv
+  * （调和级数求和）
+  *
+  * 计算f(x): 找到x的倍数的所有数 这些数任选 他们的gcd都是x的倍数
+  * 假设有cx个数 那么非空序列就有 2 ^ cx - 1 个
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
