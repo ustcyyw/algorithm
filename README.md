@@ -449,3 +449,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF803A 1400 构造 贪心
   * CF803B 1200 模拟
   * CF803F 2000 数学 调和级数 组合数学 (参考答案学习)
+* 2025-02-26
+  * CF2072G 2148 数学 数论 找规律
+  * CF2072D 1270 暴力枚举
+  * CF2072E 1495 构造 二分
