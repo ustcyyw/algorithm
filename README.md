@@ -453,3 +453,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF2072G 2148 数学 数论 找规律
   * CF2072D 1270 暴力枚举
   * CF2072E 1495 构造 二分
+* 2025-02-27
+  * CF2072F 1687 构造 找规律
+  * CF808E 2300 思维 贪心 （参考答案学习）
+  * CF817F 2300 线段树 lazy-tag

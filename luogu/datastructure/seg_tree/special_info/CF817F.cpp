@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/2/28-8:31 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF817F 2300 线段树 lazy-tag
  */
 /*
  * 操作1 区间上没有的数都添加进去 相当于这个区间上所有数都存在了 标记为1
