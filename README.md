@@ -457,3 +457,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF2072F 1687 构造 找规律
   * CF808E 2300 思维 贪心 （参考答案学习）
   * CF817F 2300 线段树 lazy-tag
+* 2025-02-28
+  * CF818F 2100 贪心 二分答案
+  * CF818C 2000 双指针
+  * CF818B 1600 模拟
