@@ -163,7 +163,7 @@ int get_mod(int l, int r) {
 
 /*
  * Pollard-Rho算法
- * 快速分解质因数 下面的模版是只提取出不同的质因子
+ * 在所求的数很大时 快速分解质因数 可以得到所有质因数
  */
 ll bmul(ll a, ll b, ll m) {  // 快速乘
     ull c = (ull) a * (ull) b - (ull) ((long double) a / m * b + 0.5L) * (ull) m;
@@ -219,29 +219,43 @@ ll Pollard_Rho(ll x) {
     }
 }
 
-void fac(set<ll>& st, vector<ll>& ans, ll x) {
-    if(x == 1) return;
-    if (Miller_Rabin(x)) {
-        if(!st.count(x))
-            ans.push_back(x), st.insert(x);
-        return;
+// 质因数分解
+vector<ll> factor(ll n) {
+    vector<ll> factors;
+    if (n == 1) return factors;
+    if (Miller_Rabin(n)) {
+        factors.push_back(n);
+        return factors;
     }
-    ll p = x;
-    while (p >= x) p = Pollard_Rho(x);
-    while ((x % p) == 0) x /= p;
-    fac(st, ans, x), fac(st, ans, p);
+    ll d = Pollard_Rho(n);
+    vector<ll> left = factor(d), right = factor(n / d);
+    factors.insert(factors.end(), left.begin(), left.end());
+    factors.insert(factors.end(), right.begin(), right.end());
+    return factors;
 }
 
-vector<ll> get_prime_factor(ll num) {
-    srand((unsigned) time(NULL));
-    set < ll > set;
-    vector<ll> ans;
-    fac(set, ans, num);
-    return ans;
+vector<ll> get_factor(int num) {
+    srand((unsigned) time(NULL)); // 必须的
+    return factor(num);
 }
 /*
  * ******************** Pollard-Rho算法 end
  */
+
+/*
+ * 一个分解较小的数的质因子的方法
+ */
+multiset<int> get_factor2(int num) {
+    multiset<int> st;
+    for(int i = 2; i <= sqrt(num); i++) {
+        while(num % i == 0) {
+            st.insert(i);
+            num /= i;
+        }
+    }
+    if(num > 1) st.insert(num);
+    return st;
+}
 
 /*
  * 将一个数分解成 多个大于1的数相乘的形式 会包括其自身那个解

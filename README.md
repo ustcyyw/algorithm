@@ -461,3 +461,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF818F 2100 贪心 二分答案
   * CF818C 2000 双指针
   * CF818B 1600 模拟
+* 2025-03-01
+  * CF828E 1900 滑动窗口 数学
