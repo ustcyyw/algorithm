@@ -463,3 +463,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF818B 1600 模拟
 * 2025-03-01
   * CF828E 1900 滑动窗口 数学
+* 2025-03-02
+  * CF818D 1700 模拟
+  * CF837F 2400 分治思想（分类讨论） 二分答案 矩阵快速幂
+  * CF837B 1600 模拟
+  * CF837E 2100 数学 数论 dfs

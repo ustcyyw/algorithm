@@ -58,7 +58,7 @@ vector<vector<ll>> matrixMul(vector<vector<ll>>& A, vector<vector<ll>>& B){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++){
             for(int k = 0; k < K; k++)
-                ans[i][j] = (int)(((long)ans[i][j] + (A[i][k] * B[k][j])) % mod);
+                ans[i][j] = (ans[i][j] + (A[i][k] * B[k][j])) % mod;
         }
     }
     return ans;
