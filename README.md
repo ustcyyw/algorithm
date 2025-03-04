@@ -468,3 +468,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF837F 2400 分治思想（分类讨论） 二分答案 矩阵快速幂
   * CF837B 1600 模拟
   * CF837E 2100 数学 数论 dfs
+* 2025-03-03
+  * CF825F 2400 动态规划 字符串双hash 调和级数
+  * CF825E 2300 逆向思维 拓扑排序 贪心（看答案学习）

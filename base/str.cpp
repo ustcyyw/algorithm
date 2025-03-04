@@ -58,30 +58,34 @@ ull str_hash_code(string &s) {
 
 /*
  * 双hash 注意数据类型选用ll
+ * 注意模版中s的有效下标从1开始 所以在init_hash函数中第二行在开头位置添加'.'
  */
 const int N = 1e5 + 5;
-int p[2] = {29, 31};
-int mod[2] = {int(1e9 + 9), 998244353};
+const ull B1 = 131, P1 = 1e9 + 7;      // 第一个哈希参数
+const ull B2 = 29, P2 = 998244353;  // 第二个哈希参数
 
-void str_hash2(string &s) {
+ull H1[N], H2[N];  // 哈希值
+ull P1_pow[N], P2_pow[N];  // 幂次表
+
+void init_hash(string& s) {
     int n = s.size();
-    vector<vector<ll>> h(2, vector(n + 1, 0ll)), x(2, vector(n + 1, 0ll));
-    x[0][0] = x[1][0] = 1;
-    for(int k = 0; k < 2; k++) {
-        for (int i = 1; i <= n; i++) {
-            h[k][i] = (1ll * h[k][i - 1] * p[k] + s[i - 1]) % mod[k];
-            x[k][i] = 1ll * x[k][i - 1] * p[k] % mod[k];
-        }
+    s = '.' + s;
+    P1_pow[0] = P2_pow[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        P1_pow[i] = P1_pow[i - 1] * B1 % P1;
+        P2_pow[i] = P2_pow[i - 1] * B2 % P2;
+    }
+    for (int i = 1; i <= n; i++) {
+        H1[i] = (H1[i - 1] * B1 + s[i]) % P1;
+        H2[i] = (H2[i - 1] * B2 + s[i]) % P2;
     }
 }
 
-ll get_hash2(vector<vector<ll>> &h, vector<vector<ll>> &x, int l, int r) {
-    vector<ll> res(2, 0);
-    for (int k = 0; k < 2; k++) {
-        ll t = (h[k][r + 1] - 1ll * h[k][l] * x[k][r - l + 1]) % mod[k];
-        res[k] = (t + mod[k]) % mod[k];
-    }
-    return 1ll * res[0] * 1e6 + res[1];
+// 获取子串 [l, r] 的哈希值
+pair<ull, ull> get_hash(int l, int r) {
+    ull hash1 = (H1[r] - H1[l - 1] * P1_pow[r - l + 1] % P1 + P1) % P1;
+    ull hash2 = (H2[r] - H2[l - 1] * P2_pow[r - l + 1] % P2 + P2) % P2;
+    return {hash1, hash2};
 }
 
 /*
