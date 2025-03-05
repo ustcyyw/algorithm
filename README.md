@@ -471,3 +471,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-03-03
   * CF825F 2400 动态规划 字符串双hash 调和级数
   * CF825E 2300 逆向思维 拓扑排序 贪心（看答案学习）
+* 2025-03-04
+  * CF825C 1600 模拟 贪心
+  * CF825D 1500 贪心

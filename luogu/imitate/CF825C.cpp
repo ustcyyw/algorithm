@@ -1,31 +1,27 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/4-12:50 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF825C 1600 模拟 贪心
  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 const int N = 1e5 + 5, P = 13331;
-ll n, a[N], b[N], edges[N][2];
-
-bool solve() {
-
-}
+ll n, k, nums[N];
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0), cout.tie(0); // 加速cin, cout
-    cin >> n;
+    cin >> n >> k;
     for(int i = 1; i <= n; i++)
-        cin >> b[i];
-    for(int i = 1; i <= n; i++)
-        cin >> a[i];
-    for(int j = 2, x, k; j <= n; j++) {
-        cin >> x >> k;
-        edges[j][0] = x, edges[j][1] = k;
+        cin >> nums[i];
+    sort(nums, nums + n + 1);
+    int cnt = 0;
+    for(int i = 1; i <= n; ) {
+        if(2 * k >= nums[i]) k = max(k, nums[i]), i++;
+        else cnt++, k *= 2;
     }
-    cout << (solve() ? "YES" : "NO") << "\n";
+    cout << cnt << "\n";
 }
