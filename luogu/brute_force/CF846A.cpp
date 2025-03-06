@@ -1,13 +1,10 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/5-9:51 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF846A 1500 暴力枚举 前缀和
  */
- /*
-  * 暴力枚举0和1部分的分界线 左边必须都是0 右边必须都是1
-  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
