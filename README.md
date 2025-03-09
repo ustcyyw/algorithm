@@ -480,3 +480,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF846C 1800 前缀和 前后缀分解
   * CF846B 1800 暴力枚举 贪心
   * CF846A 1500 暴力枚举 前缀和
+* 2025-03-06
+  * CF159D 1500 暴力枚举
+  * CF835D 1900 动态规划
+* 2025-03-09
+  * CF835C 1600 前缀和
