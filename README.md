@@ -485,3 +485,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF835D 1900 动态规划
 * 2025-03-09
   * CF835C 1600 前缀和
+  * CF159E 1700 贪心 排序 暴力枚举
+  * CF159C 1400 数据结构 线段树 二分查找
