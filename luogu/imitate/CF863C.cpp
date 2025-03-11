@@ -1,10 +1,15 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/10-9:55 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF863C 1800 模拟
  */
+ /*
+  * 选的点数的情况一共只有9种 按选数规则很快就会出现循环
+  * 找到循环的起点，计算一次循环的得分情况
+  * 中间部分是多次循环，再计算一头一尾就出答案
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
