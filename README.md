@@ -492,3 +492,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF863D 1800 正难则反 模拟
   * CF863B 1500 暴力枚举
   * CF863C 1800 模拟
+* 2025-03-11
+  * CF212E 1500 时间复杂度分析 背包dp
+  * CF212D 2500 贡献法 单调栈 数学 差分算法
+  * CF873C 1600 贪心 前缀和
