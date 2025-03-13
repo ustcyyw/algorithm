@@ -496,3 +496,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF212E 1500 时间复杂度分析 背包dp
   * CF212D 2500 贡献法 单调栈 数学 差分算法
   * CF873C 1600 贪心 前缀和
+* 2025-03-12
+  * CF2074D 1461 暴力枚举 数学 几何
+  * CF2074F 2061 数学 找规律 位运算
