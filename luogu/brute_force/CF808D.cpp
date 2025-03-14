@@ -1,10 +1,13 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/13-11:28 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF808D 1900 暴力枚举
  */
+ /*
+  * 枚举不调整前的分割线 然后看左边和右边有没有元素调整之后让两边相等
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

@@ -499,3 +499,7 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-03-12
   * CF2074D 1461 暴力枚举 数学 几何
   * CF2074F 2061 数学 找规律 位运算
+* 2025-03-13
+  * CF145C 2100 动态规划 数学 组合数学
+  * CF150B 1600 并查集
+  * CF808D 1900 暴力枚举
