@@ -503,3 +503,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF145C 2100 动态规划 数学 组合数学
   * CF150B 1600 并查集
   * CF808D 1900 暴力枚举
+* 2025-03-14
+  * CF557E 2300 trie树 递归
+  * CF557C 1900 离线思维 暴力枚举 排序
+  * CF557B 1500 贪心 模拟
