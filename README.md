@@ -507,3 +507,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF557E 2300 trie树 递归
   * CF557C 1900 离线思维 暴力枚举 排序
   * CF557B 1500 贪心 模拟
+* 2025-03-15
+  * ABC397D 数学 数论 暴力枚举
+  * ABC397E dfs 找结论
+  * CF557D 2000 dfs trick 分类讨论

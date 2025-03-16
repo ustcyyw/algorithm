@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/15-11:49 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF557D 2000 dfs trick 分类讨论
  */
- /*
+/*
   * trick : 用黑白染色法确定无向图中是否有奇数环 偶数环
   * 在dfs的时候 给结点按dfs的访问顺序重新编号
   * 当遇到已访问的结点时 当前结点和那个已访问的结点如果编号奇偶相同 则这是一个奇数个结点的环
