@@ -511,3 +511,7 @@ solve problems in leetcode, codeforce, atcoder
   * ABC397D 数学 数论 暴力枚举
   * ABC397E dfs 找结论
   * CF557D 2000 dfs trick 分类讨论
+* 2025-03-16
+  * P3812 线性基 模版
+  * P4570 线性基 贪心
+  * CF808C 1400 构造算法
