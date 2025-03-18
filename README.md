@@ -515,3 +515,8 @@ solve problems in leetcode, codeforce, atcoder
   * P3812 线性基 模版
   * P4570 线性基 贪心
   * CF808C 1400 构造算法
+* 2025-03-17
+  * P3857 线性基
+  * CF845G 2300 线性基 trick （看答案学习） 和P4151同一个题
+  * CF845D 1800 模拟 栈
+  * CF845C 1500 差分 离散化

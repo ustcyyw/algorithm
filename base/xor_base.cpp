@@ -19,6 +19,8 @@
   * 例题
   * P3812 求异或最大值
   * P4570 对线性基概念 一般方法求线性基的理解
+  * P3578 线性基一共可以表示出多少个异或值
+  * CF845G/P4151 给定一个初始的数initV 求集合a中选数 与initV能异或出的最大值/最小值
   */
 #include<bits/stdc++.h>
 using namespace std;
@@ -42,6 +44,7 @@ ll basis[M + 1], zero = 0;
  * 应用
  * 1. 集合a中选数 能异或出的值的个数，2 ^ cnt - 1, cnt是线性基的个数
  * 2. 集合a中选数 能异或出的最大值
+ * 3. 给定一个初始的数initV 求集合a中选数 与initV能异或出的最大值/最小值
  * 从线性基的高位开始遍历基，将结果val与当前基异或 temp = val ^ basis[i]， 取val = max(val, temp)
  */
 void init1(vector<ll>& a) {
