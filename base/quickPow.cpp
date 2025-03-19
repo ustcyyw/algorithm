@@ -58,12 +58,12 @@ vector<vector<ll>> matrixMul(vector<vector<ll>>& A, vector<vector<ll>>& B){
     for(int i = 0; i < N; i++){
         for(int j = 0; j < M; j++){
             for(int k = 0; k < K; k++)
-                ans[i][j] = (ans[i][j] + (A[i][k] * B[k][j])) % mod;
+                ans[i][j] = (ans[i][j] + (A[i][k] * B[k][j]) % mod) % mod;
         }
     }
     return ans;
 }
-vector<vector<ll>> quickPower(vector<vector<ll>>& a, int b){
+vector<vector<ll>> quickPower(vector<vector<ll>>& a, ll b){
     int n = a.size(); // 能进行快速幂的矩阵 是一个方阵
     vector<vector<ll>> ans(n, vector(n, 0ll));
     for(int i = 0; i < n; i++)

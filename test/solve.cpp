@@ -55,20 +55,5 @@ int main() {
     vector<string> arr5 = {"aa","ac"};
     vector<vector<int>> arr4 = {{1,2,2,2,2},{2,2,2,2,0},{2,0,0,0,0},{0,0,2,2,2},{2,0,0,2,0}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
-    vector<vector<ll>> base = {{1, 1, 1, 1, 1, 1, 1},
-                               {0, 1, 1, 1, 1, 1, 1},
-                               {0, 0, 1, 1, 1, 1, 1},
-                               {0, 0, 0, 1, 1, 1, 1},
-                               {0, 0, 0, 0, 1, 1, 1},
-                               {0, 0, 0, 0, 0, 1, 1},
-                               {0, 0, 0, 0, 0, 0, 1}};
-    vector<vector<ll>> t = base;
-    for(int i = 1; i <= 2000000; i++) {
-        t = matrixMul(t, base);
-        cout << t[0][5] << "\n";
-        if(t[0][5] > 1e18) {
-            cout << i << "\n";
-            break;
-        }
-    }
+
 }

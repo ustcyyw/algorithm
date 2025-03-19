@@ -520,3 +520,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF845G 2300 线性基 trick （看答案学习） 和P4151同一个题
   * CF845D 1800 模拟 栈
   * CF845C 1500 差分 离散化
+* 2025-03-18
+  * CF954F 2100 动态规划 矩阵快速幂 差分
