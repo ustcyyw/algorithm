@@ -522,3 +522,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF845C 1500 差分 离散化
 * 2025-03-18
   * CF954F 2100 动态规划 矩阵快速幂 差分
+* 2025-03-19
+  * CF954G 2000 二分答案 贪心
+  * CF954B 1400 贪心 模拟
+  * CF954C 1700 构造算法
+  * CF954E 2000 贪心 排序 数学（看了题目tag）
+  * CF954D 1600 bfs

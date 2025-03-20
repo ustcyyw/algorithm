@@ -17,6 +17,12 @@ string arr_to_string(vector<int>& arr) {
     return res;
 }
 
+void test() {
+    // 输出 long double 类型并保留10位小数
+    long double num = 123.4567890123456789L;
+    printf("%.10Lf\n", num);
+}
+
 int main(){
 
     cout << 0 << endl;

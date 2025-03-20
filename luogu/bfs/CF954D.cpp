@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/19-10:22 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF954D 1600 bfs
  */
- /*
+/*
   * 先从s出发 dis1[i]: s到达结点i的最短路径长度
   * 再从t出发 dis2[i]: t到达结点i的最短路径长度
   * 假设连通一条边

@@ -64,7 +64,7 @@ public:
 };
 
 /*
- * 动态加边的例子 algorithm 2642
+ * 动态加边的例子  LC2642
  * 首先维护好 floyd算法中的 dis[i][j]
  * 在动态加边 {v, w, cost} 时。
  * 枚举所有i,j
