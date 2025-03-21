@@ -2,44 +2,24 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-const int mod = 1e9 + 7, N = 1e5 + 5, P = 13331;
-int l1, r1, l2, r2, pow2[32];
+const int mod = 1e9 + 7, N = 1e5 + 5, M = 1e6 + 5;
+int l1, r1, l2, r2, divide[M];
 
 int init = []() -> int {
-   pow2[0] = 1;
-   for(int i = 1; i < 32; i++)
-       pow2[i] = pow2[i - 1] * 2;
+    for(int i = 1; i < M; i++) {
+        for(int j = 1; j * i < M; j++)
+            divide[j * i]++;
+    }
     return 0;
 }();
 
-void add(vector<int>& arr, int num) {
-    for(int i = 0; i < 32; i++) {
-        if((1 << i) & num)
-            arr.push_back(pow2[i]);
+int cal(int num) {
+    int cnt = 0;
+    while(divide[num] != num) {
+        cnt++;
+        num = divide[num];
     }
-}
-
-vector<int> cal(int l, int r) {
-    vector<int> arr;
-    for(int i = 0; i < 32; i++) {
-        if(pow2[i] > r) {
-            int mid = pow2[i - 1];
-            add(arr, mid - l), add(arr, r - mid);
-        }
-    }
-    return arr;
-}
-
-void solve() {
-    vector<int> arr1 = cal(l1, r1), arr2 = cal(l2, r2);
-    ll ans = 0;
-    for(int n1 : arr1) {
-        for(int n2 : arr2) {
-            int t = min(n1, n2);
-            ans += t / n1 * t / n2;
-        }
-    }
-    cout << ans << "\n";
+    return cnt;
 }
 
 class Solution {
@@ -55,5 +35,9 @@ int main() {
     vector<string> arr5 = {"aa","ac"};
     vector<vector<int>> arr4 = {{1,2,2,2,2},{2,2,2,2,0},{2,0,0,0,0},{0,0,2,2,2},{2,0,0,2,0}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
-
+    int v = 0;
+    for(int i = 1; i < M; i++) {
+        v = max(cal(i), v);
+    }
+    cout << v;
 }

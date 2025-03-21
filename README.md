@@ -528,3 +528,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF954C 1700 构造算法
   * CF954E 2000 贪心 排序 数学（看了题目tag）
   * CF954D 1600 bfs
+* 2025-03-20
+  * CF920E 2100 思维 复杂度分析 并查集 (看了答案)
+  * CF1467C 1900 构造算法 贪心
+  * CF920F 2000 数据结构 数论
+  * CF920B 1200 模拟
