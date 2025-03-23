@@ -533,3 +533,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1467C 1900 构造算法 贪心
   * CF920F 2000 数据结构 数论
   * CF920B 1200 模拟
+* 2025-03-21
+  * CF1467D 2200 动态规划 贡献法 (看了题解)
+  * CF1467B 1700 暴力枚举 前后缀分解
+  * CF946C 1300 贪心

@@ -3,23 +3,22 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 const int mod = 1e9 + 7, N = 1e5 + 5, M = 1e6 + 5;
-int l1, r1, l2, r2, divide[M];
+int n, a[N], divide[M];
+vector<int> dp[505][101];
 
-int init = []() -> int {
-    for(int i = 1; i < M; i++) {
-        for(int j = 1; j * i < M; j++)
-            divide[j * i]++;
+void solve() {
+    dp[0][0][0] = 1;
+    for(int i = 1; i <= n; i++) {
+        int num = a[i];
+        for(int x = 1; x <= 100; x++) {
+            dp[i][x] = vector(10000 / x + 2, 0);
+            for(int y = 1; y * x <= 1e4; y++) {
+                dp[i][x][y] = dp[i-1][x][y];
+                if(x - num >= 0) dp[i][x][y] |= dp[i-1][x - num][y];
+                if(y - num >= 0) dp[i][x][y] |= dp[i-1][x][y - num];
+            }
+        }
     }
-    return 0;
-}();
-
-int cal(int num) {
-    int cnt = 0;
-    while(divide[num] != num) {
-        cnt++;
-        num = divide[num];
-    }
-    return cnt;
 }
 
 class Solution {
@@ -35,9 +34,4 @@ int main() {
     vector<string> arr5 = {"aa","ac"};
     vector<vector<int>> arr4 = {{1,2,2,2,2},{2,2,2,2,0},{2,0,0,0,0},{0,0,2,2,2},{2,0,0,2,0}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
-    int v = 0;
-    for(int i = 1; i < M; i++) {
-        v = max(cal(i), v);
-    }
-    cout << v;
 }
