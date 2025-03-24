@@ -1,18 +1,18 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/23-10:20 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF938C 1700 数学 构造算法 暴力枚举
  */
- /*
-  * 原问题是贪心问题，假设行和列每m个位置就得有1个0
-  * 因为 总的0的数量为 n / m
-  * 1的数量 cnt = n * n - (n / m) ^ 2 是一个平方差公式
-  * (x + y) * (x - y) = cnt
-  * 枚举 x - y 的值，求出x和y
-  * n = x, y = n / m
-  */
+/*
+ * 原问题是贪心问题，假设行和列每m个位置就得有1个0
+ * 因为 总的0的数量为 n / m
+ * 1的数量 cnt = n * n - (n / m) ^ 2 是一个平方差公式
+ * (x + y) * (x - y) = cnt
+ * 枚举 x - y 的值，求出x和y
+ * n = x, y = n / m
+ */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
