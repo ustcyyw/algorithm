@@ -543,3 +543,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF938E 2300 数学 组合数学 贡献法
   * CF938C 1700 数学 构造算法 暴力枚举
   * LC3495 
+* 2025-03-24
+  * CF961B 1200 前缀和
+  * CF961C 1400 暴力枚举 模拟
+  * CF961E 1900 数据结构 线段树

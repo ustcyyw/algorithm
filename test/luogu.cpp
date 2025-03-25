@@ -5,43 +5,86 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
- /*
-  * 原问题是贪心问题，假设行和列每m个位置就得有1个0
-  * 因为 总的0的数量为 n / m
-  * 1的数量 cnt = n * n - (n / m) ^ 2 是一个平方差公式
-  * (x + y) * (x - y) = cnt
-  * 枚举 x - y 的值，求出x和y
-  * n = x, y = n / m
-  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-const int N = 1e6 + 15, mod = 1e9 + 7;
-int T, cnt;
+const int N = 2e5 + 15, mod = 1e9 + 7;
+int T, n, m, a[N];
+vector<int> pos;
+map<int, vector<int>> mp;
 
-vector<int> solve() {
-    if(cnt == 0) return {1, 1};
-    for(int i = 1; i <= sqrt(cnt); i++) {
-        if(cnt % i != 0) continue;
-        int temp = cnt / i;
-        if((temp + i) % 2 != 0) continue;
-        int n = (temp + i) / 2, y = n - i;
-        if(y == 0) continue;
-        int m = n / y; // 注意 因为是离散的值 所以 m = n / y 之后 ，不一定就有 n / m = y
-        if(m > 1 && m <= n && n / m == y) return {n, m};
+#define ls x << 1
+#define rs (x << 1) | 1
+
+class SegmentTree {
+private:
+    int n;
+    vector<int> val;
+    // 单点修改
+    void add(int x, int l, int r, int pos, int v) {
+        if(l == r) {
+            val[x] += v;
+            return ;
+        }
+        int mid = (l + r) >> 1;
+        if(pos <= mid) add(ls, l, mid, pos, v);
+        else add(rs, mid + 1, r, pos, v);
+        val[x] = val[ls] + val[rs];
     }
-    return {-1, -1};
+
+    int search(int x, int l, int r, int a, int b) {
+        if(a <= l && r <= b) return val[x];
+        int mid = (l + r) >> 1, res = 0;
+        if(a <= mid) res = search(ls, l, mid, a, b);
+        if(b > mid) res += search(rs, mid + 1, r, a, b);
+        return res;
+    }
+
+public:
+    SegmentTree(int n) {
+        this-> n = n;
+        val = vector(4 * (n + 1), 0);
+    }
+
+    void add(int pos, int v) {
+        add(1, 0, n, pos, v);
+    }
+
+    int search(int a, int b) {
+        return search(1, 0, n, a, b);
+    }
+};
+
+int find(int val) {
+    return lower_bound(pos.begin(), pos.end(), val) - pos.begin();
+}
+
+void solve() {
+    ll ans = 0;
+    SegmentTree tree(m);
+    for(int i = n; i >= 1; i--) {
+        if(a[i] > i) ans += tree.search(find(i), m);
+        if(mp.count(i)) {
+            for(int x : mp[i]) {
+                ans -= tree.search(find(x), m);
+            }
+        }
+        tree.add(find(a[i]), 1);
+    }
+    cout << ans;
 }
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0), cout.tie(0); // 加速cin, cout
-    cin >> T;
-//    T = 1;
-    while(T-- > 0) {
-        cin >> cnt;
-        vector<int> ans = solve();
-        if(ans[0] == -1) cout << "-1\n";
-        else cout << ans[0] << " " << ans[1] << "\n";
+    cin >> n;
+    for(int i = 1; i <= n; i++) {
+        cin >> a[i];
+        pos.push_back(i), pos.push_back(a[i]);
+        if(a[i] < n && a[i] > i) mp[a[i]].push_back(i);
     }
+    sort(pos.begin(), pos.end());
+    pos.erase(unique(pos.begin(), pos.end()), pos.end());
+    m = pos.size();
+    solve();
 }
