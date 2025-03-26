@@ -547,3 +547,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF961B 1200 前缀和
   * CF961C 1400 暴力枚举 模拟
   * CF961E 1900 数据结构 线段树
+* 2025-03-25
+  * CF961D 2000 数学 计算几何

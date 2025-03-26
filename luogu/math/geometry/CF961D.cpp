@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/25-11:24 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF961D 2000 数学 计算几何
  */
 #include<bits/stdc++.h>
 using namespace std;
