@@ -549,3 +549,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF961E 1900 数据结构 线段树
 * 2025-03-25
   * CF961D 2000 数学 计算几何
+* 2025-03-26
+  * CF888D 1600 数学 组合数学
+  * CF888E 1800 状态压缩 meet-in-the-middle算法
+  * 
