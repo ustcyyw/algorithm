@@ -552,4 +552,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-03-26
   * CF888D 1600 数学 组合数学
   * CF888E 1800 状态压缩 meet-in-the-middle算法
-  * 
+* 2025-03-28
+  * CF962E 2200 贪心 构造 模拟 （看答案）
