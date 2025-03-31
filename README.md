@@ -554,3 +554,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF888E 1800 状态压缩 meet-in-the-middle算法
 * 2025-03-28
   * CF962E 2200 贪心 构造 模拟 （看答案）
+* 2025-03-30
+  * CF962D 1600 模拟
+  * CF962C 1400 暴力枚举 模拟
+  * CF962B 1300 贪心
