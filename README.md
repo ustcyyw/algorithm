@@ -558,3 +558,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF962D 1600 模拟
   * CF962C 1400 暴力枚举 模拟
   * CF962B 1300 贪心
+* 2025-03-31
+  * CF962E 2400 tarjan 点双连通分量 （看答案）
+  * CF976E 2100 贪心 暴力枚举 前缀和 排序
+  * CF976C 1500 贪心 排序
+  * CF985F 2300 字符串hash

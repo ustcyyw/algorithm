@@ -1,10 +1,30 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/3/31-10:20 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF985F 2300 字符串hash
  */
+ /*
+  * 以一一映射意义下 同构的两个字符串
+  * 以t为模版字符串，s来映射
+  * s[i] != t[i]时
+  * 映射表中没有s[i]时，添加映射 s[i] -> t[i]
+  * 否则映射表中 s[i] != t[i], 则返回不同构成
+  * 也就是说 s中相同的字母的位置集合，这个集合对应的t中的字母必须是相同的字母（不必与s中相同）
+  * 将字符串中 相同字母的位置集合 叫 pos[i]
+  * 比如s = "abcaa", pos[a] = {1,4,5}, pos[b] = {2}
+  * 于是同构的意义就是 s中pos[i]的集合 与t中pos[i]的集合 一致
+  * 如果pos换一种表示方式，用字符串来表示
+  * pos[i][j] = '1'表示对于字母i，在s[j] = i
+  * pos[i][j] = '0'表示对于字母i，在s[j] != i
+  * pos[a] = "10010", pos[b] = "01000", pos[c] = "00100"
+  * 于是同构的意义就是 pos的字符串集合一致
+  * 要校验字符串集合一致 显然可以使用字符串hash来优化
+  * 对于26个字母的二进制字符串 找到对应子串的hash值 将这26个hash值进行比较看是否一致即可
+  *
+  * 校验一致时 用map会超时，用vector排序可以ac
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
