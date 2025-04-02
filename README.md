@@ -563,3 +563,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF976E 2100 贪心 暴力枚举 前缀和 排序
   * CF976C 1500 贪心 排序
   * CF985F 2300 字符串hash
+* 2025-04-01
+  * CF985D 2100 二分答案 数学
+  * CF985C 1500 贪心
+  * CF990D 1700 构造 思维

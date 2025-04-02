@@ -1,10 +1,21 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/2-12:52 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF990D 1700 构造 思维
  */
+ /*
+  * 但凡正图中有两个分量 (a1,a2,a3), (b1, b2)
+  * 反图中一定有边 a1-b1, a1-b2, a2-b1, a2-b2, a3-b1, a3-b2
+  * a1,a2,a3通过b1在一个分量，b1,b2通过a1在同一个分量 所有点在一个分量中
+  * 正图中有更多分量的情况下 反图也一定只有一个分量
+  * 正图和反图 不可能同时出现2个及以上分量
+  *
+  * 假设正图只有1个分量（有多个就和反图交换以下矩阵即可）
+  * 反图有b个分量，画图发现 可以将一个点与其它点全部连起来 这个点在反图中就是单独一个分量
+  * 因此需要将b-1个点分别与其它点都连起来
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
