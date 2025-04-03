@@ -18,9 +18,5 @@ int main() {
     vector<vector<int>> arr4 = {{14,37}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
     Solution s;
-    multimap<int, int> mp;
-    mp.insert({1, 2});
-    mp.insert({1, 3});
-    for(auto& p : mp)
-        cout << p.first << " " << p.second << "\n";
+    cout << gcd(144, 16);
 }

@@ -567,3 +567,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF985D 2100 二分答案 数学
   * CF985C 1500 贪心
   * CF990D 1700 构造 思维
+* 2025-04-02
+  * CF990E 2100 贪心 暴力枚举 数学 调和级数
+  * CF990B 1200 贪心
+  * CF990G 2400 数学 数论 dp 并查集 （看答案学习）

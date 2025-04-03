@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/3-12:22 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF990G 2400 数学 数论 dp 并查集
  */
- /*
+/*
   * 定义f[i]: 路径x,y的gcd值是i的倍数的路径数目
   * 假设 最终答案中存在gcd值 i, 2i, 4i, 5i
   * 那么f[4i]就是gcd值为4i的答案，因为压根就没有除4i外的 4i的倍数了
