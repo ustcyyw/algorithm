@@ -574,3 +574,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-04-03
   * CF817E 2000 数据结构 trie树
   * CF817D 1900 贡献法 单调栈
+  * CF817A 1200 数学 数论
+* 2025-04-05
+  * CF817C 1600 思维题 暴力枚举
