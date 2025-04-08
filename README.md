@@ -577,3 +577,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF817A 1200 数学 数论
 * 2025-04-05
   * CF817C 1600 思维题 暴力枚举
+* 2025-04-06
+  * CF1016B 1300 前缀和
