@@ -579,3 +579,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF817C 1600 思维题 暴力枚举
 * 2025-04-06
   * CF1016B 1300 前缀和
+* 2025-04-08
+  * CF1016C 1800 前缀和 暴力枚举
