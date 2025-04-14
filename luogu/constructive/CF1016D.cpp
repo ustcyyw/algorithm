@@ -1,10 +1,20 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/13-11:35 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : 
  */
+ /*
+  * 位运算的每一位独立 因此只考虑单独的一位
+  * d位上，行和列的异或和中 为1的数分别有cnt1, cnt2个
+  * 如果cnt1 = cnt2，每次在相应的行和列放1个1，其它行列就都是0即可
+  * 但是cnt1 != cnt2，那先将min(cnt1, cnt2)个1放置完后
+  * 行或者列还有需要放置1的，如果剩奇数个1，不管放在哪行哪列 都会导致异或值不对
+  * 如果列剩偶数个1，行已经安排好了，将这些1都放在第一行相应还需要放的列上
+  * （因为是偶数个1 所以不影响第一行的结果）
+  * 如果行剩偶数个1，列已经安排好了，同理操作即可。
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
