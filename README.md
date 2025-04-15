@@ -583,3 +583,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF1016C 1800 前缀和 暴力枚举
 * 2025-04-13
   * CF1016D 1800 构造 位运算
+* 2025-04-14
+  * CF2094H 2051 数学 数论 暴力枚举
