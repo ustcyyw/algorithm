@@ -585,3 +585,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1016D 1800 构造 位运算
 * 2025-04-14
   * CF2094H 2051 数学 数论 暴力枚举
+* 2025-04-16
+  * CF2094G 1752 模拟 数据结构
+  * CF2094F 1597 构造算法 猜结论
+  * CF2094E 1256 位运算

@@ -18,7 +18,7 @@ typedef long long ll;
 typedef long double ld;
 const int N = 1e5 + 15, M = 30;
 ll T, n, q, a[N], k, l, r;
-map<int, vector<int>> pos;
+vector<int> pos[N];
 
 const int max_num = 100001;
 vector<int> divisors[max_num];
@@ -30,7 +30,7 @@ int init = []() {
 }();
 
 int find(int num, int idx) {
-    if(!pos.count(num) || pos[num].empty()) return INT_MAX;
+    if(pos[num].empty()) return INT_MAX;
     auto it = lower_bound(pos[num].begin(), pos[num].end(), idx);
     return it == pos[num].end() ? INT_MAX : *it;
 }
@@ -38,6 +38,10 @@ int find(int num, int idx) {
 void solve() {
     ll ans = 0;
     for(int i = l; i <= r; ) {
+        if(k == 1) {
+            ans += r - i + 1;
+            break;
+        }
         int j = r + 1;
         for(int num : divisors[k])
             j = min(j, find(num, i));
@@ -53,7 +57,6 @@ int main() {
     cin >> T;
     while(T-- > 0) {
         cin >> n >> q;
-        pos = {};
         for(int i = 1; i <= n; i++) {
             cin >> a[i];
             pos[a[i]].push_back(i);
@@ -62,5 +65,7 @@ int main() {
             cin >> k >> l >> r;
             solve();
         }
+        for(int i = 1; i <= n; i++)
+            pos[a[i]].pop_back();
     }
 }
