@@ -589,3 +589,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2094G 1752 模拟 数据结构
   * CF2094F 1597 构造算法 猜结论
   * CF2094E 1256 位运算
+* 2025-04-17
+  * CF2093G 二分答案 trie树 滑动窗口 （卡常毒瘤题）
