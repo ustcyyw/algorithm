@@ -1,27 +1,36 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/19-5:22 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2093E 1500 二分答案
  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
 const int N = 2e5 + 15;
-int T, n, k, nums[N];
+int T, n, k, nums[N], marked[N];
 
 bool check(int x) {
     int cnt = 0;
-    unordered_set<int> st;
-    for(int i = 1; i <= n; i++) {
-        if(nums[i] < x && !st.count(nums[i])) st.insert(nums[i]);
-        if(st.size() == x) cnt++, st.clear();
+    for(int i = 1, j = 1; i <= n; ) {
+        int sz = 0;
+        while(j <= n && sz < x) {
+            int num = nums[j];
+            if(num < x && !marked[num]) sz++, marked[num] = 1;
+            j++;
+        }
+        if(sz == x) cnt++;
+        while(i < j) {
+            if(nums[i] < x) marked[nums[i]] = 0;
+            i++;
+        }
         if(cnt >= k) return true;
     }
     return false;
 }
+
 void solve() {
     int lo = 0, hi = n / k + 1;
     while(lo < hi) {

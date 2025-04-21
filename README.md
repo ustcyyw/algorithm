@@ -593,3 +593,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2093G 二分答案 trie树 滑动窗口 （卡常毒瘤题） 
 * 2025-04-18
   * CF2093F 贪心
+* 2025-04-19
+  * CF2093E 1500 二分答案
