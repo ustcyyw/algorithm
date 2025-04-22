@@ -595,3 +595,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF2093F 贪心
 * 2025-04-19
   * CF2093E 1500 二分答案
+* 2025-04-21
+  * CF2093D 1400 递归 模拟
+  * CF2074D 2100 动态规划 区间dp (看答案)
+* 2025-04-22
+  * 
