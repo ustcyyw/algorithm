@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/23-9:00 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2091G 2300 数学 动态规划 bitset优化 （看答案做的）
  */
- /*
+/*
   * 特别地 如果 s % k = 0, 答案就是k
   * 所有可能的答案，最终到达s时，奇偶性要与k一致，因为得偶数次掉头才能回到正方向上
   * 因为给的s很大，思考较大的s是有通解的 考虑一直以k的间隔向前走 直到再走一次会超过s
@@ -64,7 +64,7 @@ int solve() {
         // 正向运动，x由x - i转移，位置x，对应上一轮的x-i
         // 也就是说要将上的结果进行位运算左移i位(<<)才对应这一轮的位置
         if(i % 2 == k % 2) bit2 = bit << i;
-        // 负向运动，x由x + i转移，位置x，对应上一轮的x+i
+            // 负向运动，x由x + i转移，位置x，对应上一轮的x+i
         else bit2 = bit >> i;
         // 这个循环进行f[i][s] = f[i][s - i]或者f[i][s] = f[i][s + i]的转移
         for(int j = 1; j * i <= s; j++) {
