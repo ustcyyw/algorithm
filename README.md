@@ -600,3 +600,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF2074D 2100 动态规划 区间dp (看答案)
 * 2025-04-22
   * CF2091G 2300 数学 动态规划 bitset优化 （看答案做的）
+* 2025-04-23
+  * CF2091F 1800 动态规划 线段树优化
+  * CF2091D 1200 二分答案
+  * CF2091E 1300 数学 数论 暴力枚举 二分查找
