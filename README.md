@@ -604,3 +604,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2091F 1800 动态规划 线段树优化
   * CF2091D 1200 二分答案
   * CF2091E 1300 数学 数论 暴力枚举 二分查找
+* 2025-04-24
+  * CF1027E 2100 动态规划 思维

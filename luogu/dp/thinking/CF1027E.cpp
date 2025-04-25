@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/24-10:13 AM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1027E 2100 动态规划 思维
  */
- /*
+/*
   * 画几个例子可以发现 在忽略k的影响下
   * 第一行任意一种颜色安排，剩下的行只要遵守相邻行的颜色规则排布后
   * 列自动满足相邻列的颜色规则
