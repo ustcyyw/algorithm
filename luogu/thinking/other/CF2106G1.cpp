@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/25-3:45 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF2106G1 2220 思维 数学 二分 交互题
  */
- /*
+/*
   * 特别注意每个结点都连接到1结点 1是特殊的 先来讨论它
   * 1. 假设根结点是1，那么询问 q1(1)，结果就是1的值
   * 2. 假设根结点不是1，那么询问 q1(1)，结果就是1和根结点值之和
