@@ -608,3 +608,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1027E 2100 动态规划 思维
 * 2025-04-25
   * CF2106G1 2220 思维 数学 二分 交互题
+* 2025-04-26
+  * CF2106F 1925 模拟
+  * CF2106D 1467 思维 前后缀分解
+  * CF2106E 1762 贪心 思维
