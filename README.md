@@ -612,3 +612,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF2106F 1925 模拟
   * CF2106D 1467 思维 前后缀分解
   * CF2106E 1762 贪心 思维
+* 2025-04-27
+  * CF1027D 1700 图论 拓扑排序 dfs
+  * CF1027C 1600 数学 几何 贪心
+  * CF1027B 1200 模拟
+  * CF1051F 2400 图论 dijkstra lca 并查集 暴力枚举 （看答案学思路）

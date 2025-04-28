@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/27-5:17 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1051F 2400 图论 dijkstra lca 并查集 暴力枚举
  */
- /*
+/*
   * 注意到 m - n <= 20，边的数量仅比结点多一点点
   * 在完整构建一棵树的情况下，最多多20条边
   * 考虑(u, v)的最短路径
