@@ -617,3 +617,9 @@ solve problems in leetcode, codeforce, atcoder
   * CF1027C 1600 数学 几何 贪心
   * CF1027B 1200 模拟
   * CF1051F 2400 图论 dijkstra lca 并查集 暴力枚举 （看答案学思路）
+* 2025-04-28
+  * CF1009F 2300 启发式合并 树上启发式合并 （看了tag）
+  * CF1009C 1700 贪心 数学
+  * CF1009D 1700 构造 数学 数论 暴力枚举
+* 2025-04-29
+  * 

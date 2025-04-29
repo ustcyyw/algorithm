@@ -18,5 +18,11 @@ int main() {
     vector<vector<int>> arr4 = {{14,37}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
     Solution s;
-    cout << gcd(144, 16);
+    int cnt = 0;
+    for(int i = 1; i < 1000; i++) {
+        for(int j = i + 1; j < 1000; j++){
+            cnt += (gcd(i, j) == 1);
+        }
+    }
+    cout << cnt << "\n" << (int)1e5;
 }

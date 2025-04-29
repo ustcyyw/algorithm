@@ -1,11 +1,11 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/4/28-10:43 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1009D 1700 构造 数学 数论 暴力枚举
  */
- /*
+/*
   * m至少为n-1，否则根本不可能连通，m最多为(n - 1) * n / 2，否则一定有重边
   * 在满足上述条件的情况下讨论
   * 连通性可以用1和其它结点来保证，然后就是补足边数到达m
