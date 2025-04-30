@@ -17,12 +17,14 @@ int main() {
     vector<string> arr5 = {"aa","ac"};
     vector<vector<int>> arr4 = {{14,37}};
 //    vector<vector<int>> arr4 = {{1,0,8}};
-    Solution s;
-    int cnt = 0;
-    for(int i = 1; i < 1000; i++) {
-        for(int j = i + 1; j < 1000; j++){
-            cnt += (gcd(i, j) == 1);
-        }
+    cin >> s;
+    n = s.size();
+    while(1) {
+        cin >> m;
+        string pre = s.substr(0, m), suf = s.substr(n - m, m);
+        string mid = s.substr(m, n - 2 * m);
+        reverse(pre.begin(), pre.end()), reverse(suf.begin(), suf.end());
+        s = suf + mid + pre;
+        cout << s << "\n";
     }
-    cout << cnt << "\n" << (int)1e5;
 }

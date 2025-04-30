@@ -622,4 +622,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1009C 1700 贪心 数学
   * CF1009D 1700 构造 数学 数论 暴力枚举
 * 2025-04-29
-  * 
+  * CF1009E 2000 数学 概率论
+  * CF1051D 1700 动态规划
+  * CF1051A 1200 模拟 分类讨论
