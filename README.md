@@ -625,3 +625,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF1009E 2000 数学 概率论
   * CF1051D 1700 动态规划
   * CF1051A 1200 模拟 分类讨论
+* 2025-04-30
+  * CF1065D 2200 bfs
+  * CF1065C 1600 贪心 线段树 二分
