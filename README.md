@@ -628,3 +628,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-04-30
   * CF1065D 2200 bfs
   * CF1065C 1600 贪心 线段树 二分
+* 2025-05-03
+  * CF1065B 1300 构造 贪心
