@@ -630,3 +630,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1065C 1600 贪心 线段树 二分
 * 2025-05-03
   * CF1065B 1300 构造 贪心
+* 2025-05-06
+  * CF1036C 1900 动态规划 数位dp
+  * CF1036D 1600 贪心 双指针
+  * CF1036B 1600 贪心 分类讨论
