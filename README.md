@@ -634,3 +634,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF1036C 1900 动态规划 数位dp
   * CF1036D 1600 贪心 双指针
   * CF1036B 1600 贪心 分类讨论
+* 2025-05-16
+  * CF1037E 2300 数位dp 特殊问题 求数字之和 （参考了答案）

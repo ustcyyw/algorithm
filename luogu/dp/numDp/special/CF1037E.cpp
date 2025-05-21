@@ -1,9 +1,9 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/5/16-4:08 PM
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1037E 2300 数位dp 特殊问题 求数字之和
  */
 #include<bits/stdc++.h>
 using namespace std;
@@ -26,21 +26,21 @@ ll solve(ll n) {
     vector<vector<vector<ll>>> f(m + 1, vector(full, vector(2, -1ll)));
     function<vector<ll>(int, int, bool, bool)> dfs =
             [&](int i, int status, bool limit, bool is_num) -> vector<ll> {
-        if(i == m) return {is_num && __builtin_popcount(status) <= k, 0};
-        if(!limit && is_num && f[i][status][0] != -1) return f[i][status];
-        vector<ll> ans = {0, 0};
-        if(!is_num) ans = dfs(i + 1, status, false, false);
-        int up = limit ? s[i] - '0' : 9, down = is_num ? 0 : 1;
-        ll base = pow(10, m - i - 1);
-        for(int j = down; j <= up; j++) {
-            int ns = status | (1 << j);
-            vector<ll> temp = dfs(i + 1, ns, j == up && limit, true);
-            ans[0] = (ans[0] + temp[0]) % mod;
-            ans[1] = (ans[1] + temp[1] + j * base % mod * temp[0] % mod) % mod;
-        }
-        if(!limit && is_num) f[i][status] = ans;
-        return ans;
-    };
+                if(i == m) return {is_num && __builtin_popcount(status) <= k, 0};
+                if(!limit && is_num && f[i][status][0] != -1) return f[i][status];
+                vector<ll> ans = {0, 0};
+                if(!is_num) ans = dfs(i + 1, status, false, false);
+                int up = limit ? s[i] - '0' : 9, down = is_num ? 0 : 1;
+                ll base = pow(10, m - i - 1);
+                for(int j = down; j <= up; j++) {
+                    int ns = status | (1 << j);
+                    vector<ll> temp = dfs(i + 1, ns, j == up && limit, true);
+                    ans[0] = (ans[0] + temp[0]) % mod;
+                    ans[1] = (ans[1] + temp[1] + j * base % mod * temp[0] % mod) % mod;
+                }
+                if(!limit && is_num) f[i][status] = ans;
+                return ans;
+            };
     return dfs(0, 0, true, false)[1];
 }
 
