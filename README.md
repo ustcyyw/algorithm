@@ -636,3 +636,7 @@ solve problems in leetcode, codeforce, atcoder
   * CF1036B 1600 贪心 分类讨论
 * 2025-05-16
   * CF1037E 2300 数位dp 特殊问题 求数字之和 （参考了答案）
+* 2025-05-21
+  * CF1073D 1700 模拟
+  * CF1073C 1800 枚举 二分答案 前缀和
+* 

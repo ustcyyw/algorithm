@@ -1,5 +1,4 @@
 /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/CMakeFiles/luogu.dir
 /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/CMakeFiles/solve.dir
-/Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/CMakeFiles/solve_cf.dir
 /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/ustcyyw/CLionProjects/algorithm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
