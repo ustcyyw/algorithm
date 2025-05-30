@@ -639,4 +639,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-05-21
   * CF1073D 1700 模拟
   * CF1073C 1800 枚举 二分答案 前缀和
-* 
+* 2025-05-29
+  * CF2114F 2006 数学 记忆化搜素 暴力枚举
+  * CF2114E 1449 前缀和 dfs
