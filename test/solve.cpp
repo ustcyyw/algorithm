@@ -5,6 +5,26 @@ typedef long long ll;
 typedef unsigned long long ull;
 const int mod = 1e9 + 7, N = 1e5 + 5, M = 1e6 + 5;
 
+// 检查 num 不断除以2 会不会变为base
+bool check(int num, int base) {
+    while(num > 1 && num % 2 == 0 && num != base)
+        num /= 2;
+    return num == base;
+}
+
+int cal(int num) {
+    int cnt = 1;
+    while(num % 2 == 0)
+        num /= 2, cnt *= 2;
+    return cnt;
+}
+
+int cal(int num, int base) {
+    if(!check(num, base)) return cal(num);
+    int c = num / base;
+    return 1 + (c - 2) * cal(base);
+}
+
 class Solution {
 public:
 
@@ -17,17 +37,5 @@ int main() {
     vector<int> w = {6, 6, 3, 9, 3, 5, 1};
     vector<string> arr5 = {"aa", "ac"};
     vector<vector<int>> arr4 = {{14, 37}};
-//    vector<vector<int>> arr4 = {{1,0,8}};
-//    cin >> s;
-//    n = s.size();
-//    while(1) {
-//        cin >> m;
-//        string pre = s.substr(0, m), suf = s.substr(n - m, m);
-//        string mid = s.substr(m, n - 2 * m);
-//        reverse(pre.begin(), pre.end()), reverse(suf.begin(), suf.end());
-//        s = suf + mid + pre;
-//        cout << s << "\n";
-//    }
-    int h[6] = {0, 1, 2, 4, 5, 7};
-    cout << lower_bound(h + 1, h + 5 + 1, 3) - h;
+    cout << cal(18, -1) << "\n";
 }
