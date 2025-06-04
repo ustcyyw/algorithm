@@ -645,3 +645,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-05-30
   * CF2114D 1400 模拟 暴力枚举
   * CF2114G 2200 构造 前后缀分解 贪心
+* 2025-06-03
+  * CF1076E 1900 dfs
+  * CF1076D 1800 图论 最短路 dijkstra

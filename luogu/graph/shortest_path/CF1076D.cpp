@@ -1,10 +1,17 @@
 /**
- * @Time : 2024/1/30-12:59 PM
+ * @Time : 2025/6/3-17:33
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc :
+ * @desc : CF1076D 1800 图论 最短路 dijkstra
  */
+ /*
+  * 对最短路径树的理解
+  * 在用dijkstra找最短路径的时候 就是在生成一颗最短路径树
+  * 每找到一个新的点的最短路径 都是在该树中添加一条边
+  * 因此本题中 只能保留k条边 就意味着 只能有k+1个结点在树中（除开起点1就只剩k个结点了）
+  * 这就是最大的好结点数量
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
