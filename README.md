@@ -648,3 +648,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-06-03
   * CF1076E 1900 dfs
   * CF1076D 1800 图论 最短路 dijkstra
+* 2025-06-10
+  * CF2117G 2009 并查集 离线思想
