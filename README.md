@@ -652,3 +652,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2117G 1900 并查集 离线思想
 * 2025-06-28
   * CF2117F 1800 思维题
+* 2025-07-01
+  * CF2117E 1600 暴力枚举 分情况讨论
+* 

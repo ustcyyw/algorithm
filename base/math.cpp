@@ -57,22 +57,24 @@ ll A(int n, int a) {
 /*
  * 数论 Diophantine 方程，利用扩展欧几里得定律
  *
- * 形如 A * c1 + B * c2 = a 的方程为线性 Diophantine 方程
+ * 形如 ax + by = c，其中a b c是已知的整数 (x,y)是要求解的整数对
+ * 是否有解 先计算 g = gcd(a, b)，如果 c % g = 0，则有解
  * 要求解c1和c2，方程有解必须满足 a % g = 0, g = gcd(A,B)
- * 将方程转换为 c1 * A / g + c2 * B / g = a / g
- * 整理形式 c1 / g * A + c2 / g * B = a / g
- * c1 * (g / a) / g * A + c2 * (g / a) / g * B = 1  （t1）
+ * 将方程转换为 x * a / g + y * b / g = c / g
+ * 整理形式 x / g * a + y / g * b = c / g
+ * x * (g / c) / g * a + y * (g / c) / g * b = 1  （t1）
  *
- * 扩展欧几里得算法求 gcd(A,B)，还可以得出一组系数x和y使得
- * Ax + By = gcd(A,B)
+ * 扩展欧几里得算法求 gcd(a,b)，还可以得出一组系数x和y使得
+ * ax + by = gcd(a,b)
  * 于是通过扩展欧几里得算法得出一组解 x0, y0 后
- * x0 * A + y0 * B = g
- * x0 / g * A + y0 / g * B = 1 (t2)
+ * x0 * a + y0 * b = g
+ * x0 / g * a + y0 / g * b = 1 (t2)
  * 将式子t1和t2进行对比，从形式上可以得出
- * 所以 c1 * g / a = x0, c2 * g / a = y0 就是c1和c2的一组特解
- * c1 = a * x0 / g, c2 = a * y0 / g
+ * 所以 x * g / c = x0, y * g / c = y0, 由此得到x和y的一组特解
+ * xs = c * x0 / g, ys = c * y0 / g
+ * 通解答为 x = xs + b / g * k, y = ys - a / g * k
  */
-// 扩展欧几里得算法求x0和y0
+// 扩展欧几里得算法求x0和y0，会存放在变量x和y中，a和b就是标注 方程中的系数
 int exgcd(int a, int b, int& x, int& y) {
     if (!b) {
         x = 1, y = 0;
