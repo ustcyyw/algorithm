@@ -3,7 +3,7 @@
  * @Author : yyw@ustc
  * @E-mail : yang0@mail.ustc.edu.cn
  * @Github : https://github.com/ustcyyw
- * @desc : 
+ * @desc : CF1829G
  */
  /*
   * 第一行有1个数 第二行有2个数 第2023行有2023个数 一共有2047276个数

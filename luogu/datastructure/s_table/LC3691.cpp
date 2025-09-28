@@ -1,3 +1,10 @@
+/**
+ * @Time : 2025/9/28-10:11
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3691 st表 二分
+ */
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -81,13 +88,3 @@ public:
         return false;
     }
 };
-
-int main() {
-    vector<int> arr1 = {2, 4, 1, 5, 3};
-    vector<int> arr3 = {11, 8};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-    s.maxTotalValue(arr3, 2);
-}

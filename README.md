@@ -654,4 +654,8 @@ solve problems in leetcode, codeforce, atcoder
   * CF2117F 1800 思维题
 * 2025-07-01
   * CF2117E 1600 暴力枚举 分情况讨论
+* 2025-07-15
+  * LC3615 状态压缩dp
+* 2025-09-26
+  * LC3691 st表 二分
 * 
