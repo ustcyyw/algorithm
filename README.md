@@ -658,4 +658,6 @@ solve problems in leetcode, codeforce, atcoder
   * LC3615 状态压缩dp
 * 2025-09-26
   * LC3691 st表 二分
-* 
+* 2025-09-28
+  * LC3700 2446 动态规划 矩阵快速幂
+  * LC3699 2129 动态规划 前缀和优化

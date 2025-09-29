@@ -63,6 +63,7 @@ vector<vector<ll>> matrixMul(vector<vector<ll>>& A, vector<vector<ll>>& B){
     }
     return ans;
 }
+
 vector<vector<ll>> quickPower(vector<vector<ll>>& a, ll b){
     int n = a.size(); // 能进行快速幂的矩阵 是一个方阵
     vector<vector<ll>> ans(n, vector(n, 0ll));
