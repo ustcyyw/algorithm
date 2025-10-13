@@ -14,7 +14,7 @@
   * 因此灯的状态就是选出的开关的异或值 要从集合a中选出一些元素得到其异或值 问有多少个异或值
   * 就是求线性基 然后求总共可以表示出多少个异或值 本题是允许灯全灭的
   */
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;

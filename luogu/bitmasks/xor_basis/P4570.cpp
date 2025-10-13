@@ -15,7 +15,7 @@
   * 以普通方法求线性基的过程来看 就应该按魔力值从高到低选
   * 因为线性基中的一个元素 只占一个数位 这样选可以保证每个数位都选到了最大魔力值的那个
   */
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;

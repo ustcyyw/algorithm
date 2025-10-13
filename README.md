@@ -669,3 +669,5 @@ solve problems in leetcode, codeforce, atcoder
   * LC3686 1961 动态规划 线性
 * 2025-09-30
   * LC3685 2081 离线思维 背包dp
+  * LC3681 2025 位运算 异或线性基
+  * LC3679 1578 模拟 滑动窗口

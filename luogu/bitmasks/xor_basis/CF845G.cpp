@@ -35,7 +35,7 @@
   *
   * trick 通过dfs找到独立的环（异或空间的基）的异或值
   */
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;

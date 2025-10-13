@@ -21,7 +21,7 @@
  * 但是如果存在低位k 该位b为1，a为0，将b的这一位变为0不会影响at | b = at的要求
  * 那么在第j位的+操作 可以相应地节约 2 ^ k次
  */
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 typedef long long ll;
 using namespace std;
 const int N = 1e6 + 5;

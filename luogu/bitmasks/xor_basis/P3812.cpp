@@ -5,7 +5,7 @@
  * @Github : https://github.com/ustcyyw
  * @desc : P3812 线性基 模版
  */
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;

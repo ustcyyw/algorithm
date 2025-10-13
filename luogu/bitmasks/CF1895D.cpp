@@ -22,7 +22,7 @@
  * 对于所有二进制位求出b1上该位是0还是1，就得出b1
  */
 
-#include<bits/stdc++.h>
+#include"bits/stdc++.h"
 using namespace std;
 const int N = 20, M = 2e5 + 5;
 int n, a[M], cntB[N], cntF[N];
