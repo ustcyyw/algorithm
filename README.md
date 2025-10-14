@@ -671,3 +671,7 @@ solve problems in leetcode, codeforce, atcoder
   * LC3685 2081 离线思维 背包dp
   * LC3681 2025 位运算 异或线性基
   * LC3679 1578 模拟 滑动窗口
+* 2025-10-13
+  * LC3715 2252 数学 数论 暴力枚举 回溯
+  * LC3714 2224 思维 hashmap套路
+  * LC3713 1436 前缀和 模拟

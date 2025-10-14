@@ -1,5 +1,11 @@
+/**
+ * @Time : 2025/10/13-23:47
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3713 1436 前缀和 模拟
+ */
 #include<bits/stdc++.h>
-
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
@@ -34,13 +40,3 @@ public:
         return true;
     }
 };
-
-int main() {
-    vector<int> arr1 = {14,8,9,10,13,5,15,15,1,14,3,15,2,2,15};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-    s.longestBalanced("caaccca");
-}
