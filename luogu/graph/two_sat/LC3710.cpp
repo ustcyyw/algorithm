@@ -1,9 +1,21 @@
+/**
+ * @Time : 2025/10/15-16:38
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3710 2163 二分 图论 2-sat
+ */
+ /*
+  * 最小值最大，标准的二分答案的做法。关键是怎么写check函数呢？
+  * 没有想到二分图的思路，想了并查集（因为有矛盾关系），但是也有地方没想明白。
+  * 莫名其妙的想到了，这些点只能分在两个数组中，就相当于这些点的值为0或者1，代表在数组1或者数组2。
+  * 能完成分组就代表着这些点的值要么是1，要么是0，没有矛盾。
+  * 刚好2-sat就是可以解决有逻辑约束条件下，一组2元变量的赋值问题（是否可以完成赋值，可以的话各个变量到底是0还是1呢？）。
+  * 套用2-sat的模板，本题中变量就是指各个point，赋值0就是放在数组1，赋值1就是放在数组2，
+  * 逻辑约束就是固定最小距离为d的情况下，两个点i,j之间的距离dis(i,j) < d，那么这两个点就不可以在一个组里面。
+  */
 #include<bits/stdc++.h>
-
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
-const int mod = 1e9 + 7, M = 31, N = 1e5 + 5;
 
 class Solution {
 public:
@@ -67,12 +79,3 @@ public:
             if(dfn[i] == 0) dfs(i);
     }
 };
-
-int main() {
-    vector<int> arr1 = {14,8,9,10,13,5,15,15,1,14,3,15,2,2,15};
-    vector<int> arr3 = {1,2,3};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-}

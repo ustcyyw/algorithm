@@ -675,3 +675,5 @@ solve problems in leetcode, codeforce, atcoder
   * LC3715 2252 数学 数论 暴力枚举 回溯
   * LC3714 2224 思维 hashmap套路
   * LC3713 1436 前缀和 模拟
+* 2025-10-14
+  * LC3710 2163 二分 图论 2-sat
