@@ -5,6 +5,9 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
+ /*
+  * 如果区间[l,r]已经固定，要找区间上一共有多少个不同的数
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

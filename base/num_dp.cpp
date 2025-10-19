@@ -66,7 +66,7 @@ public:
     /**
      * 不需要对limit, is_num来进行记忆化
      * limit为true表示每一位都选到了s[i]，这样的情况不存在重复子问题，所以不需要对这个维度记忆化
-     * 而is_num为false表示前置位全都不选任何数组，这样的情况也不存在重复子问题
+     * 而is_num为false表示前置位全都不选任何数字，这样的情况也不存在重复子问题
      * 所以只有当 !limit && is_num的时候存在重复子问题，也只有此时才需要缓存
      */
     int count(int i, int mask, bool limit, bool is_num){

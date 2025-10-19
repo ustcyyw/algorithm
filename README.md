@@ -677,3 +677,6 @@ solve problems in leetcode, codeforce, atcoder
   * LC3713 1436 前缀和 模拟
 * 2025-10-14
   * LC3710 2163 二分 图论 2-sat
+* 2025-10-17
+  * LC3704 2429 数位dp
+  * LC3703 1758 栈 模拟

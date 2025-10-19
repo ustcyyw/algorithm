@@ -7,72 +7,51 @@ const int mod = 1e9 + 7, M = 31, N = 1e5 + 5;
 
 class Solution {
 public:
-    int n, m;
-    vector<int> dfn, low, color, onSta;
-    vector<vector<int>> graph;
-    int maxPartitionFactor(vector<vector<int>>& points) {
-        n = points.size(), m = 2 * n;
-        if(n == 2) return 0;
-        int lo = 0, hi = 4e8;
+    int n;
+    int longestBalanced(vector<int>& nums) {
+        n = nums.size();
+        int lo = 0, hi = n / 2, ans = 0;
         while(lo < hi) {
-            int mid = (lo + hi + 1) >> 1;
-            if(check(points, mid)) lo = mid;
+            int mid = (lo + hi + 1) >> 1, temp = check(nums, mid);
+            if(temp != -1)
+                lo = mid, ans = max(ans, temp);
             else hi = mid - 1;
         }
-        return lo;
+        return ans;
     }
 
-    bool check(vector<vector<int>>& p, int d) {
-        graph.assign(m, {});
-        dfn.assign(m, 0), low.assign(m, 0), color.assign(m, 0), onSta.assign(m, 0);
-        for(int i = 0; i < n; i++) {
-            for(int j = i + 1; j < n; j++) {
-                int dis = abs(p[i][0] - p[j][0]) + abs(p[i][1] - p[j][1]);
-                if(dis >= d) continue;
-                graph[i].push_back(j + n), graph[j].push_back(i + n);
-                graph[i + n].push_back(j), graph[j + n].push_back(i);
-            }
-        }
-        scc();
-        for(int i = 0; i < n; i++) {
-            if(color[i] == color[i + n]) return false;
-        }
-        return true;
-    }
-
-    void scc() {
-        int cc = 0, time = 1; // 分别表示颜色和时间戳
-        stack<int> stack;
-        function<void(int)> dfs = [&](int v) -> void {
-            dfn[v] = low[v] = ++time;
-            onSta[v] = 1, stack.push(v);
-            for(int w : graph[v]) {
-                if(dfn[w] == 0) {
-                    dfs(w);
-                    low[v] = min(low[v], low[w]);
-                } else if(onSta[w])
-                    low[v] = min(low[v], dfn[w]);
-            }
-            if(dfn[v] == low[v]) {
-                color[v] = ++cc;
-                int temp = -1;
-                while(temp != v) {
-                    temp = stack.top();
-                    color[temp] = cc; // 标记该结点的颜色
-                    onSta[temp] = 0, stack.pop();
+    int check(vector<int>& nums, int c) {
+        int len = -1;
+        unordered_map<int, int> s0, s1;
+        for(int lo = 0, hi = 0; ; ) {
+            if(hi < n && (s0.size() < c || s1.size() < c || (s0.size() == c && s1.size() == c))) {
+                if(s0.size() == c && s1.size() == c) len = max(len, hi - lo);
+                if(nums[hi] % 2 == 0) s0[nums[hi]]++;
+                else s1[nums[hi]]++;
+                hi++;
+            } else if(s0.size() > c || s1.size() > c) {
+                if(nums[lo] % 2 == 0) {
+                    s0[nums[lo]]--;
+                    if(s0[nums[lo]] == 0) s0.erase(nums[lo]);
                 }
-            }
-        };
-        for(int i = 0; i < n; i++)
-            if(dfn[i] == 0) dfs(i);
+                else {
+                    s1[nums[lo]]--;
+                    if(s1[nums[lo]] == 0) s1.erase(nums[lo]);
+                }
+                lo++;
+            } else break;
+            if(s0.size() == c && s1.size() == c) len = max(len, hi - lo);
+        }
+        return len;
     }
 };
 
 int main() {
     vector<int> arr1 = {14,8,9,10,13,5,15,15,1,14,3,15,2,2,15};
-    vector<int> arr3 = {1,2,3};
+    vector<int> arr3 = {42,24,35};
     vector<int> w = {6, 6, 3, 9, 3, 5, 1};
     vector<string> arr5 = {"aa", "ac"};
     vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
     Solution s;
+    s.longestBalanced(arr3);
 }
