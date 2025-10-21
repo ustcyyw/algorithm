@@ -37,6 +37,15 @@ private:
         return res;
     }
 
+    //单点查询
+    int search(int x, int l, int r, int pos) {
+        if(l == r) return val[x];
+//        down(x);
+        int mid = (l + r) >> 1;
+        if(pos <= mid) return search(ls, l, mid, pos);
+        else return search(rs, mid + 1, r, pos);
+    }
+
     // 区间修改操作中的下传函数
     // 如果要多维护最小值/最大值个数操作的时候 也用这个函数即可 因为修改区间值 不影响最值的个数
     void down(int x) {
