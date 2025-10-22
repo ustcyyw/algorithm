@@ -134,17 +134,6 @@ vector<vector<int>> get_lcp(string &s) {
 //
 
 /*
- * 容斥原理，求n个集合的并集有多少个元素
- * 枚举集合数量从1到n
- * 奇加偶减：集合数量为奇数个时，加上其交集的个数；集合数量为偶数时，减去其交集的个数
- * 且固定数量的集合要枚举出所有组合
- * 例如有n=3时，abc，集合数量为2时，共有3个组合ab,ac,bc
- *
- * 例如求|A并B并C| = |A| + |B| + |C| - |A交B| - |A交C| - |B交C| + |A交B交C|
- */
-
-
-/*
 * 优先队列
 * priority_queue
 * 默认是大顶堆，直接声明为priority_queue<T>
@@ -180,6 +169,9 @@ class Solution {
      * int的最大值 0x7FFFFFFF
      * 取模运算    mod = 1000000007
      */
+
+    // 求vector最大值的简单写法
+    // int mv = *max_element(nums.begin(), nums.end());
 
     /**
      * lambda 格式

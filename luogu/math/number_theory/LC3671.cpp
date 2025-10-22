@@ -1,3 +1,20 @@
+/**
+ * @Time : 2025/10/21-23:15
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3671 2675 数学 数论 <套路>倍数容斥 动态规划 线段树优化dp
+ */
+ /*
+  * 本题需要解决gcd为g且递增的子序列有多少个，并且g的值从1到数组最大值mv
+  * g是[1,mv]上连续的，且涉及到gcd 想到倍数容斥的套路做法
+  * 令g[i]为gcd为i的倍数的满足条件的子序列数量，f[i]为gcd值恰好为i的满足条件的子序列数量
+  * 那么f[i] = g[i] - sum{f[2i] + f[3i] + ... f[k*i]}
+  * 求g数组的时候，应该先将原本数组中的数num，按其因子i进行分组
+  * 这样在i分组中的这些数构成的子序列gcm就是i的倍数，就可以拿来求g[i]了
+  * 对于i分组arr[i], 要求的是递增子序列，线性动态规划
+  * dp[i] = sum{dp[j]}, for arr[j] < arr[i], 显然可以使用线段树优化
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -106,12 +123,3 @@ public:
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {14,8,9,10,13,5,15,15,1,14,3,15,2,2,15};
-    vector<int> arr3 = {42,24,35};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-}
