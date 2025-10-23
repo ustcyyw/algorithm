@@ -2,10 +2,7 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-const int mod = 1e9 + 7, M = 31, N = 7e4 + 5;
-ll g[N], f[N];
-#define ls x << 1
-#define rs (x << 1) | 1
+const int mod = 1e9 + 7, N = 1e5 + 5;
 
 vector<int> divide[N];
 
@@ -18,92 +15,40 @@ int init = []() -> int {
 }();
 
 
-class SegmentTree {
-private:
-    int n;
-    vector<int> val;
-    // 单点修改
-    void add(int x, int l, int r, int pos, int v) {
-        if(l == r) {
-            val[x] = (val[x] + v) % mod;
-            return ;
-        }
-        int mid = (l + r) >> 1;
-        if(pos <= mid) add(ls, l, mid, pos, v);
-        else add(rs, mid + 1, r, pos, v);
-        val[x] = (val[ls] + val[rs]) % mod;
-    }
-
-    int search(int x, int l, int r, int a, int b) {
-        if(a <= l && r <= b) return val[x];
-        int mid = (l + r) >> 1, res = 0;
-        if(a <= mid) res = search(ls, l, mid, a, b);
-        if(b > mid) res = (res + search(rs, mid + 1, r, a, b)) % mod;
-        return res;
-    }
-
-public:
-    SegmentTree(int n) {
-        this-> n = n;
-        val = vector(4 * (n + 1), 0);
-    }
-
-    void add(int pos, int v) {
-        add(1, 0, n, pos, v);
-    }
-
-    int search(int a, int b) {
-        return search(1, 0, n, a, b);
-    }
-};
-
-vector<int> scatter(vector<int>& num) {
-    vector<int> pos = num;
-    sort(pos.begin(), pos.end());
-    pos.erase(unique(pos.begin(), pos.end()), pos.end());
-    return pos;
-}
-/*
- * 离散化之后查询某个数在第几个位置 可以同时记录该位置对应的数
- */
-int find(vector<int>& pos, int val) {
-    return lower_bound(pos.begin(), pos.end(), val) - pos.begin();
-}
-
 class Solution {
 public:
-    int totalBeauty(vector<int>& nums) {
-        int mv = *max_element(nums.begin(), nums.end());
-        vector<vector<int>> aux(mv + 1);
-        for(int num : nums) {
-            for(int d : divide[num])
-                aux[d].push_back(num);
-        }
-        for(int i = 1; i <= mv; i++)
-            g[i] = cal(aux[i]);
-        ll ans = 0;
-        for(int i = mv; i >= 1; i--) {
-            f[i] = g[i];
-            for(int j = 2 * i; j <= mv; j += i)
-                f[i] = (f[i] - f[j] + mod) % mod;
-            ans = (ans + f[i] * i % mod) % mod;
-        }
+    int diff = INT_MAX;
+    vector<int> ans;
+    vector<int> minDifference(int n, int k) {
+        vector<int> arr;
+        dfs(arr, n, k);
         return ans;
     }
 
-    ll cal(vector<int>& nums) {
-        vector<int> pos = scatter(nums);
-        int n = nums.size(), m = pos.size();
-        SegmentTree st(m);
-        vector<ll> dp(n, 0ll);
-        ll ans = 0;
-        for(int i = 0; i < n; i++) {
-            int t = find(pos, nums[i]);
-            dp[i] = ((t > 0 ? st.search(0, t - 1) : 0) + 1) % mod;
-            ans = (ans + dp[i]) % mod;
-            st.add(t, dp[i]);
+    void dfs(vector<int>& arr, int num, int k) {
+        if(num == 1 || arr.size() >= k) {
+            if(num == 1 && check(arr, k)) ans = arr;
+            return;
         }
-        return ans;
+        for(int d : divide[num]) {
+            if(arr.empty() || arr.back() <= d) {
+                arr.push_back(d);
+                dfs(arr, num / d, k);
+                arr.pop_back();
+            }
+        }
+    }
+
+    bool check(vector<int>& arr, int k) {
+        if(arr.size() != k) return false;
+        int v1 = arr[0], v2 = arr[0];
+        for(int num : arr)
+            v1 = min(num, v1), v2 = max(num, v2);
+        if(v2 - v1 < diff) {
+            diff = v2 - v1;
+            return true;
+        }
+        return false;
     }
 };
 

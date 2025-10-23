@@ -689,3 +689,6 @@ solve problems in leetcode, codeforce, atcoder
   * LC3676 1767 单调栈
 * 2025-10-21
   * LC3671 2675 数学 数论 <套路>倍数容斥 动态规划 线段树优化dp
+* 2025-10-22
+  * LC3670 2276 位运算 trie树 01-trie树 贪心
+  * LC3669 1897 dfs 回溯
