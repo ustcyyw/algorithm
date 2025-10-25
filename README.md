@@ -692,3 +692,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-10-22
   * LC3670 2276 位运算 trie树 01-trie树 贪心
   * LC3669 1897 dfs 回溯
+* 2025-10-24
+  * LC3666 2476 bfs set运用
