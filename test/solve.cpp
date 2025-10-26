@@ -3,68 +3,68 @@ using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
 const int mod = 1e9 + 7, N = 1e5 + 5;
-/*
- * 当固定0的数量为c0时，1的数量为n - c0 此时选择k个元素进行翻转
- * 0最多可以选 cr = min(k, c0)
- * 最少得选cl = max(0, k - (n - c0)), 得保证选的1的数量不超过 n - c0
- * 0的数量在[cl,cr]上，会发现选择之后0的数量变化是以2为间隔连续的
- * 那么c0是偶数，就会变成一系列连续的偶数；c0是奇数就会变成一系列连续的奇数
- * 因为这个连续性，只要确定边界，就知道了一次选择，0数量变化的可能性
- * 记0数量变化的值区间为[lo, hi]
- *
- * 求最小操作次数，将0的数量当作状态，可以使用dfs，关键是检查哪些状态已经访问过
- * 反向思维：一般情况下是标记哪些值已经访问过
- * 在本题中，利用变化值的连续性，可以维护哪些值没有访问过
- * 将没有访问过的值并且在区间[lo,hi]上的添加到队列中
- *
- * 那么问题转化为 从一堆数里面，找到值位于区间[lo, hi]上的数
- * 保持数有序，在这些数中二分查找lo应该插入的位置，然后再判断lo的下一个数与hi的关系
- * 并且还要能快速移除单个数，并保持有序性，使用set
- */
+int lc[N], rc[N], pos[N]; // pos[i]: 机器人右边第一个墙在walls中的下标
+
 class Solution {
 public:
-    int minOperations(string s, int k) {
-        int start = 0, step = 0, n = s.size();
-        set<int> st1, st2;
+    int maxWalls(vector<int>& robots, vector<int>& distance, vector<int>& walls) {
+        vector<vector<int>> infos;
+        int n = robots.size();
+        for(int i = 0; i < n; i++)
+            infos.push_back({robots[i], distance[i]});
+        sort(infos.begin(), infos.end()), sort(walls.begin(), walls.end());
         for(int i = 0; i < n; i++) {
-            if(s[i] == '0') start++;
-            if(i % 2 == 0) st2.insert(i);
-            else st1.insert(i);
+            int l1 = i > 0 ? infos[i - 1][0] + 1 : INT_MIN;
+            int l2 = infos[i][0] - infos[i][1];
+            int r1 = i + 1 < n ? infos[i + 1][0] - 1 : INT_MAX;
+            int r2 = infos[i][0] + infos[i][1];
+            int l = max(l1, l2), r = min(r1, r2);
+            pos[i] = upper_bound(walls.begin(), walls.end(), infos[i][0]) - walls.begin();
+            lc[i] = leftCnt(walls, l);
+            rc[i] = rightCnt(walls, r);
         }
-        if(start == 0) return 0;
-        queue<int> queue;
-        queue.push(start);
-        while(!queue.empty()) {
-            step++;
-            int sz = queue.size();
-            while(sz--) {
-                int c0 = queue.front(); queue.pop();
-                int cl = max(0, k - (n - c0)), cr = min(k, c0);
-                int dl = cl - (k - cl), dr = cr - (k - cr);
-                int hi = c0 - dl, lo = c0 - dr;
-                if(lo == 0) return step;
-                add(queue, lo % 2 == 1 ? st1 : st2, lo, hi);
-            }
+        vector<vector<int>> dp(n, vector(2, 0));
+        dp[0][0] = pos[0] - lc[0], dp[0][1] = rc[0] - pos[0] + 1;
+        if(pos[0] > 0 && walls[pos[0] - 1] == infos[0][0])
+            dp[0][1]++;
+        for(int i = 1; i < n; i++) {
+            // 当前机器人向左射击 上一个机器人向右射击
+            int t1;
+            if(rc[i - 1] < lc[i]) t1 = dp[i - 1][1] + pos[i] - lc[i];
+            else t1 = dp[i - 1][1] + pos[i] - (rc[i - 1] + 1);
+            // 当前机器人向左射击 上一个机器人向左射击
+            int t2 = dp[i - 1][0] + pos[i] - lc[i];
+            dp[i][0] = max(t1, t2);
+            // 当前机器人向右射击 上一个机器人随便左右射击
+            dp[i][1] = max(dp[i - 1][0], dp[i - 1][1]) + rc[i] - pos[i] + 1;
+            if(pos[i] > 0 && walls[pos[i] - 1] == infos[i][0])
+                dp[i][1]++;
         }
-        return -1;
+        return max(dp[n - 1][0], dp[n - 1][1]);
     }
 
-    void add(queue<int>& queue, set<int>& st, int lo, int hi) {
-        if(lo > hi) return ;
-        while(true) {
-            auto it = st.lower_bound(lo);
-            if(it == st.end() || *it > hi) return;
-            queue.push(*it), st.erase(it);
+    int leftCnt(vector<int>& arr, int x) {
+        int lo = 0, hi = arr.size();
+        while(lo < hi) {
+            int mid = (lo + hi) >> 1;
+            if(arr[mid] < x) lo = mid + 1;
+            else hi = mid;
         }
+        return lo;
+    }
+
+    int rightCnt(vector<int>& arr, int x) {
+        auto it = upper_bound(arr.begin(), arr.end(), x);
+        return it - arr.begin() - 1;
     }
 };
 
 int main() {
-    vector<int> arr1 = {14,8,9,10,13,5,15,15,1,14,3,15,2,2,15};
-    vector<int> arr3 = {42,24,35};
-    vector<int> w = {6, 6, 3, 9, 3, 5, 1};
+    vector<int> arr1 = {72};
+    vector<int> arr2 = {2};
+    vector<int> arr3 = {17};
     vector<string> arr5 = {"aa", "ac"};
     vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
     Solution s;
-    s.minOperations("0101", 3);
+    s.maxWalls(arr1, arr2, arr3);
 }

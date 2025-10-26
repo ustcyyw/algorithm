@@ -694,3 +694,6 @@ solve problems in leetcode, codeforce, atcoder
   * LC3669 1897 dfs 回溯
 * 2025-10-24
   * LC3666 2476 bfs set运用
+* 2025-10-25
+  * LC3665 1883 动态规划
+  * LC3664 2157 暴力枚举 贪心
