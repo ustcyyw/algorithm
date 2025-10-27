@@ -697,3 +697,5 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-10-25
   * LC3665 1883 动态规划
   * LC3664 2157 暴力枚举 贪心
+* 2025-10-26
+  * LC3661 2525 动态规划 二分 模拟
