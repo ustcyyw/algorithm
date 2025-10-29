@@ -4,52 +4,29 @@ typedef long long ll;
 typedef unsigned long long ull;
 const int mod = 1e9 + 7, N = 1e5 + 5;
 
-ll qPow(ll x, ll y) {
-    ll ans = 1;
-    while (y) {
-        if (y & 1) ans = ans * x % mod;
-        y >>= 1;
-        x = x * x % mod;
-    }
-    return ans;
-}
-// 预处理逆元
-ll invF[N];
-int init = []() -> int {
-    for (int i = 1; i < N; i++)
-        invF[i] = qPow(i, mod - 2);
-    return 0;
-}();
-
 class Solution {
 public:
-    vector<vector<ll>> arr;
-    int xorAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
-        int n = nums.size(), m = sqrt(n);
-        arr.assign(m, {});
-        vector<ll> base(n, 1ll);
-        for(auto& query : queries) {
-            int l = query[0], r = query[1], k = query[2], v = query[3];
-            if(k >= m) {
-                for(int i = l; i <= r; i += k)
-                    base[i] = base[i] * v % mod;
-            } else mul(l, r, k, v);
+    long long minArraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<ll> dp(n + 1, 0), pre(k, LONG_LONG_MAX);
+        pre[0] = 0;
+        ll sum = nums[0];
+        for(int i = 1; i <= nums.size(); i++) {
+            sum += nums[i - 1];
+            int m = sum % k;
+            dp[i] = min(dp[i - 1] + nums[i - 1], pre[m]);
+            pre[m] = min(dp[i], pre[m]);
         }
-        ll ans = 0;
-
-        return ans;
-    }
-
-    void mul(int l, int r, int k, int v) {
-
+        return dp[n];
     }
 };
 
 int main() {
-    vector<int> arr1 = {1,2};
+    vector<int> arr1 = {3,1,4,1,5,6,7,12,42,1,4,9,12,1,10,12,5,2,16,4,4,3,3,2,1,11,18,19,90};
     vector<int> arr2 = {2};
     vector<int> arr3 = {17};
     vector<string> arr5 = {"aa", "ac"};
     vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
     Solution s;
+    s.minArraySum(arr1, 5);
 }

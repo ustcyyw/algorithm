@@ -55,6 +55,24 @@ ll A(int n, int a) {
 }
 
 /*
+ * 乘法意义下的差分算法 需要在mod意义下，并且逆元存在时使用
+ * 一系列区间乘的操作，最后询问每个数最终的值
+ * invF[i]: 数字i在mod意义下的逆元
+ * queries[j]: 第j个操作，包含了[lj, rj, vj] 分别表示操作的左右边界和乘的数
+ */
+void mul_diff(vector<vector<int>>& queries, vector<int>& nums) {
+    nums.push_back(1); // 避免进行进行差分操作时越界
+    for(auto& query : queries) {
+        int l = query[0], r = query[1], v = query[2];
+        nums[l] = (ll)nums[l] * v % mod;
+        nums[r + 1] = nums[r + 1] * invF[v] % mod;
+    }
+    for(int i = 1; i < nums.size(); i++) // 前缀乘逆向 就得到每个数变化后的值
+        nums[i] = nums[i - 1] * nums[i] % mod;
+}
+
+
+/*
  * 数论 Diophantine 方程，利用扩展欧几里得定律
  *
  * 形如 ax + by = c，其中a b c是已知的整数 (x,y)是要求解的整数对
