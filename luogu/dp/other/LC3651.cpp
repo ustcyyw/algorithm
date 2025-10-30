@@ -1,8 +1,19 @@
+/**
+ * @Time : 2025/10/29-17:17
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3651 2411 动态规划 前缀优化
+ */
+ /*
+  * dp[i][j][k]: 到(x,y)点并且使用了k次移动的最小cost
+  * 1. dp[x][y][k-1] 转移过来 并且 gird[x][y] >= grid[i][j]
+  * 上一层的状态 可以排序之后记录一个后缀最小值
+  * 2. dp[i][j-1][k] + cost
+  * 3. dp[i-1][j][k] + cost
+  */
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
-const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
@@ -49,12 +60,3 @@ public:
         }
     }
 };
-
-int main() {
-    vector<int> arr1 = {3,1,4,1,5,6,7,12,42,1,4,9,12,1,10,12,5,2,16,4,4,3,3,2,1,11,18,19,90};
-    vector<int> arr2 = {2};
-    vector<int> arr3 = {17};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-}
