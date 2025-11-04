@@ -714,3 +714,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF2167E 1590 二分答案
   * CF2167G 1501 动态规划
   * LC3651 2411 动态规划 前缀优化
+* 2025-11-03
+  * LC3734 2360 贪心 暴力枚举 类似LC3720
+  * LC3733 1990 二分答案 数学 数论

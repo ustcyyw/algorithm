@@ -30,14 +30,15 @@ class Trie {
     }
 
     int search(Node* x, int v, int i) {
+        if(x == nullptr) return -1;
         if(i == -1) return 0;
         int k = (1 << i) & v ? 1 : 0;
         if(k == 1) {
-            return search(x->next[0], v, i + 1);
+            return search(x->next[0], v, i - 1);
         } else {
-            int temp = search(x->next[1], v, i + 1);
+            int temp = search(x->next[1], v, i - 1);
             if(temp != -1) return (1 << i) + temp;
-            return search(x->next[0], v, i + 1);
+            return search(x->next[0], v, i - 1);
         }
     }
 

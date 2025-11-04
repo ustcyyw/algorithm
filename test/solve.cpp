@@ -6,53 +6,18 @@ const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
-    int n, m, sz;
-    vector<vector<int>> rank;
-    int minCost(vector<vector<int>>& grid, int K) {
-        init(grid);
-        vector<vector<vector<int>>> dp(n, vector(m, vector(K + 1, INT_MAX)));
-        dp[0][0][0] = 0;
-        vector<vector<int>> suf(K + 1, vector(sz, INT_MAX));
-        int ans = INT_MAX;
-        for(int k = 0; k <= K; k++) {
-            for(int i = 0; i < n; i++) {
-                for(int j = 0; j < m; j++) {
-                    int rk = rank[i][j];
-                    if(k > 0) dp[i][j][k] = suf[k - 1][rk];
-                    if(j > 0) dp[i][j][k] = min(dp[i][j][k], dp[i][j-1][k] + grid[i][j]);
-                    if(i > 0) dp[i][j][k] = min(dp[i][j][k], dp[i-1][j][k] + grid[i][j]);
-                    suf[k][rk] = min(suf[k][rk], dp[i][j][k]);
-                    if(i == n - 1 && j == m - 1)
-                        ans = min(ans, dp[i][j][k]);
-                }
-            }
-            for(int i = sz - 2; i >= 0; i--)
-                suf[k][i] = min(suf[k][i], suf[k][i + 1]);
-        }
-        return ans;
-    }
-
-    void init(vector<vector<int>>& grid) {
-        n = grid.size(), m = grid[0].size();
-        rank.assign(n, vector(m, 0));
-        vector<int> pos;
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++)
-                pos.push_back(grid[i][j]);
-        }
-        sort(pos.begin(), pos.end());
-        pos.erase(unique(pos.begin(), pos.end()), pos.end());
-        sz = pos.size();
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++)
-                rank[i][j] = lower_bound(pos.begin(), pos.end(), grid[i][j]) - pos.begin();
-        }
+    long long maxProduct(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        long long a1 = abs(nums[0]), a2 = abs(nums[1]);
+        int n =  nums.size();
+        long long b1 = abs(nums[n - 1]), b2 = abs(nums[n - 2]);
+        return max({b1 * b2, a1 * a2, b1 * a1}) * 1e5;
     }
 };
 
 int main() {
-    vector<int> arr1 = {3,1,4,1,5,6,7,12,42,1,4,9,12,1,10,12,5,2,16,4,4,3,3,2,1,11,18,19,90};
-    vector<int> arr2 = {2};
+    vector<int> arr1 = {3,1};
+    vector<int> arr2 = {2,3};
     vector<int> arr3 = {17};
     vector<string> arr5 = {"aa", "ac"};
     vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
