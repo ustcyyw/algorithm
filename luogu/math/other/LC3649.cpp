@@ -1,9 +1,14 @@
+/**
+ * @Time : 2025/11/5-13:02
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3649 1715 数学 双指针
+ */
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
-const int mod = 1e9 + 7, N = 1e5 + 5;
 
+typedef long long ll;
 class Solution {
 public:
     long long perfectPairs(vector<int>& nums) {
@@ -22,17 +27,8 @@ public:
         for(int i = 0, j = 0; i < n; i++) {
             while(j < n && arr[j][0] <= 2 * arr[i][0]) j++;
             ans += (sum[j] - sum[i + 1]) * arr[i][1];
-            ans += arr[i][1] * (arr[i][1] - 1) / 2;
+            ans += (ll)arr[i][1] * (arr[i][1] - 1) / 2;
         }
         return ans;
     }
 };
-
-int main() {
-    vector<int> arr1 = {3,1};
-    vector<int> arr2 = {2,3};
-    vector<int> arr3 = {17};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
-    Solution s;
-}

@@ -717,3 +717,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-11-03
   * LC3734 2360 贪心 暴力枚举 类似LC3720
   * LC3733 1990 二分答案 数学 数论
+* 2025-11-04
+  * LC3650 1853 图论 dijkstra 思维
+  * LC3649 1715 数学 双指针
