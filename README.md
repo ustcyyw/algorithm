@@ -720,3 +720,6 @@ solve problems in leetcode, codeforce, atcoder
 * 2025-11-04
   * LC3650 1853 图论 dijkstra 思维
   * LC3649 1715 数学 双指针
+* 2025-11-07
+  * LC3646 2445 思维 暴力枚举 状态压缩 回溯 打表
+  * LC3645 2018 思维 贪心 排序

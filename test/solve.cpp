@@ -6,30 +6,19 @@ const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
-    long long perfectPairs(vector<int>& nums) {
-        unordered_map<int, int> map;
-        for(int num : nums)
-            map[abs(num)]++;
-        vector<vector<int>> arr;
-        for(auto& p : map)
-            arr.push_back({p.first, p.second});
-        sort(arr.begin(), arr.end());
-        int n = arr.size();
-        vector<ll> sum(n + 1, 0);
-        for(int i = 1; i <= n; i++)
-            sum[i] = sum[i - 1] + arr[i - 1][1];
-        ll ans = 0;
-        for(int i = 0, j = 0; i < n; i++) {
-            while(j < n && arr[j][0] <= 2 * arr[i][0]) j++;
-            ans += (sum[j] - sum[i + 1]) * arr[i][1];
-            ans += arr[i][1] * (arr[i][1] - 1) / 2;
+    int sortPermutation(vector<int>& nums) {
+        int num = -1;
+        for(int i = 0; i < nums.size(); i++) {
+            if(i == nums[i]) continue;
+            if(num == -1) num = nums[i];
+            else num &= nums[i];
         }
-        return ans;
+        return num == -1 ? 0 : num;
     }
 };
 
 int main() {
-    vector<int> arr1 = {3,1};
+    vector<int> arr1 = {-1,9,0,8,-5,6,-24};
     vector<int> arr2 = {2,3};
     vector<int> arr3 = {17};
     vector<string> arr5 = {"aa", "ac"};
