@@ -1,8 +1,12 @@
+/**
+ * @Time : 2025/11/10-21:33
+ * @Author : yyw@ustc
+ * @E-mail : yang0@mail.ustc.edu.cn
+ * @Github : https://github.com/ustcyyw
+ * @desc : LC3738 1799 前后缀分解 枚举
+ */
 #include<bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-typedef unsigned long long ull;
-const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
@@ -23,11 +27,8 @@ public:
     }
 };
 
-int main() {
-    vector<int> arr1 = {-1,9,0,8,-5,6,-24};
-    vector<int> arr2 = {2,3};
-    vector<int> arr3 = {17};
-    vector<string> arr5 = {"aa", "ac"};
-    vector<vector<int>> arr4 = {{0,1},{2,0},{1,2}};
+int main(){
     Solution s;
+    
+    cout << 0 << endl;
 }
