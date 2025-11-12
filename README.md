@@ -733,3 +733,5 @@ solve problems in leetcode, codeforce, atcoder
   * LC3638 1463 单调栈 动态规划
   * CF2148G 1900 数学 数论 思维
   * CF2148F 1800 贪心 模拟
+* 2025-11-12
+  * CF475D 2000(老题虚高) 有序集合

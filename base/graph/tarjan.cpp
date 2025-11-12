@@ -108,7 +108,7 @@ public:
      * 缩点之后的图就变为有向无环图
      *
      * 例题
-     * luogu P3387 P2341 P2812
+     * solved P3387 P2341 P2812
      * CF999E CF1213 CF1547G CF22E
      */
     void scc(int n, vector<vector<int>>& graph, vector<int>& weight, vector<vector<int>>& edges) {
@@ -159,7 +159,7 @@ public:
      * 边双连通分量就是指 删除一条边后 从任意点i依旧能到达任意点j的分量
      *
      * 思路 使用tarjan标记出桥 然后切断这些桥 依旧在一个连通分量的点 就是边双连通分量
-     * luogu P8436
+     * solved P8436
      * CF652E
      */
 
@@ -173,7 +173,7 @@ public:
      * 2. 不同bcc可能有公共点，但最多只有一个，且公共点是割点
      * （反证 如果有2个及以上公共点，那么去掉任意一个公共点，这两部分还是连通的 与他们是不同bcc矛盾）
      *
-     * luogu P8435
+     * solved P8435
      * CF962E
      */
 };

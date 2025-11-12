@@ -6,7 +6,7 @@
  * @desc : k进制下的高精度加法
  */
  /*
-  * 模版题 luogu p1601
+  * 模版题 p1601
   * https://www.luogu.com.cn/problem/P1601
   */
 #include<bits/stdc++.h>

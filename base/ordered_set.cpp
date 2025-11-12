@@ -28,7 +28,7 @@ using namespace std;
  * 2.且值域较小（在内层循环遍历所有集合值不会超时）；
  * 3.求的子数组，相邻子数组的结果可以被复用。
  *
- * 可以得到所有的值 /值属性（计数/子数组长度/…）。
+ * 可以得到所有的值/值属性（计数/子数组长度/…）。
  */
 
 class Solution {
@@ -43,6 +43,7 @@ public:
      * 有序集合arr维护：<位或值，该值对应的最小右端点>
      * 序列是单调递减，也就是arr[k].first > arr[k + 1].first
      * 这也保证了 arr[k].second > arr[k + 1].second
+     * (因为位或运算 值越大，数组范围越大 枚举左端点，那么数组范围大意味着右端点位置更大)
      * 因为arr[k]和arr[k + 1]在遍历过程中左端点都是同一个
      * arr[k]的位或值大，那么一定是右端点更靠右，这个子数组中有更多的元素
      *
@@ -70,6 +71,7 @@ public:
             arr[0].first |= num;
             for(int j = 1; j < arr.size(); j++){ // arr中的所有位或值都要更新
                 arr[j].first |= num;
+                // 位或值相同，合并，arr[j].second < arr[k].second，要找长度最小子数组 这样的覆盖逻辑正确
                 if(arr[k].first == arr[j].first) arr[k] = arr[j];
                 else arr[++k] = arr[j]; // arr[j].first就是一个未重复出现的值，要存储下来
             }
@@ -167,8 +169,7 @@ public:
     }
 
     /*
-     * https://leetcode.cn/problems/minimum-number-of-operations-to-make-all-array-elements-equal-to-1
-     * 周赛342场 t4
+     * lc2654
      * 本题要通过相邻元素a,b之间求gcd(a,b)，选其中一个变为gcd(a,b)
      * 最终使数组中所有元素变为1
      *
@@ -192,7 +193,9 @@ public:
      * 2.本题中nums[i] < 1e6 并且gcd减小，每次不变或者至少变为原来的1/2 因此值域的大小有限
      * 3.求子数组的长度
      * 因此可以维护有序集合，进行递推，集合元素维护 <gcd的值，该值对应数组右端点的最小值>
-     * gcd的值单调递增，右端点的最小值 单调递减
+     * 有序集合中 gcd的值是递增的，该值对应数组右端点值是递减的
+     * gcd更大，子数组的范围更小，因为外层i是枚举的左端点，右端点越小，子数组范围越小
+     * 因为要找最小的子数组，所以在gcd值相等时的去重，用后一个元素覆盖当前元素，右端点值是减小的
      */
     int minLen(vector<int>& nums){
         int res = INT_MAX, n = nums.size();

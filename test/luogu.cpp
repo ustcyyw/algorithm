@@ -5,59 +5,49 @@
  * @Github : https://github.com/ustcyyw
  * @desc :
  */
+ /*
+  * 有序集合处理gcd问题
+  * 集合中二元组为 <gcd值, 该gcd值对应的子数组数目>
+  */
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef long double ld;
 const int N = 2e5 + 5, mod = 1e9 + 7;
-int T, n, ans[N], out[N], m;
-vector<vector<int>> arrs, infos;
+int T, n, q, nums[N];
+map<int, ll> mp;
 
 void solve() {
-    for(int i = 0, time = 1, j = 0; i < m; i++) {
-        while(j < n && infos[j][0] <= i) j++;
-        // 先找当前i位置最小的数
-        int val = INT_MAX;
-        for(int k = j; k < n; k++) {
-            int idx = infos[k][1];
-            // 表示在前置位置就已经比别的数组同位置大的情况 那么当前这一位就不用考虑了
-            if(out[idx] == time) continue;
-            val = min(val, arrs[idx][i]);
+    vector<vector<int>> arr;
+    // 枚举子数组的左端点
+    for(int i = n; i >= 1; i--) {
+        int k = 0, num = nums[i];
+        arr.push_back({num, 1});
+        arr[0][0] = gcd(arr[0][0], num);
+        for(int j = 1; j < arr.size(); j++) {
+            arr[j][0] = gcd(arr[j][0], num);
+            if(arr[j][0] == arr[k][0]) arr[k][1] += arr[j][1];
+            else arr[++k] = arr[j];
         }
-        ans[i] = val;
-        bool flag = false;
-        for(int k = j; k < n; k++) {
-            int idx = infos[k][1];
-            if(out[idx] == time) continue;
-            if(arrs[idx][i] > val) out[idx] = time;
-            // 当某个依照字符序应该放在未排序最底层的数组已经选到最后一个元素，将其放在未排序最底层
-            // 那么从当前位置之后 还剩余元素的数组都是可能落到最下层的 再对这些剩余的数组继续排列
-            if(out[idx] != time && i == arrs[idx].size() - 1) flag = true;
-        }
-        // 对其它未排序的数组进行新一轮排序, 轮次序号更新
-        if(flag) time++;
+        arr.resize(k + 1);
+        for(auto& p : arr)
+            mp[p[0]] += p[1];
     }
 }
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-    cin >> T;
+//    cin >> T;
+    T = 1;
     while(T-- > 0) {
         cin >> n;
-        infos = {}, arrs.assign(n, {}), fill(out, out + n + 1, 0);
-        for(int i = 0, c; i < n; i++) {
-            cin >> c;
-            infos.push_back({c, i});
-            for(int j = 1, num; j <= c; j++) {
-                cin >> num;
-                arrs[i].push_back(num);
-            }
-        }
-        sort(infos.begin(), infos.end());
-        m = infos.back()[0];
+        for(int i = 1; i <= n; i++)
+            cin >> nums[i];
         solve();
-        for(int i = 0; i < m; i++)
-            cout << ans[i] << " ";
-        cout << "\n";
+        cin >> q;
+        for(int i = 1, num; i <= q; i++) {
+            cin >> num;
+            cout << mp[num] << "\n";
+        }
     }
 }
