@@ -19,6 +19,19 @@ using namespace std;
  * 例子见下方
  */
 
+/*
+ * 获得N以内所有数的因子
+ */
+//vector<int> divide[N];
+//
+//int init = []() -> int {
+//    for(int i = 1; i < N; i++) {
+//        for(int j = i; j < N; j += i)
+//            divide[j].push_back(i);
+//    }
+//    return 0;
+//}();
+
 // 预处理 [1-max_num]范围内所有数的因子
 // 预处理每个数的所有因子，时间复杂度 O(MlogM)，M=1e5
 // 外循环先枚举因子，内循环j代表包含该因子的数，显然是成倍增加的 j += i

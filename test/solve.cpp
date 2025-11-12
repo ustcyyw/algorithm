@@ -6,20 +6,18 @@ const int mod = 1e9 + 7, N = 1e5 + 5;
 
 class Solution {
 public:
-    int longestSubarray(vector<int>& nums) {
-        int n = nums.size();
-        if(n <= 2) return n;
-        vector<int> pre(n, 1), suf(n, 1);
-        for(int i = 1; i < n; i++)
-            if(nums[i] >= nums[i - 1]) pre[i] = pre[i - 1] + 1;
-        for(int i = n - 2; i >= 0; i--)
-            if(nums[i] <= nums[i + 1]) suf[i] = suf[i + 1] + 1;
-        int len = max(1 + suf[1], 1 + pre[n - 2]);
-        for(int i = 1; i < n - 1; i++) {
-            if(nums[i - 1] <= nums[i + 1]) len = max(len, 1 + pre[i - 1] + suf[i + 1]);
-            len = max(len, max(1 + pre[i - 1], 1 + suf[i + 1]));
+    int maxBalancedShipments(vector<int>& weight) {
+        int n = weight.size();
+        vector<int> dp(n + 1, 0);
+        stack<int> st;
+        for(int i = 0; i < n; i++) {
+            while(!st.empty() && weight[i] >= weight[st.top()])
+                st.pop();
+            if(!st.empty()) dp[i + 1] = dp[st.top()] + 1;
+            st.push(i);
+            dp[i + 1] = max(dp[i + 1], dp[i]);
         }
-        return len;
+        return dp[n];
     }
 };
 
