@@ -735,3 +735,5 @@ solve problems in leetcode, codeforce, atcoder
   * CF2148F 1800 贪心 模拟
 * 2025-11-12
   * CF475D 2000(老题虚高) 有序集合
+* 2025-11-13
+  * CF2121H 2300 思维题 动态规划 二分
