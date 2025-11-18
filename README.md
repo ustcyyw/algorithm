@@ -737,3 +737,6 @@ solve problems in leetcode, codeforce, atcoder
   * CF475D 2000(老题虚高) 有序集合
 * 2025-11-13
   * CF2121H 2300 思维题 动态规划 二分
+* 2025-11-17
+  * LC3748 2230 前缀和 二分
+  * LC3747 1850 数位dp 最简单模版
